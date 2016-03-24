@@ -118,7 +118,7 @@ public class bluetoothManager {
             while (true) {
                 try {
                     if ((bytes = mmInStream.available()) >= 2) {
-                        //Log.v("data in stream",Integer.toString(Bytes));
+                        //Log.v("data in stream",Integer.toString(bytes));
                         byte[] buf_data = new byte[2];
                         mmInStream.read(buf_data);
                         receiveDataCounter += 1;

@@ -31,6 +31,9 @@ import java.util.zip.Inflater;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+    private final int PORT = 0;
+    private final int LAND = 1;
+
     public android.os.Handler uiRefreshHandler = new android.os.Handler(){
         @Override
         public void handleMessage(Message msg){
@@ -47,8 +50,9 @@ public class MainActivity extends AppCompatActivity
                     btManager.enableBluetooth();
                     break;
                 case 2 :
-                    //Log.v("Received data:", Integer.toString(msg.arg1));
-                    ecgDatabaseManager.addRecord(new EcgData(msg.arg1,msg.arg2));
+                    Log.v("Received data:", Integer.toString(msg.arg1));
+                    //ecgDatabaseManager.addRecord(new EcgData(msg.arg1,msg.arg2));
+                    drawSurfaceView.drawPoint(msg.arg1);
                     break;
                 default:
                     break;
@@ -58,6 +62,7 @@ public class MainActivity extends AppCompatActivity
     };
     private bluetoothManager btManager= new bluetoothManager(uiRefreshHandler);
     private EcgDatabaseManager ecgDatabaseManager;
+    private DrawSurfaceView drawSurfaceView = new DrawSurfaceView();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,6 +91,8 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        drawSurfaceView.setSurfaceView((SurfaceView)findViewById(R.id.surfaceView),PORT);
+
         ListView mainList = (ListView) findViewById(R.id.main_list);
         MeasuredData data1 = new MeasuredData("心率", 20);
         MeasuredData data2 = new MeasuredData("血糖", 360);
@@ -95,8 +102,11 @@ public class MainActivity extends AppCompatActivity
 
     private void landLoading(){
         setContentView(R.layout.activity_main_land);
-        SurfaceView surfaceViewLand = (SurfaceView)findViewById(R.id.surfaceView_land);
+
+        drawSurfaceView.setSurfaceView((SurfaceView)findViewById(R.id.surfaceView_land),LAND);
+
         Toolbar toolbar = (Toolbar)findViewById(R.id.landToolbar);
+
         setSupportActionBar(toolbar);
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -106,6 +116,7 @@ public class MainActivity extends AppCompatActivity
                         .setAction("Action", null).show();
             }
         });
+
     }
 
     @Override
@@ -121,6 +132,7 @@ public class MainActivity extends AppCompatActivity
         else if(currentOrientation == Configuration.ORIENTATION_LANDSCAPE){
             landLoading();
         }
+        drawSurfaceView.resetSurfaceViewX();
     }
 
     @Override
