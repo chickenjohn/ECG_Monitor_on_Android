@@ -1,11 +1,16 @@
 package com.experiment.chickenjohn.materialdemo;
 
+import android.graphics.BlurMaskFilter;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.MaskFilter;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  * Created by chickenjohn on 2016/3/24.
@@ -18,14 +23,25 @@ public class DrawSurfaceView {
     private DrawThread drawThread;
 
     final int PORT=0,LAND=1;
-    int PORTORLAND = PORT;
-    int portHeight,portWidth;
-    int landHeight,landWidth;
+    private int PORTORLAND = PORT;
+    private int portHeight,portWidth;
+    private int landHeight,landWidth;
+    private boolean shouldRefresh = false;
+    private boolean RESET = false;
+    private int deltaX=0;
 
-    int x=1,y,lastY;
+    private int x=0,y,lastX=0,lastY;
+
+    private Timer viewRefreshTimer = new Timer();
 
     public DrawSurfaceView(){
         x = 1;
+        viewRefreshTimer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                shouldRefresh = true;
+            }
+        },0,50);
     }
 
     public void setSurfaceView(SurfaceView currentSurfaceView, int PORTORLAND){
@@ -47,24 +63,29 @@ public class DrawSurfaceView {
         }
     }
 
-    public void drawPoint(int drawY){
-        switch (PORTORLAND) {
-            case PORT :
-                portHeight = drawViewPort.getHeight();
-                portWidth = drawViewPort.getWidth();
-                y = (int)((portHeight/2) - (((float)drawY)/22000.0 * (portHeight/2)));
-                break;
-            case LAND :
-                landHeight = drawViewLand.getHeight();
-                landWidth = drawViewLand.getWidth();
-                y = (int)((landHeight/2) - (((float)drawY)/22000.0 * (landHeight/2)));
-                break;
-            default:
-                break;
+    public void drawPoint(int drawX, int drawY){
+        if(shouldRefresh) {
+            switch (PORTORLAND) {
+                case PORT:
+                    portHeight = drawViewPort.getHeight();
+                    portWidth = drawViewPort.getWidth();
+                    y = (int) ((portHeight / 2) - (((float) drawY) / 22000.0 * (portHeight / 2)));
+                    break;
+                case LAND:
+                    landHeight = drawViewLand.getHeight();
+                    landWidth = drawViewLand.getWidth();
+                    y = (int) ((landHeight / 2) - (((float) drawY) / 22000.0 * (landHeight / 2)));
+                    break;
+                default:
+                    break;
+            }
+            deltaX = drawX - lastX;
+            lastX = drawX;
+            x += deltaX;
+            shouldRefresh = false;
+            drawThread = new DrawThread();
+            drawThread.start();
         }
-
-        drawThread = new DrawThread();
-        drawThread.start();
     }
 
     private class DrawThread extends Thread{
@@ -74,31 +95,30 @@ public class DrawSurfaceView {
             Canvas canvas = null;
             Paint pen = new Paint();
             pen.setColor(Color.GREEN);
-            pen.setStrokeWidth(2);
+            pen.setStrokeWidth(4);
+            pen.setAntiAlias(false);
+            pen.setMaskFilter(new BlurMaskFilter(12, BlurMaskFilter.Blur.SOLID));
             try{
                 switch (PORTORLAND){
                     case PORT :
-                        if(x >= portWidth){
-                            x = 1;
-                            ClearDraw();
+                        if(x > portWidth){
+                            x = 0;
                         }
-                        canvas = drawViewHolderPort.lockCanvas(new Rect(x-1,0,x+2,portHeight));
+                        canvas = drawViewHolderPort.lockCanvas(new Rect(x-deltaX,0,x+50,portHeight));
                         canvas.drawColor(Color.BLACK);
-                        canvas.drawLine(x-1,lastY,x,y,pen);
+                        canvas.drawLine(x-deltaX,lastY,x,y,pen);
                         break;
                     case LAND :
-                        if(x >= landWidth){
-                            x = 1;
-                            ClearDraw();
+                        if(x > landWidth){
+                            x = 0;
                         }
-                        canvas = drawViewHolderLand.lockCanvas(new Rect(x-1,0,x+2,landHeight));
+                        canvas = drawViewHolderLand.lockCanvas(new Rect(x-deltaX,0,x+50,landHeight));
                         canvas.drawColor(Color.BLACK);
-                        canvas.drawLine(x-1,lastY,x,y,pen);
+                        canvas.drawLine(x-deltaX,lastY,x,y,pen);
                         break;
                     default:
                         break;
                 }
-                x += 1;
                 lastY = y;
             }catch (Exception e){
                 e.printStackTrace();
@@ -119,26 +139,7 @@ public class DrawSurfaceView {
         }
     }
 
-    private void ClearDraw(){
-        Canvas canvas;
-        switch (PORTORLAND){
-            case PORT :
-                canvas = drawViewHolderPort.lockCanvas(null);
-                canvas.drawColor(Color.BLACK);
-                drawViewHolderPort.unlockCanvasAndPost(canvas);
-                break;
-            case LAND :
-                canvas = drawViewHolderLand.lockCanvas(null);
-                canvas.drawColor(Color.BLACK);
-                drawViewHolderLand.unlockCanvasAndPost(canvas);
-                break;
-            default:
-                break;
-        }
-        x = 1;
-    }
-
     public void resetSurfaceViewX(){
-        x = 1;
+        x = 0;
     }
 }

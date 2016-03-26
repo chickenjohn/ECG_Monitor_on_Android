@@ -1,5 +1,5 @@
 #A Simple ECG Monitor for Android Platform
--------------
+
 ##What is this?
 
 ECG Monitor is a simple ECG Wave displaying APP. After connecting to a Bluetooth ECG device, 

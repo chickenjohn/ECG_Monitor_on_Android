@@ -39,16 +39,14 @@ public class bluetoothManager {
         uiRefreshHandler = handler;
     }
 
-    public void enableBluetooth()
-    {
+    public void enableBluetooth(){
         if(!myBtAdapter.isEnabled()){
             myBtAdapter.enable();
         }
         myBtAdapter.startDiscovery();
     }
 
-    public void disableBluetooth()
-    {
+    public void disableBluetooth(){
         if(myBtAdapter.isEnabled()){
             myBtAdapter.disable();
         }

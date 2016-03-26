@@ -2,12 +2,10 @@ package com.experiment.chickenjohn.materialdemo;
 
 import android.content.res.Configuration;
 import android.os.Bundle;
-import android.os.Handler;
 import android.os.Message;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.SurfaceView;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -18,16 +16,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.zip.Inflater;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -50,9 +44,8 @@ public class MainActivity extends AppCompatActivity
                     btManager.enableBluetooth();
                     break;
                 case 2 :
-                    Log.v("Received data:", Integer.toString(msg.arg1));
-                    //ecgDatabaseManager.addRecord(new EcgData(msg.arg1,msg.arg2));
-                    drawSurfaceView.drawPoint(msg.arg1);
+                    //Log.v("unhandled data", Integer.toString(msg.arg2));
+                    drawSurfaceView.drawPoint(msg.arg2,msg.arg1);
                     break;
                 default:
                     break;
@@ -74,7 +67,6 @@ public class MainActivity extends AppCompatActivity
             landLoading();
         }
         ecgDatabaseManager = new EcgDatabaseManager(this);
-        btManager.enableBluetooth();
     }
 
     private void portLoading(){
@@ -138,6 +130,7 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onResume(){
         this.registerReceiver(btManager.btReceiver, btManager.regBtReceiver());
+        btManager.enableBluetooth();
         super.onResume();
     }
 
