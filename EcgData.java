@@ -8,22 +8,21 @@ import java.text.SimpleDateFormat;
  */
 public class EcgData extends MeasuredData{
     private int recordTime;
-
-    //To receive time from device:
-    public EcgData(int data,int recordTime){
-        super("ECG",data);
-        this.recordTime = recordTime;
-    }
+    private int dataId;
+    private final int RECORDRATE=1/500;
 
     //To insert current time automatically
-    public EcgData(int data){
+    public EcgData(int data, int dataId){
         super("ECG",data);
-        SimpleDateFormat timeFormat = new SimpleDateFormat("ss");
-        Date currentTime = new Date(System.currentTimeMillis());
-        recordTime = Integer.parseInt(timeFormat.format(currentTime));
+        this.dataId = dataId;
+        recordTime = dataId * RECORDRATE;
     }
 
     public int getRecordTime(){
         return recordTime;
+    }
+
+    public int getDataId(){
+        return dataId;
     }
 }

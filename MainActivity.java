@@ -46,6 +46,7 @@ public class MainActivity extends AppCompatActivity
                 case 2 :
                     //Log.v("unhandled data", Integer.toString(msg.arg2));
                     drawSurfaceView.drawPoint(msg.arg2,msg.arg1);
+                    ecgDatabaseManager.addRecord(new EcgData(msg.arg1,msg.arg2));
                     break;
                 default:
                     break;

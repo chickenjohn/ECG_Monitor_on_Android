@@ -119,7 +119,6 @@ public class bluetoothManager {
                         //Log.v("data in stream",Integer.toString(bytes));
                         byte[] buf_data = new byte[2];
                         mmInStream.read(buf_data);
-                        receiveDataCounter += 1;
                         handleBtData(buf_data);
                     }
                 } catch (IOException e) {
@@ -151,6 +150,7 @@ public class bluetoothManager {
         uiRefreshMessage.arg1 = dataInInt;
         uiRefreshMessage.arg2 = receiveDataCounter;
         uiRefreshHandler.sendMessage(uiRefreshMessage);
+        receiveDataCounter += 1;
     }
 
     //Registration of Broadcast Receiver
