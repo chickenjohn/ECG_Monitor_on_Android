@@ -19,6 +19,7 @@ import android.view.MenuItem;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -44,7 +45,6 @@ public class MainActivity extends AppCompatActivity
                     btManager.enableBluetooth();
                     break;
                 case 2 :
-                    //Log.v("unhandled data", Integer.toString(msg.arg2));
                     drawSurfaceView.drawPoint(msg.arg2,msg.arg1);
                     ecgDatabaseManager.addRecord(new EcgData(msg.arg1,msg.arg2));
                     break;
@@ -186,8 +186,20 @@ public class MainActivity extends AppCompatActivity
             case R.id.wave_output:
                 break;
             case R.id.data_output:
+                if(ecgDatabaseManager.outputRecord()){
+                    Toast.makeText(this,"导出数据成功",Toast.LENGTH_LONG).show();
+                }
+                else{
+                    Toast.makeText(this,"没有可以导出的数据！",Toast.LENGTH_LONG).show();
+                }
                 break;
             case R.id.data_clear:
+                if(ecgDatabaseManager.clearRecord()){
+                    Toast.makeText(this,"清除数据成功",Toast.LENGTH_LONG).show();
+                }
+                else{
+                    Toast.makeText(this,"清除数据失败",Toast.LENGTH_LONG).show();
+                }
                 break;
             case R.id.data_send:
                 break;

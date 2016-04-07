@@ -21,7 +21,7 @@ public class HealthDatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db){
         db.execSQL("CREATE TABLE IF NOT EXISTS ecg" + "(_id INTEGER PRIMARY KEY " +
-                "AUTOINCREMENT, value INTEGER, time INTEGER)");
+                "AUTOINCREMENT, value INTEGER, time REAL)");
         //empty the ecg table
         db.execSQL("DELETE FROM ecg");
     }
