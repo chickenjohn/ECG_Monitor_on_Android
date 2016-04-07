@@ -24,29 +24,51 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+/**
+ * Below is the copyright information.
+ * <p/>
+ * Copyright (C) 2016 chickenjohn
+ * <p/>
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ * <p/>
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ * <p/>
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ * <p/>
+ * You may contact the author by email:
+ * chickenjohn93@outlook.com
+ */
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     private final int PORT = 0;
     private final int LAND = 1;
 
-    public android.os.Handler uiRefreshHandler = new android.os.Handler(){
+    public android.os.Handler uiRefreshHandler = new android.os.Handler() {
         @Override
-        public void handleMessage(Message msg){
-            switch (msg.what){
-                case 0 :
-                    if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
-                        naviHeaderSet(btManager.isConnected(),0);
+        public void handleMessage(Message msg) {
+            switch (msg.what) {
+                case 0:
+                    if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
+                        naviHeaderSet(btManager.isConnected(), 0);
                     }
                     break;
-                case 1 :
-                    if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
-                        naviHeaderSet(btManager.isConnected(),0);
+                case 1:
+                    if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
+                        naviHeaderSet(btManager.isConnected(), 0);
                     }
                     btManager.enableBluetooth();
                     break;
-                case 2 :
-                    drawSurfaceView.drawPoint(msg.arg2,msg.arg1);
-                    ecgDatabaseManager.addRecord(new EcgData(msg.arg1,msg.arg2));
+                case 2:
+                    drawSurfaceView.drawPoint(msg.arg2, msg.arg1);
+                    ecgDatabaseManager.addRecord(new EcgData(msg.arg1, msg.arg2));
                     break;
                 default:
                     break;
@@ -54,23 +76,23 @@ public class MainActivity extends AppCompatActivity
             super.handleMessage(msg);
         }
     };
-    private bluetoothManager btManager= new bluetoothManager(uiRefreshHandler);
+
+    private bluetoothManager btManager = new bluetoothManager(uiRefreshHandler);
     private EcgDatabaseManager ecgDatabaseManager;
     private DrawSurfaceView drawSurfaceView = new DrawSurfaceView();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT){
+        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
             portLoading();
-        }
-        else{
+        } else {
             landLoading();
         }
         ecgDatabaseManager = new EcgDatabaseManager(this);
     }
 
-    private void portLoading(){
+    private void portLoading() {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.portToolbar);
         setSupportActionBar(toolbar);
@@ -84,7 +106,7 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        drawSurfaceView.setSurfaceView((SurfaceView)findViewById(R.id.surfaceView),PORT);
+        drawSurfaceView.setSurfaceViewPort((SurfaceView) findViewById(R.id.surfaceView), PORT);
 
         ListView mainList = (ListView) findViewById(R.id.main_list);
         MeasuredData data1 = new MeasuredData("心率", 20);
@@ -93,14 +115,14 @@ public class MainActivity extends AppCompatActivity
         mainList.setAdapter(mainListAdapter);
     }
 
-    private void landLoading(){
+    private void landLoading() {
         setContentView(R.layout.activity_main_land);
 
-        drawSurfaceView.setSurfaceView((SurfaceView)findViewById(R.id.surfaceView_land),LAND);
+        drawSurfaceView.setSurfaceViewLand(
+                (SurfaceView) findViewById(R.id.surfaceView_land),
+                (SurfaceView) findViewById(R.id.surfaceView_land_tags),
+                LAND);
 
-        Toolbar toolbar = (Toolbar)findViewById(R.id.landToolbar);
-
-        setSupportActionBar(toolbar);
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -113,30 +135,29 @@ public class MainActivity extends AppCompatActivity
     }
 
     @Override
-    public void onConfigurationChanged(Configuration newConfig){
+    public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         int currentOrientation = this.getResources().getConfiguration().orientation;
-        if(currentOrientation == Configuration.ORIENTATION_PORTRAIT) {
+        if (currentOrientation == Configuration.ORIENTATION_PORTRAIT) {
             portLoading();
             Message uiRefreshMessage = Message.obtain();
             uiRefreshMessage.what = 0;
             uiRefreshHandler.sendMessage(uiRefreshMessage);
-        }
-        else if(currentOrientation == Configuration.ORIENTATION_LANDSCAPE){
+        } else if (currentOrientation == Configuration.ORIENTATION_LANDSCAPE) {
             landLoading();
         }
         drawSurfaceView.resetSurfaceViewX();
     }
 
     @Override
-    protected void onResume(){
+    protected void onResume() {
         this.registerReceiver(btManager.btReceiver, btManager.regBtReceiver());
         btManager.enableBluetooth();
         super.onResume();
     }
 
     @Override
-    protected void onDestroy(){
+    protected void onDestroy() {
         btManager.disableBluetooth();
         unregisterReceiver(btManager.btReceiver);
         ecgDatabaseManager.closeEcgDatabase();
@@ -181,24 +202,21 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        switch (id)
-        {
+        switch (id) {
             case R.id.wave_output:
                 break;
             case R.id.data_output:
-                if(ecgDatabaseManager.outputRecord()){
-                    Toast.makeText(this,"导出数据成功",Toast.LENGTH_LONG).show();
-                }
-                else{
-                    Toast.makeText(this,"没有可以导出的数据！",Toast.LENGTH_LONG).show();
+                if (ecgDatabaseManager.outputRecord()) {
+                    Toast.makeText(this, "导出数据成功", Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(this, "没有可以导出的数据！", Toast.LENGTH_LONG).show();
                 }
                 break;
             case R.id.data_clear:
-                if(ecgDatabaseManager.clearRecord()){
-                    Toast.makeText(this,"清除数据成功",Toast.LENGTH_LONG).show();
-                }
-                else{
-                    Toast.makeText(this,"清除数据失败",Toast.LENGTH_LONG).show();
+                if (ecgDatabaseManager.clearRecord()) {
+                    Toast.makeText(this, "清除数据成功", Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(this, "清除数据失败", Toast.LENGTH_LONG).show();
                 }
                 break;
             case R.id.data_send:
@@ -215,34 +233,33 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
-    public ArrayList<HashMap<String,String>> generateList(MeasuredData... dataArray){
-        ArrayList<HashMap<String,String>> finalList = new ArrayList<HashMap<String, String>>();
-        for(MeasuredData dataTemp : dataArray){
-            HashMap<String,String> dataMap = new HashMap<String, String>();
-            dataMap.put("typename",dataTemp.getTypeName());
-            dataMap.put("value",dataTemp.getValue());
+    public ArrayList<HashMap<String, String>> generateList(MeasuredData... dataArray) {
+        ArrayList<HashMap<String, String>> finalList = new ArrayList<HashMap<String, String>>();
+        for (MeasuredData dataTemp : dataArray) {
+            HashMap<String, String> dataMap = new HashMap<String, String>();
+            dataMap.put("typename", dataTemp.getTypeName());
+            dataMap.put("value", dataTemp.getValue());
             finalList.add(dataMap);
         }
         return finalList;
     }
 
-    public boolean naviHeaderSet(boolean isConnected, int transNumber){
-        TextView btAddressTextView = (TextView)this.findViewById(R.id.bt_address_textview);
-        TextView connectTextView = (TextView)this.findViewById(R.id.connecttextview);
-        TextView transNumberTextView = (TextView)this.findViewById(R.id.trans_number_textview);
+    public boolean naviHeaderSet(boolean isConnected, int transNumber) {
+        TextView btAddressTextView = (TextView) this.findViewById(R.id.bt_address_textview);
+        TextView connectTextView = (TextView) this.findViewById(R.id.connecttextview);
+        TextView transNumberTextView = (TextView) this.findViewById(R.id.trans_number_textview);
         if (btAddressTextView != null) {
             if (isConnected) {
                 btAddressTextView.setText("蓝牙设备地址：" + btManager.btAddress);
                 connectTextView.setText("设备已连接");
-                transNumberTextView.setText("接收数据："+Integer.toString(transNumber));
+                transNumberTextView.setText("接收数据：" + Integer.toString(transNumber));
             } else {
                 btAddressTextView.setText("蓝牙设备地址：");
                 connectTextView.setText("设备未连接");
                 transNumberTextView.setText("接收数据：");
             }
             return true;
-        }
-        else{
+        } else {
             return false;
         }
     }

@@ -41,7 +41,7 @@ public class EcgDatabaseManager {
         int databaseLength = cursor.getCount();
         if (databaseLength != 0) {
             if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
-                DataOutputThread dataOutputThread = new DataOutputThread(cursor,databaseLength);
+                DataOutputThread dataOutputThread = new DataOutputThread(cursor, databaseLength);
                 dataOutputThread.start();
                 return true;
             } else {
@@ -68,7 +68,8 @@ public class EcgDatabaseManager {
 
     private class dataInsertingThread extends Thread {
         EcgData newEcgData;
-        public dataInsertingThread(EcgData ecgData){
+
+        public dataInsertingThread(EcgData ecgData) {
             newEcgData = ecgData;
         }
 
@@ -92,7 +93,7 @@ public class EcgDatabaseManager {
         Cursor cursor;
         int databaseLength;
 
-        public DataOutputThread(Cursor cursor, int databaseLength){
+        public DataOutputThread(Cursor cursor, int databaseLength) {
             this.cursor = cursor;
             this.databaseLength = databaseLength;
         }
@@ -122,7 +123,7 @@ public class EcgDatabaseManager {
                 fileWriter.close();
             } catch (Exception e) {
                 e.printStackTrace();
-            }finally{
+            } finally {
                 cursor.close();
             }
         }
