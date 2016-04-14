@@ -12,8 +12,27 @@ import java.io.FileWriter;
 import java.text.DecimalFormat;
 
 /**
- * Created by chickenjohn on 2016/3/11.
+ * Below is the copyright information.
+ * <p/>
+ * Copyright (C) 2016 chickenjohn
+ * <p/>
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ * <p/>
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ * <p/>
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ * <p/>
+ * You may contact the author by email:
+ * chickenjohn93@outlook.com
  */
+
 public class EcgDatabaseManager {
     private HealthDatabaseHelper healthDatabaseHelper;
     private SQLiteDatabase ecgDatabase;
@@ -43,11 +62,14 @@ public class EcgDatabaseManager {
             if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
                 DataOutputThread dataOutputThread = new DataOutputThread(cursor, databaseLength);
                 dataOutputThread.start();
+                cursor.close();
                 return true;
             } else {
+                cursor.close();
                 return false;
             }
         } else {
+            cursor.close();
             return false;
         }
     }
@@ -56,8 +78,10 @@ public class EcgDatabaseManager {
         ecgDatabase.execSQL("DELETE FROM ecg");
         Cursor cursor = ecgDatabase.query("ecg", null, null, null, null, null, null);
         if (cursor.getCount() == 0) {
+            cursor.close();
             return true;
         } else {
+            cursor.close();
             return false;
         }
     }
@@ -75,10 +99,13 @@ public class EcgDatabaseManager {
 
         @Override
         public void run() {
+            super.run();
             ecgDatabase.beginTransaction();
             try {
                 for (int cnt = 0; cnt < 500; cnt++) {
-                    ecgDatabase.execSQL("INSERT INTO ecg VALUES(null, ?, ?)", new Object[]{ecgDataTemp[cnt].getValue(), ecgDataTemp[cnt].getRecordTime()});
+                    ecgDatabase.execSQL("INSERT INTO ecg VALUES(null, ?, ?)",
+                            new Object[]{ecgDataTemp[cnt].getValue(),
+                                    ecgDataTemp[cnt].getRecordTime()});
                 }
                 ecgDatabase.setTransactionSuccessful();
             } finally {
@@ -88,7 +115,6 @@ public class EcgDatabaseManager {
         }
     }
 
-    //why this thread blocks the main thread?
     private class DataOutputThread extends Thread {
         Cursor cursor;
         int databaseLength;

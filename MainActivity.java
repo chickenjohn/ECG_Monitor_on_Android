@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.os.Message;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
-import android.util.Log;
 import android.view.SurfaceView;
 import android.view.View;
 import android.support.design.widget.NavigationView;

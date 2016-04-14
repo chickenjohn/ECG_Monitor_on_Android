@@ -7,19 +7,11 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.os.Bundle;
 import android.os.Message;
-import android.util.Log;
-import android.widget.TextView;
 import android.widget.Toast;
-
-import org.w3c.dom.Text;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.UUID;
-import java.util.logging.Handler;
-import java.util.logging.LogRecord;
 
 /**
  *   Below is the copyright information.
@@ -122,7 +114,6 @@ public class bluetoothManager {
 
     private class connectThread extends Thread {
         public void run() {
-            int bytes;
             receiveDataCounter = 0;
             InputStream mmInStream = null;
             try {
@@ -132,7 +123,7 @@ public class bluetoothManager {
             }
             while (true) {
                 try {
-                    if ((bytes = mmInStream.available()) >= 2) {
+                    if ((mmInStream.available()) >= 2) {
                         //Log.v("data in stream",Integer.toString(bytes));
                         byte[] buf_data = new byte[2];
                         mmInStream.read(buf_data);
