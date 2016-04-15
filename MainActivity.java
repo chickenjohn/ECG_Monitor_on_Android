@@ -22,6 +22,8 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.StringTokenizer;
 
 /**
  * Below is the copyright information.
@@ -49,6 +51,7 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     private final int PORT = 0;
     private final int LAND = 1;
+    private int PORTORLAND = 0;
 
     public android.os.Handler uiRefreshHandler = new android.os.Handler() {
         @Override
@@ -68,6 +71,11 @@ public class MainActivity extends AppCompatActivity
                 case 2:
                     drawSurfaceView.drawPoint(msg.arg2, msg.arg1);
                     ecgDatabaseManager.addRecord(new EcgData(msg.arg1, msg.arg2));
+                    ecgDataAnalyzer.beatRateAndRpeakDetection(new EcgData(msg.arg1, msg.arg2));
+                    break;
+                case 3:
+                    refreshList(0, msg.arg1);
+                    refreshList(1, msg.arg2);
                     break;
                 default:
                     break;
@@ -78,7 +86,11 @@ public class MainActivity extends AppCompatActivity
 
     private bluetoothManager btManager = new bluetoothManager(uiRefreshHandler);
     private EcgDatabaseManager ecgDatabaseManager;
+    private EcgDataAnalyzer ecgDataAnalyzer = new EcgDataAnalyzer(uiRefreshHandler);
     private DrawSurfaceView drawSurfaceView = new DrawSurfaceView();
+
+    private TextView beatRateText;
+    private TextView rpeakValue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -107,11 +119,9 @@ public class MainActivity extends AppCompatActivity
 
         drawSurfaceView.setSurfaceViewPort((SurfaceView) findViewById(R.id.surfaceView), PORT);
 
-        ListView mainList = (ListView) findViewById(R.id.main_list);
-        MeasuredData data1 = new MeasuredData("心率", 20);
-        MeasuredData data2 = new MeasuredData("血糖", 360);
-        SimpleAdapter mainListAdapter = new SimpleAdapter(this, generateList(data1, data2), R.layout.list_layout, new String[]{"typename", "value"}, new int[]{R.id.main_list_item_title, R.id.main_list_item_content});
-        mainList.setAdapter(mainListAdapter);
+        beatRateText = (TextView) findViewById(R.id.beat_rate);
+        rpeakValue = (TextView) findViewById(R.id.RR_interval);
+        PORTORLAND = PORT;
     }
 
     private void landLoading() {
@@ -131,6 +141,7 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
+        PORTORLAND = LAND;
     }
 
     @Override
@@ -232,17 +243,6 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
-    public ArrayList<HashMap<String, String>> generateList(MeasuredData... dataArray) {
-        ArrayList<HashMap<String, String>> finalList = new ArrayList<HashMap<String, String>>();
-        for (MeasuredData dataTemp : dataArray) {
-            HashMap<String, String> dataMap = new HashMap<String, String>();
-            dataMap.put("typename", dataTemp.getTypeName());
-            dataMap.put("value", dataTemp.getValue());
-            finalList.add(dataMap);
-        }
-        return finalList;
-    }
-
     public boolean naviHeaderSet(boolean isConnected, int transNumber) {
         TextView btAddressTextView = (TextView) this.findViewById(R.id.bt_address_textview);
         TextView connectTextView = (TextView) this.findViewById(R.id.connecttextview);
@@ -260,6 +260,21 @@ public class MainActivity extends AppCompatActivity
             return true;
         } else {
             return false;
+        }
+    }
+
+    private void refreshList(int listId, int refreshedData) {
+        if (PORTORLAND == PORT) {
+            switch (listId) {
+                case 0:
+                    beatRateText.setText("心率：" + Integer.toString(refreshedData));
+                    break;
+                case 1:
+                    rpeakValue.setText("RR间期：" + Double.toString(((double)refreshedData)/100) + "s");
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }

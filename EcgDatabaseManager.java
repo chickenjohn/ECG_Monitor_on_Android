@@ -104,7 +104,7 @@ public class EcgDatabaseManager {
             try {
                 for (int cnt = 0; cnt < 500; cnt++) {
                     ecgDatabase.execSQL("INSERT INTO ecg VALUES(null, ?, ?)",
-                            new Object[]{ecgDataTemp[cnt].getValue(),
+                            new Object[]{ecgDataTemp[cnt].getValueInString(),
                                     ecgDataTemp[cnt].getRecordTime()});
                 }
                 ecgDatabase.setTransactionSuccessful();

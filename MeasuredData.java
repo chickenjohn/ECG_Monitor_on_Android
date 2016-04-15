@@ -38,7 +38,11 @@ public class MeasuredData {
         return typeName;
     }
 
-    public String getValue() {
+    public String getValueInString() {
         return String.valueOf(value);
+    }
+
+    public int getValueInInt() {
+        return value;
     }
 }
