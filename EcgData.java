@@ -31,7 +31,7 @@ import java.text.SimpleDateFormat;
 public class EcgData extends MeasuredData {
     private double recordTime = 0.000;
     private int dataId;
-    private final double RECORDRATE = 1.000 / 500.000;
+    public static final double RECORDRATE = 1.000 / 500.000;
 
     //To insert current time automatically
     //the record time only changes when a second passed, why?

@@ -27,22 +27,22 @@ import java.util.StringTokenizer;
 
 /**
  * Below is the copyright information.
- * <p/>
+ * <p>
  * Copyright (C) 2016 chickenjohn
- * <p/>
+ * <p>
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
- * <p/>
+ * <p>
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
- * <p/>
+ * <p>
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- * <p/>
+ * <p>
  * You may contact the author by email:
  * chickenjohn93@outlook.com
  */
@@ -130,17 +130,12 @@ public class MainActivity extends AppCompatActivity
         drawSurfaceView.setSurfaceViewLand(
                 (SurfaceView) findViewById(R.id.surfaceView_land),
                 (SurfaceView) findViewById(R.id.surfaceView_land_tags),
-                LAND);
+                (SurfaceView) findViewById(R.id.surfaceView_land_ruler),
+                LAND,
+                this.getApplicationContext());
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-
+        beatRateText = (TextView) findViewById(R.id.land_beat_rate_text);
+        rpeakValue = (TextView) findViewById(R.id.land_rr_text);
         PORTORLAND = LAND;
     }
 
@@ -270,7 +265,18 @@ public class MainActivity extends AppCompatActivity
                     beatRateText.setText("心率：" + Integer.toString(refreshedData));
                     break;
                 case 1:
-                    rpeakValue.setText("RR间期：" + Double.toString(((double)refreshedData)/100) + "s");
+                    rpeakValue.setText("RR间期：" + Double.toString(((double) refreshedData) / 100) + "s");
+                    break;
+                default:
+                    break;
+            }
+        } else if (PORTORLAND == LAND) {
+            switch (listId) {
+                case 0:
+                    beatRateText.setText(Integer.toString(refreshedData)+"/");
+                    break;
+                case 1:
+                    rpeakValue.setText(Double.toString(((double) refreshedData) / 100) + "s");
                     break;
                 default:
                     break;

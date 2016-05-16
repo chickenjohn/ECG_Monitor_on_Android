@@ -30,7 +30,6 @@ public class EcgDataAnalyzer {
     private Handler uiRefreshHandler;
     public double beatRate = 0;
     private double lastAvgValue = 0;
-    private final double dataRate = 0.002;
     DataTemp[] peakDetectionDataTemp = new DataTemp[80];
     private boolean ifFirstRpeakDetected = false;
     private DataTemp rpeakLocalMax = new DataTemp(0, 0);
@@ -51,7 +50,7 @@ public class EcgDataAnalyzer {
 
         }
 
-        public double getData() {
+        public synchronized double getData() {
             return data;
         }
 
@@ -59,7 +58,7 @@ public class EcgDataAnalyzer {
             return dataId;
         }
 
-        public void setData(double data) {
+        public synchronized void setData(double data) {
             this.data = data;
         }
     }
@@ -143,7 +142,7 @@ public class EcgDataAnalyzer {
 
     public void rpeaksHandling(DataTemp recentRpeak) {
         if (ifFirstRpeakDetected) {
-            double RRinterval = (recentRpeak.getDataId() - lastRpeak.getDataId()) * dataRate;
+            double RRinterval = (recentRpeak.getDataId() - lastRpeak.getDataId()) * EcgData.RECORDRATE;
             beatRate = 60 / RRinterval;
             lastRpeak = recentRpeak;
             Message uiRefreshMessage = Message.obtain();

@@ -1,18 +1,23 @@
 package com.experiment.chickenjohn.materialdemo;
 
-import android.graphics.BlurMaskFilter;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
-import android.graphics.MaskFilter;
+import android.graphics.DashPathEffect;
 import android.graphics.Paint;
+import android.graphics.PathEffect;
 import android.graphics.PixelFormat;
 import android.graphics.PorterDuff;
 import android.graphics.Rect;
-import android.graphics.Typeface;
+import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
+import android.view.View;
 
-import java.lang.reflect.Type;
+import java.text.DecimalFormat;
+import java.util.StringTokenizer;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -42,9 +47,11 @@ public class DrawSurfaceView {
     private SurfaceView drawViewPort;
     private SurfaceView drawViewLand;
     private SurfaceView drawViewLandTag;
+    private SurfaceView drawViewLandRuler;
     private SurfaceHolder drawViewHolderPort;
     private SurfaceHolder drawViewHolderLand;
     private SurfaceHolder drawViewHolderLandTag;
+    private SurfaceHolder drawViewHolderLandRuler;
     private DrawThread drawThread;
 
     final int PORT = 0, LAND = 1;
@@ -55,8 +62,11 @@ public class DrawSurfaceView {
     private boolean RESET = false;
     private int deltaX = 0;
     private int ecgValue = 0;
+    private int touchingState = 0;
 
     private int x = 0, y, lastX = 0, lastY;
+    private int rulerX = 0, rulerY = 0, rulerStartX = 0, rulerStartY = 0;
+    private Context context;
 
     private Timer viewRefreshTimer = new Timer();
 
@@ -80,17 +90,60 @@ public class DrawSurfaceView {
         }
     }
 
-    public void setSurfaceViewLand(SurfaceView currentSurfaceView, SurfaceView currentSurfaceViewTag, int PORTORLAND) {
+    public void setSurfaceViewLand(SurfaceView currentSurfaceView,
+                                   SurfaceView currentSurfaceViewTag,
+                                   SurfaceView currentSurfaceViewRuler,
+                                   int PORTORLAND,
+                                   Context context) {
         this.PORTORLAND = PORTORLAND;
         if (PORTORLAND == LAND) {
             drawViewLand = currentSurfaceView;
             drawViewHolderLand = drawViewLand.getHolder();
+
             drawViewLandTag = currentSurfaceViewTag;
             drawViewHolderLandTag = drawViewLandTag.getHolder();
             drawViewLandTag.setZOrderOnTop(true);
             drawViewHolderLandTag.setFormat(PixelFormat.TRANSPARENT);
+
+            drawViewLandRuler = currentSurfaceViewRuler;
+            drawViewHolderLandRuler = drawViewLandRuler.getHolder();
+            drawViewLandRuler.setZOrderOnTop(true);
+            drawViewHolderLandRuler.setFormat(PixelFormat.TRANSPARENT);
+
+            drawViewLandRuler.setOnTouchListener(new View.OnTouchListener() {
+                @Override
+                public boolean onTouch(View v, MotionEvent event) {
+                    switch (event.getAction()) {
+                        case MotionEvent.ACTION_DOWN:
+                            touchingState = 0;
+                            rulerX = (int) event.getX();
+                            rulerY = (int) event.getY();
+                            rulerStartX = rulerX;
+                            rulerStartY = rulerY;
+                            break;
+                        case MotionEvent.ACTION_MOVE:
+                            rulerX = (int) event.getX();
+                            rulerY = (int) event.getY();
+                            touchingState = 1;
+                            drawRulerThreadStarter();
+                            break;
+                        case MotionEvent.ACTION_UP:
+                            touchingState = 2;
+                            rulerX = (int) event.getX();
+                            rulerY = (int) event.getY();
+                            drawRulerThreadStarter();
+                            break;
+                        default:
+                            break;
+                    }
+                    return true;
+                }
+            });
+
             y = landHeight / 2;
             lastY = y;
+
+            this.context = context;
         }
     }
 
@@ -117,6 +170,71 @@ public class DrawSurfaceView {
             ecgValue = drawY;
             drawThread = new DrawThread();
             drawThread.start();
+        }
+    }
+
+    private void drawRulerThreadStarter() {
+        landHeight = drawViewLand.getHeight();
+        landWidth = drawViewLand.getWidth();
+        DrawRulerThread drawRulerThread = new DrawRulerThread(drawViewHolderLandRuler);
+        drawRulerThread.start();
+    }
+
+    private class DrawRulerThread extends Thread {
+        private SurfaceHolder surfaceHolder = null;
+
+        public DrawRulerThread(SurfaceHolder surfaceHolder) {
+            this.surfaceHolder = surfaceHolder;
+        }
+
+        public void run() {
+            Canvas canvas = null;
+            Bitmap bitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.tag);
+            Paint pen = new Paint();
+            pen.setColor(Color.GRAY);
+            pen.setStrokeWidth(2);
+            pen.setTextSize(20);
+            Paint dotPen = new Paint();
+            dotPen.setColor(Color.GRAY);
+            dotPen.setStrokeWidth(2);
+            PathEffect effect = new DashPathEffect(new float[]{2, 4, 2, 4,}, 1);
+            dotPen.setPathEffect(effect);
+
+            try {
+                switch (touchingState) {
+                    case 0:
+                        canvas = surfaceHolder.lockCanvas();
+                        break;
+                    case 1:
+                        canvas = surfaceHolder.lockCanvas();
+                        canvas.drawColor(Color.TRANSPARENT, PorterDuff.Mode.CLEAR);
+                        canvas.drawLine(rulerStartX, rulerStartY, rulerX, rulerY, dotPen);
+                        break;
+                    case 2:
+                        canvas = surfaceHolder.lockCanvas();
+                        canvas.drawColor(Color.TRANSPARENT, PorterDuff.Mode.CLEAR);
+                        canvas.drawLine(rulerStartX, rulerStartY, rulerX, rulerY, pen);
+                        canvas.drawBitmap(bitmap, null, new Rect(rulerStartX - 20, rulerStartY - 40,
+                                rulerStartX + 20, rulerStartY), pen);
+                        canvas.drawBitmap(bitmap, null, new Rect(rulerX - 20, rulerY - 40,
+                                rulerX + 20, rulerY), pen);
+                        canvas.drawLine(rulerStartX, rulerStartY, rulerX, rulerStartY, dotPen);
+                        canvas.drawLine(rulerX, rulerStartY, rulerX, rulerY, dotPen);
+                        double deltaTime = Math.abs(rulerStartX - rulerX) * EcgData.RECORDRATE;
+                        String timeInFormat = new DecimalFormat("0.##").format(deltaTime) + "s";
+                        canvas.drawText(timeInFormat,
+                                (float) (rulerX - rulerStartX) / 2 + rulerStartX, rulerStartY, pen);
+                        double deltaVolt = Math.abs(rulerStartY - rulerY) / (double) (landHeight) * 320;
+                        String voltInFormat  = new DecimalFormat("0.##").format(deltaVolt) + "mV";
+                        canvas.drawText(voltInFormat,
+                                rulerX, (float) (rulerY - rulerStartY) / 2 + rulerStartY, pen);
+                        break;
+                    default:
+                        break;
+                }
+            } finally {
+                surfaceHolder.unlockCanvasAndPost(canvas);
+            }
         }
     }
 
@@ -179,6 +297,7 @@ public class DrawSurfaceView {
                 }
             }
         }
+
     }
 
     public void resetSurfaceViewX() {
