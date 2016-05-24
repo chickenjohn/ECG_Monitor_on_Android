@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="H:\Developing\materialdemo\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.1.1\jars\libs\internal_impl-23.1.1.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="a4de9c81ae239414e1ed0f86441b02abaf29bca9">
+        <dex dex="H:\Developing\materialdemo\app\build\intermediates\pre-dexed\release\internal_impl-23.1.1_6274472be32fa320b061e91e7ad25b7775ac1066.jar" />
+    </item>
+    <item
+        jar="H:\Developing\materialdemo\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="5c5699834e9722f1c288fea2de82725d078ba127">
+        <dex dex="H:\Developing\materialdemo\app\build\intermediates\pre-dexed\release\com.android.support-appcompat-v7-23.1.1_1b9a8cd9980829b375f6f5246d1d41e05676e99b.jar" />
+    </item>
+    <item
+        jar="H:\Developing\materialdemo\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="6cbc7773921fcfedbe55657578f0cbfe614778dc">
+        <dex dex="H:\Developing\materialdemo\app\build\intermediates\pre-dexed\release\com.android.support-support-v4-23.1.1_c0590360e0200c999ac4b265ac883378cca3a3e9.jar" />
+    </item>
+    <item
+        jar="H:\Developing\materialdemo\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\23.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="09c5e804bc67fc0580360043dff067df574a60d4">
+        <dex dex="H:\Developing\materialdemo\app\build\intermediates\pre-dexed\release\com.android.support-recyclerview-v7-23.1.1_81bb71b891b85037fc426d355727e51d31f5ecbb.jar" />
+    </item>
+    <item
+        jar="H:\Developing\materialdemo\app\build\intermediates\exploded-aar\com.android.support\design\23.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="379471b2bd17d9737c050345c08e8c7d16589784">
+        <dex dex="H:\Developing\materialdemo\app\build\intermediates\pre-dexed\release\com.android.support-design-23.1.1_c80067cbd2fc68eafe490fe9c7d0e54ebb64a6e8.jar" />
+    </item>
+    <item
+        jar="C:\Users\chickenjohn\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\23.1.1\support-annotations-23.1.1.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="8d680ba5a623724d1fb0e81c36a790f023a6cede">
+        <dex dex="H:\Developing\materialdemo\app\build\intermediates\pre-dexed\release\support-annotations-23.1.1_ff2004340fa4d51974359f0edd26bb2bfe2650b8.jar" />
+    </item>
+    <item
+        jar="H:\Developing\materialdemo\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\23.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="5e412e954a24c5310a459c09870e4e2081aceb03">
+        <dex dex="H:\Developing\materialdemo\app\build\intermediates\pre-dexed\release\com.android.support-cardview-v7-23.1.1_528df0bbb665a62908975c7d4918002997f83254.jar" />
+    </item>
+
+</items>
