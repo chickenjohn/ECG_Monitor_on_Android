@@ -153,12 +153,12 @@ public class DrawSurfaceView {
                 case PORT:
                     portHeight = drawViewPort.getHeight();
                     portWidth = drawViewPort.getWidth();
-                    y = (int) ((portHeight / 2) - (((float) drawY) / 200.0 * (portHeight / 2)));
+                    y = (int) ((portHeight / 2) - (((float) drawY) / 280.0 * (portHeight / 2)));
                     break;
                 case LAND:
                     landHeight = drawViewLand.getHeight();
                     landWidth = drawViewLand.getWidth();
-                    y = (int) ((landHeight / 2) - (((float) drawY) / 160.0 * (landHeight / 2)));
+                    y = (int) ((landHeight / 2) - (((float) drawY) / 260.0 * (landHeight / 2)));
                     break;
                 default:
                     break;

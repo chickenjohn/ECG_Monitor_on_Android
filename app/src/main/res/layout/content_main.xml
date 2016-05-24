@@ -40,16 +40,19 @@
                 android:paddingTop="15dp" />
 
             <RadioGroup
+                android:id="@+id/display_selection_group"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
                 <RadioButton
+                    android:id="@+id/ECG_display_button"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:text="ECG"/>
 
                 <RadioButton
+                    android:id="@+id/SPO2_display_button"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:text="SPO2"/>
@@ -90,6 +93,7 @@
                 android:textSize="20dp" />
 
             <TextView
+                android:id="@+id/SPO2_value"
                 android:layout_width="380dp"
                 android:layout_height="wrap_content"
                 android:text="SPO2："

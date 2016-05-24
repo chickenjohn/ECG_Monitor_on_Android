@@ -16,6 +16,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -52,6 +54,9 @@ public class MainActivity extends AppCompatActivity
     private final int PORT = 0;
     private final int LAND = 1;
     private int PORTORLAND = 0;
+    private int radioButtonChecked = 0;
+    private final int ECG_DIS_CHECKED = 0;
+    private final int SPO2_DIS_CHECKED = 1;
 
     public android.os.Handler uiRefreshHandler = new android.os.Handler() {
         @Override
@@ -69,13 +74,27 @@ public class MainActivity extends AppCompatActivity
                     btManager.enableBluetooth();
                     break;
                 case 2:
-                    drawSurfaceView.drawPoint(msg.arg2, msg.arg1);
+                    if (PORTORLAND == PORT) {
+                        if (radioButtonChecked == ECG_DIS_CHECKED)
+                            drawSurfaceView.drawPoint(msg.arg2, msg.arg1);
+                    }
+                    else if(PORTORLAND == LAND) {
+                        drawSurfaceView.drawPoint(msg.arg2, msg.arg1);
+                    }
                     ecgDatabaseManager.addRecord(new EcgData(msg.arg1, msg.arg2));
                     ecgDataAnalyzer.beatRateAndRpeakDetection(new EcgData(msg.arg1, msg.arg2));
                     break;
                 case 3:
                     refreshList(0, msg.arg1);
                     refreshList(1, msg.arg2);
+                    break;
+                case 4:
+                    if (PORTORLAND == PORT){
+                        if(radioButtonChecked == SPO2_DIS_CHECKED){
+                            drawSurfaceView.drawPoint(msg.arg2, msg.arg1);
+                        }
+                        refreshList(2,msg.arg1);
+                    }
                     break;
                 default:
                     break;
@@ -91,6 +110,8 @@ public class MainActivity extends AppCompatActivity
 
     private TextView beatRateText;
     private TextView rpeakValue;
+    private TextView spo2Value;
+    private RadioGroup displaySelectionGroup;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -121,6 +142,27 @@ public class MainActivity extends AppCompatActivity
 
         beatRateText = (TextView) findViewById(R.id.beat_rate);
         rpeakValue = (TextView) findViewById(R.id.RR_interval);
+        spo2Value = (TextView) findViewById(R.id.SPO2_value);
+        displaySelectionGroup = (RadioGroup) findViewById(R.id.display_selection_group);
+
+        displaySelectionGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                switch (checkedId){
+                    case R.id.ECG_display_button:
+                        radioButtonChecked = ECG_DIS_CHECKED;
+                        drawSurfaceView.resetSurfaceViewX();
+                        break;
+                    case R.id.SPO2_display_button:
+                        radioButtonChecked = SPO2_DIS_CHECKED;
+                        drawSurfaceView.resetSurfaceViewX();
+                        break;
+                    default:
+                        break;
+                }
+            }
+        });
+
         PORTORLAND = PORT;
     }
 
@@ -267,6 +309,8 @@ public class MainActivity extends AppCompatActivity
                 case 1:
                     rpeakValue.setText("RR间期：" + Double.toString(((double) refreshedData) / 100) + "s");
                     break;
+                case 2:
+                    spo2Value.setText("SPO2:" + Integer.toString(refreshedData));
                 default:
                     break;
             }

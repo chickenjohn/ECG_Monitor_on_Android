@@ -45,7 +45,11 @@ public class bluetoothManager {
     public String btAddress;
     public bluetoothReceiver btReceiver = new bluetoothReceiver();
     private android.os.Handler uiRefreshHandler;
-    private int receiveDataCounter = 0;
+    private int receiveECGCounter = 0;
+    private int receiveSPO2Counter = 0;
+    private final int ECG_DATA = 0;
+    private final int SPO2_DATA = 1;
+    private int dataType = 0;
 
     public bluetoothManager(android.os.Handler handler) {
         uiRefreshHandler = handler;
@@ -68,7 +72,7 @@ public class bluetoothManager {
         @Override
         public void onReceive(Context context, Intent intent) {
             String action = intent.getAction();
-            String targetName = "hc-bluetooth";
+            String targetName = "HC-05";
             if (BluetoothDevice.ACTION_FOUND.equals(action)) {
                 BluetoothDevice currentDevice = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
                 if (currentDevice.getName().equalsIgnoreCase(targetName)) {
@@ -91,7 +95,6 @@ public class bluetoothManager {
                 Message uiRefreshMessage = Message.obtain();
                 uiRefreshMessage.what = 1;
                 uiRefreshHandler.sendMessage(uiRefreshMessage);
-
             }
         }
     }
@@ -114,7 +117,6 @@ public class bluetoothManager {
 
     private class connectThread extends Thread {
         public void run() {
-            receiveDataCounter = 0;
             InputStream mmInStream = null;
             try {
                 mmInStream = myBtSocket.getInputStream();
@@ -150,12 +152,29 @@ public class bluetoothManager {
             dataInInt = ((0xff & (~data[1])) << 8) | (0xff & ((~data[0]) + 1));
             dataInInt = -dataInInt;
         }
+
         Message uiRefreshMessage = Message.obtain();
-        uiRefreshMessage.what = 2;
-        uiRefreshMessage.arg1 = dataInInt;
-        uiRefreshMessage.arg2 = receiveDataCounter;
-        uiRefreshHandler.sendMessage(uiRefreshMessage);
-        receiveDataCounter += 1;
+        switch (dataType){
+            case ECG_DATA:
+                dataType = SPO2_DATA;
+                uiRefreshMessage.what = 2;
+                uiRefreshMessage.arg1 = dataInInt;
+                uiRefreshMessage.arg2 = receiveECGCounter;
+                uiRefreshHandler.sendMessage(uiRefreshMessage);
+                receiveECGCounter += 1;
+                break;
+            case SPO2_DATA:
+                dataType = ECG_DATA;
+                uiRefreshMessage.what = 4;
+                uiRefreshMessage.arg1 = dataInInt;
+                uiRefreshMessage.arg2 = receiveSPO2Counter;
+                uiRefreshHandler.sendMessage(uiRefreshMessage);
+                receiveSPO2Counter += 1;
+                break;
+            default:
+                break;
+        }
+
     }
 
     //Registration of Broadcast Receiver
