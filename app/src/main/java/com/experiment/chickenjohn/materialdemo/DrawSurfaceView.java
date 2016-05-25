@@ -21,6 +21,8 @@ import java.util.StringTokenizer;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import static com.experiment.chickenjohn.materialdemo.R.color.cardview_light_background;
+
 /**
  * Below is the copyright information.
  * <p/>
@@ -77,7 +79,7 @@ public class DrawSurfaceView {
             public void run() {
                 shouldRefresh = true;
             }
-        }, 0, 50);
+        }, 0, 80);
     }
 
     public void setSurfaceViewPort(SurfaceView currentSurfaceView, int PORTORLAND) {
@@ -85,6 +87,27 @@ public class DrawSurfaceView {
         if (PORTORLAND == PORT) {
             drawViewPort = currentSurfaceView;
             drawViewHolderPort = drawViewPort.getHolder();
+            drawViewHolderPort.addCallback(new SurfaceHolder.Callback() {
+                @Override
+                public void surfaceCreated(SurfaceHolder holder) {
+                    Canvas canvas = holder.lockCanvas();
+                    canvas.drawColor(Color.rgb(255,255,255));
+                    holder.unlockCanvasAndPost(canvas);
+                    portWidth = drawViewPort.getWidth();
+                    portHeight = drawViewPort.getHeight();
+                }
+
+                @Override
+                public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
+
+                }
+
+                @Override
+                public void surfaceDestroyed(SurfaceHolder holder) {
+
+                }
+            });
+
             y = portHeight / 2;
             lastY = y;
         }
@@ -140,6 +163,24 @@ public class DrawSurfaceView {
                 }
             });
 
+            drawViewHolderLand.addCallback(new SurfaceHolder.Callback() {
+                @Override
+                public void surfaceCreated(SurfaceHolder holder) {
+                    landHeight = drawViewLand.getHeight();
+                    landWidth = drawViewLand.getWidth();
+                }
+
+                @Override
+                public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
+
+                }
+
+                @Override
+                public void surfaceDestroyed(SurfaceHolder holder) {
+
+                }
+            });
+
             y = landHeight / 2;
             lastY = y;
 
@@ -151,13 +192,9 @@ public class DrawSurfaceView {
         if (shouldRefresh) {
             switch (PORTORLAND) {
                 case PORT:
-                    portHeight = drawViewPort.getHeight();
-                    portWidth = drawViewPort.getWidth();
                     y = (int) ((portHeight / 2) - (((float) drawY) / 280.0 * (portHeight / 2)));
                     break;
                 case LAND:
-                    landHeight = drawViewLand.getHeight();
-                    landWidth = drawViewLand.getWidth();
                     y = (int) ((landHeight / 2) - (((float) drawY) / 260.0 * (landHeight / 2)));
                     break;
                 default:
@@ -193,7 +230,7 @@ public class DrawSurfaceView {
             Paint pen = new Paint();
             pen.setColor(Color.GRAY);
             pen.setStrokeWidth(2);
-            pen.setTextSize(20);
+            pen.setTextSize(60);
             Paint dotPen = new Paint();
             dotPen.setColor(Color.GRAY);
             dotPen.setStrokeWidth(2);
@@ -225,7 +262,7 @@ public class DrawSurfaceView {
                         canvas.drawText(timeInFormat,
                                 (float) (rulerX - rulerStartX) / 2 + rulerStartX, rulerStartY, pen);
                         double deltaVolt = Math.abs(rulerStartY - rulerY) / (double) (landHeight) * 320;
-                        String voltInFormat  = new DecimalFormat("0.##").format(deltaVolt) + "mV";
+                        String voltInFormat = new DecimalFormat("0.##").format(deltaVolt) + "mV";
                         canvas.drawText(voltInFormat,
                                 rulerX, (float) (rulerY - rulerStartY) / 2 + rulerStartY, pen);
                         break;
@@ -245,14 +282,14 @@ public class DrawSurfaceView {
             Canvas canvas = null;
             Canvas tagCanvas = null;
             Paint pen = new Paint();
-            pen.setColor(Color.GREEN);
-            pen.setStrokeWidth(4);
-            pen.setAntiAlias(false);
+            pen.setColor(Color.rgb(63, 81, 181));
+            pen.setStrokeWidth(5);
+            pen.setAntiAlias(true);
             Paint tagPen = new Paint();
             tagPen.setColor(Color.GRAY);
             tagPen.setStrokeWidth(1);
-            tagPen.setAntiAlias(false);
-            tagPen.setTextSize(40);
+            tagPen.setAntiAlias(true);
+            tagPen.setTextSize(60);
             try {
                 switch (PORTORLAND) {
                     case PORT:
@@ -260,13 +297,14 @@ public class DrawSurfaceView {
                             x = 0;
                         }
                         canvas = drawViewHolderPort.lockCanvas(new Rect(x - deltaX, 0, x + 50, portHeight));
-                        canvas.drawColor(Color.BLACK);
+                        canvas.drawColor(Color.rgb(255, 255, 255));
                         canvas.drawLine(x - deltaX, lastY, x, y, pen);
                         break;
                     case LAND:
                         if (x > landWidth) {
                             x = 0;
                         }
+                        pen.setColor(Color.GREEN);
                         canvas = drawViewHolderLand.lockCanvas(new Rect(x - deltaX, 0, x + 100, landHeight));
                         tagCanvas = drawViewHolderLandTag.lockCanvas();
                         canvas.drawColor(Color.BLACK);
@@ -302,5 +340,15 @@ public class DrawSurfaceView {
 
     public void resetSurfaceViewX() {
         x = 0;
+    }
+
+    public void resetCanvas(){
+        SurfaceHolder holder;
+        if(PORTORLAND == PORT) {
+            holder = drawViewHolderPort;
+            Canvas canvas = holder.lockCanvas();
+            canvas.drawColor(Color.rgb(255, 255, 255));
+            holder.unlockCanvasAndPost(canvas);
+        }
     }
 }

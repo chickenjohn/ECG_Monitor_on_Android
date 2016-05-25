@@ -9,30 +9,31 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Message;
 import android.widget.Toast;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.UUID;
 
 /**
- *   Below is the copyright information.
- *
- *    Copyright (C) 2016 chickenjohn
- *
- *   This program is free software: you can redistribute it and/or modify
- *   it under the terms of the GNU General Public License as published by
- *   the Free Software Foundation, either version 3 of the License, or
- *   (at your option) any later version.
- *
- *   This program is distributed in the hope that it will be useful,
- *   but WITHOUT ANY WARRANTY; without even the implied warranty of
- *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *   GNU General Public License for more details.
- *
- *   You should have received a copy of the GNU General Public License
- *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
- *
- *   You may contact the author by email:
- *   chickenjohn93@outlook.com
+ * Below is the copyright information.
+ * <p/>
+ * Copyright (C) 2016 chickenjohn
+ * <p/>
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ * <p/>
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ * <p/>
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ * <p/>
+ * You may contact the author by email:
+ * chickenjohn93@outlook.com
  * Created by chickenjohn on 2016/3/12.
  */
 
@@ -50,6 +51,7 @@ public class bluetoothManager {
     private final int ECG_DATA = 0;
     private final int SPO2_DATA = 1;
     private int dataType = 0;
+    private boolean receiveSpo2 = true;
 
     public bluetoothManager(android.os.Handler handler) {
         uiRefreshHandler = handler;
@@ -154,9 +156,11 @@ public class bluetoothManager {
         }
 
         Message uiRefreshMessage = Message.obtain();
-        switch (dataType){
+        switch (dataType) {
             case ECG_DATA:
-                dataType = SPO2_DATA;
+                if (receiveSpo2) {
+                    dataType = SPO2_DATA;
+                }
                 uiRefreshMessage.what = 2;
                 uiRefreshMessage.arg1 = dataInInt;
                 uiRefreshMessage.arg2 = receiveECGCounter;
@@ -175,6 +179,11 @@ public class bluetoothManager {
                 break;
         }
 
+    }
+
+    public void setSpo2Receiver (boolean receiveOrNot){
+        receiveSpo2 = receiveOrNot;
+        receiveSPO2Counter = receiveECGCounter-1;
     }
 
     //Registration of Broadcast Receiver

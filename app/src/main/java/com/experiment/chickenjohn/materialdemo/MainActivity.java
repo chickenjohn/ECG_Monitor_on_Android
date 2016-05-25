@@ -77,8 +77,7 @@ public class MainActivity extends AppCompatActivity
                     if (PORTORLAND == PORT) {
                         if (radioButtonChecked == ECG_DIS_CHECKED)
                             drawSurfaceView.drawPoint(msg.arg2, msg.arg1);
-                    }
-                    else if(PORTORLAND == LAND) {
+                    } else if (PORTORLAND == LAND) {
                         drawSurfaceView.drawPoint(msg.arg2, msg.arg1);
                     }
                     ecgDatabaseManager.addRecord(new EcgData(msg.arg1, msg.arg2));
@@ -89,11 +88,11 @@ public class MainActivity extends AppCompatActivity
                     refreshList(1, msg.arg2);
                     break;
                 case 4:
-                    if (PORTORLAND == PORT){
-                        if(radioButtonChecked == SPO2_DIS_CHECKED){
+                    if (PORTORLAND == PORT) {
+                        if (radioButtonChecked == SPO2_DIS_CHECKED) {
                             drawSurfaceView.drawPoint(msg.arg2, msg.arg1);
                         }
-                        refreshList(2,msg.arg1);
+                        refreshList(2, msg.arg1);
                     }
                     break;
                 default:
@@ -112,6 +111,7 @@ public class MainActivity extends AppCompatActivity
     private TextView rpeakValue;
     private TextView spo2Value;
     private RadioGroup displaySelectionGroup;
+    private boolean receiveSpo2 = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -148,14 +148,16 @@ public class MainActivity extends AppCompatActivity
         displaySelectionGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                switch (checkedId){
+                switch (checkedId) {
                     case R.id.ECG_display_button:
                         radioButtonChecked = ECG_DIS_CHECKED;
                         drawSurfaceView.resetSurfaceViewX();
+                        drawSurfaceView.resetCanvas();
                         break;
                     case R.id.SPO2_display_button:
                         radioButtonChecked = SPO2_DIS_CHECKED;
                         drawSurfaceView.resetSurfaceViewX();
+                        drawSurfaceView.resetCanvas();
                         break;
                     default:
                         break;
@@ -266,7 +268,19 @@ public class MainActivity extends AppCompatActivity
                     Toast.makeText(this, "清除数据失败", Toast.LENGTH_LONG).show();
                 }
                 break;
-            case R.id.data_send:
+            case R.id.spo2_switch:
+                if (receiveSpo2) {
+                    item.setTitle("打开SpO2接收");
+                    receiveSpo2 = false;
+                    btManager.setSpo2Receiver(receiveSpo2);
+                    drawSurfaceView.resetSurfaceViewX();
+                } else {
+                    item.setTitle("关闭SpO2接收");
+                    receiveSpo2 = true;
+                    btManager.setSpo2Receiver(receiveSpo2);
+                    drawSurfaceView.resetSurfaceViewX();
+                }
+                drawSurfaceView.resetCanvas();
                 break;
             case R.id.btconnection:
                 btManager.enableBluetooth();
@@ -283,16 +297,13 @@ public class MainActivity extends AppCompatActivity
     public boolean naviHeaderSet(boolean isConnected, int transNumber) {
         TextView btAddressTextView = (TextView) this.findViewById(R.id.bt_address_textview);
         TextView connectTextView = (TextView) this.findViewById(R.id.connecttextview);
-        TextView transNumberTextView = (TextView) this.findViewById(R.id.trans_number_textview);
         if (btAddressTextView != null) {
             if (isConnected) {
                 btAddressTextView.setText("蓝牙设备地址：" + btManager.btAddress);
                 connectTextView.setText("设备已连接");
-                transNumberTextView.setText("接收数据：" + Integer.toString(transNumber));
             } else {
                 btAddressTextView.setText("蓝牙设备地址：");
                 connectTextView.setText("设备未连接");
-                transNumberTextView.setText("接收数据：");
             }
             return true;
         } else {
@@ -317,7 +328,7 @@ public class MainActivity extends AppCompatActivity
         } else if (PORTORLAND == LAND) {
             switch (listId) {
                 case 0:
-                    beatRateText.setText(Integer.toString(refreshedData)+"/");
+                    beatRateText.setText(Integer.toString(refreshedData) + "/");
                     break;
                 case 1:
                     rpeakValue.setText(Double.toString(((double) refreshedData) / 100) + "s");

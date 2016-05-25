@@ -37,9 +37,4 @@
         android:layout_height="wrap_content"
         android:text="蓝牙设备地址：" />
 
-    <TextView
-        android:id="@+id/trans_number_textview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="接收数据："/>
 </LinearLayout>

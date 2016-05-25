@@ -16,7 +16,8 @@
         app:cardCornerRadius="0dp"
         app:cardElevation="2dp"
         app:cardUseCompatPadding="true"
-        app:contentPadding="10dp">
+        app:contentPadding="0dp"
+        app:cardBackgroundColor="@color/cardviewWhite">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -29,14 +30,14 @@
                 android:layout_marginBottom="10dp"
                 android:layout_weight="1"
                 android:text="显示波形"
-                android:textSize="20dp" />
+                android:textSize="20dp"
+                android:paddingLeft="10dp"
+                android:paddingTop="10dp"/>
 
             <SurfaceView
                 android:id="@+id/surfaceView"
-                android:layout_width="380dp"
+                android:layout_width="350dp"
                 android:layout_height="250dp"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
                 android:paddingTop="15dp" />
 
             <RadioGroup
@@ -49,6 +50,7 @@
                     android:id="@+id/ECG_display_button"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
+                    android:checked="true"
                     android:text="ECG"/>
 
                 <RadioButton
@@ -69,35 +71,38 @@
         app:cardCornerRadius="0dp"
         app:cardElevation="2dp"
         app:cardUseCompatPadding="true"
-        app:contentPadding="10dp">
+        app:cardBackgroundColor="@color/cardviewWhite">
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/beat_rate"
-                android:layout_width="380dp"
+                android:layout_width="350dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
                 android:text="心率："
-                android:textSize="20dp" />
+                android:textSize="20dp"
+                android:paddingLeft="10dp"/>
 
             <TextView
                 android:id="@+id/RR_interval"
-                android:layout_width="380dp"
+                android:layout_width="350dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
                 android:text="RR间期："
-                android:textSize="20dp" />
+                android:textSize="20dp"
+                android:paddingLeft="10dp"/>
 
             <TextView
                 android:id="@+id/SPO2_value"
-                android:layout_width="380dp"
+                android:layout_width="350dp"
                 android:layout_height="wrap_content"
                 android:text="SPO2："
-                android:textSize="20dp"/>
+                android:textSize="20dp"
+                android:paddingLeft="10dp"/>
 
         </LinearLayout>
 

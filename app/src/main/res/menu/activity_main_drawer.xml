@@ -1,23 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item>
-        <menu>
-            <item
-                android:id="@+id/btconnection"
-                android:title="连接蓝牙设备" />
-            <item
-                android:id="@+id/data_send"
-                android:title="发送数据" />
-            <item
-                android:id="@+id/wave_output"
-                android:title="输出图形" />
-            <item
-                android:id="@+id/data_output"
-                android:title="导出数据" />
-            <item
-                android:id="@+id/data_clear"
-                android:title="清除数据" />
-        </menu>
-    </item>
+    <item
+        android:id="@+id/btconnection"
+        android:title="连接蓝牙设备" />
+    <item
+        android:id="@+id/spo2_switch"
+        android:title="关闭SpO2接收" />
+    <item
+        android:id="@+id/wave_output"
+        android:title="输出图形" />
+    <item
+        android:id="@+id/data_output"
+        android:title="导出数据" />
+    <item
+        android:id="@+id/data_clear"
+        android:title="清除数据" />
 
 </menu>
