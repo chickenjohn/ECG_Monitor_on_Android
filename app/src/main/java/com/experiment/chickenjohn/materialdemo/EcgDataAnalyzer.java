@@ -142,7 +142,7 @@ public class EcgDataAnalyzer {
 
     public void rpeaksHandling(DataTemp recentRpeak) {
         if (ifFirstRpeakDetected) {
-            double RRinterval = (recentRpeak.getDataId() - lastRpeak.getDataId()) * EcgData.RECORDRATE;
+            double RRinterval = (recentRpeak.getDataId() - lastRpeak.getDataId()) * EcgData.getRECORDRATE();
             beatRate = 60 / RRinterval;
             lastRpeak = recentRpeak;
             Message uiRefreshMessage = Message.obtain();

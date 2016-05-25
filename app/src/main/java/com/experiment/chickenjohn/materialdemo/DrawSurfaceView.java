@@ -257,7 +257,7 @@ public class DrawSurfaceView {
                                 rulerX + 20, rulerY), pen);
                         canvas.drawLine(rulerStartX, rulerStartY, rulerX, rulerStartY, dotPen);
                         canvas.drawLine(rulerX, rulerStartY, rulerX, rulerY, dotPen);
-                        double deltaTime = Math.abs(rulerStartX - rulerX) * EcgData.RECORDRATE;
+                        double deltaTime = Math.abs(rulerStartX - rulerX) * EcgData.getRECORDRATE();
                         String timeInFormat = new DecimalFormat("0.##").format(deltaTime) + "s";
                         canvas.drawText(timeInFormat,
                                 (float) (rulerX - rulerStartX) / 2 + rulerStartX, rulerStartY, pen);

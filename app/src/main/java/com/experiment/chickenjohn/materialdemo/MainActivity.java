@@ -1,10 +1,13 @@
 package com.experiment.chickenjohn.materialdemo;
 
+import android.content.DialogInterface;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.Message;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.AlertDialog;
+import android.util.Log;
 import android.view.SurfaceView;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -15,6 +18,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -112,6 +116,8 @@ public class MainActivity extends AppCompatActivity
     private TextView spo2Value;
     private RadioGroup displaySelectionGroup;
     private boolean receiveSpo2 = true;
+    private EditText rateSettinginEdit;
+    private String rateSettinginString = new String();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -252,7 +258,18 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         switch (id) {
-            case R.id.wave_output:
+            case R.id.rate_setting:
+                rateSettinginEdit = new EditText(this);
+                new AlertDialog.Builder(this).setTitle("请输入速率(Hz)").
+                        setView(rateSettinginEdit).
+                        setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                rateSettinginString = rateSettinginEdit.getText().toString();
+                                EcgData.setRecordRate(Double.valueOf(rateSettinginString).doubleValue());
+                                Log.v("recordrate",Double.toString(EcgData.getRECORDRATE()));
+                            }
+                        }).show();
                 break;
             case R.id.data_output:
                 if (ecgDatabaseManager.outputRecord()) {

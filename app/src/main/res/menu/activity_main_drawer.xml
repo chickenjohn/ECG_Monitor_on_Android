@@ -7,8 +7,8 @@
         android:id="@+id/spo2_switch"
         android:title="关闭SpO2接收" />
     <item
-        android:id="@+id/wave_output"
-        android:title="输出图形" />
+        android:id="@+id/rate_setting"
+        android:title="设置传输速率" />
     <item
         android:id="@+id/data_output"
         android:title="导出数据" />
