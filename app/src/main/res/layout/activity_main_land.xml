@@ -27,7 +27,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_alignParentRight="true">
 
         <TextView
             android:id="@+id/land_beat_rate_text"
@@ -42,7 +43,7 @@
             android:id="@+id/land_rr_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="RR间期"
+            android:text="PI值"
             android:textSize="50dp"
             android:fontFamily="monospace"
             android:textColor="@color/textWhite" />

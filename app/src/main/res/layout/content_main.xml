@@ -38,28 +38,8 @@
                 android:id="@+id/surfaceView"
                 android:layout_width="350dp"
                 android:layout_height="250dp"
-                android:paddingTop="15dp" />
-
-            <RadioGroup
-                android:id="@+id/display_selection_group"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <RadioButton
-                    android:id="@+id/ECG_display_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:checked="true"
-                    android:text="ECG"/>
-
-                <RadioButton
-                    android:id="@+id/SPO2_display_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:text="SPO2"/>
-
-            </RadioGroup>
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"/>
 
         </LinearLayout>
 
@@ -88,11 +68,11 @@
                 android:paddingLeft="10dp"/>
 
             <TextView
-                android:id="@+id/RR_interval"
+                android:id="@+id/PIValue"
                 android:layout_width="350dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
-                android:text="RR间期："
+                android:text="PI值："
                 android:textSize="20dp"
                 android:paddingLeft="10dp"/>
 
@@ -103,6 +83,13 @@
                 android:text="SPO2："
                 android:textSize="20dp"
                 android:paddingLeft="10dp"/>
+
+            <TextView
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:text="程序开发：吴旭峰 孙汉振"
+                android:paddingLeft="10dp"
+                android:paddingTop="20dp" />
 
         </LinearLayout>
 

@@ -33,22 +33,22 @@ import java.util.StringTokenizer;
 
 /**
  * Below is the copyright information.
- * <p>
+ * <p/>
  * Copyright (C) 2016 chickenjohn
- * <p>
+ * <p/>
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
- * <p>
+ * <p/>
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
- * <p>
+ * <p/>
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- * <p>
+ * <p/>
  * You may contact the author by email:
  * chickenjohn93@outlook.com
  */
@@ -58,9 +58,6 @@ public class MainActivity extends AppCompatActivity
     private final int PORT = 0;
     private final int LAND = 1;
     private int PORTORLAND = 0;
-    private int radioButtonChecked = 0;
-    private final int ECG_DIS_CHECKED = 0;
-    private final int SPO2_DIS_CHECKED = 1;
 
     public android.os.Handler uiRefreshHandler = new android.os.Handler() {
         @Override
@@ -79,26 +76,20 @@ public class MainActivity extends AppCompatActivity
                     break;
                 case 2:
                     if (PORTORLAND == PORT) {
-                        if (radioButtonChecked == ECG_DIS_CHECKED)
-                            drawSurfaceView.drawPoint(msg.arg2, msg.arg1);
+                        drawSurfaceView.drawPoint(msg.arg2, msg.arg1);
                     } else if (PORTORLAND == LAND) {
                         drawSurfaceView.drawPoint(msg.arg2, msg.arg1);
                     }
                     ecgDatabaseManager.addRecord(new EcgData(msg.arg1, msg.arg2));
-                    ecgDataAnalyzer.beatRateAndRpeakDetection(new EcgData(msg.arg1, msg.arg2));
                     break;
                 case 3:
                     refreshList(0, msg.arg1);
-                    refreshList(1, msg.arg2);
                     break;
                 case 4:
-                    if (PORTORLAND == PORT) {
-                        if (radioButtonChecked == SPO2_DIS_CHECKED) {
-                            drawSurfaceView.drawPoint(msg.arg2, msg.arg1);
-                        }
-                        refreshList(2, msg.arg1);
-                    }
+                    refreshList(1, msg.arg1);
                     break;
+                case 5:
+                    refreshList(2, msg.arg1);
                 default:
                     break;
             }
@@ -108,16 +99,11 @@ public class MainActivity extends AppCompatActivity
 
     private bluetoothManager btManager = new bluetoothManager(uiRefreshHandler);
     private EcgDatabaseManager ecgDatabaseManager;
-    private EcgDataAnalyzer ecgDataAnalyzer = new EcgDataAnalyzer(uiRefreshHandler);
     private DrawSurfaceView drawSurfaceView = new DrawSurfaceView();
 
     private TextView beatRateText;
-    private TextView rpeakValue;
+    private TextView PiValue;
     private TextView spo2Value;
-    private RadioGroup displaySelectionGroup;
-    private boolean receiveSpo2 = true;
-    private EditText rateSettinginEdit;
-    private String rateSettinginString = new String();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -147,29 +133,8 @@ public class MainActivity extends AppCompatActivity
         drawSurfaceView.setSurfaceViewPort((SurfaceView) findViewById(R.id.surfaceView), PORT);
 
         beatRateText = (TextView) findViewById(R.id.beat_rate);
-        rpeakValue = (TextView) findViewById(R.id.RR_interval);
+        PiValue = (TextView) findViewById(R.id.PIValue);
         spo2Value = (TextView) findViewById(R.id.SPO2_value);
-        displaySelectionGroup = (RadioGroup) findViewById(R.id.display_selection_group);
-
-        displaySelectionGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                switch (checkedId) {
-                    case R.id.ECG_display_button:
-                        radioButtonChecked = ECG_DIS_CHECKED;
-                        drawSurfaceView.resetSurfaceViewX();
-                        drawSurfaceView.resetCanvas();
-                        break;
-                    case R.id.SPO2_display_button:
-                        radioButtonChecked = SPO2_DIS_CHECKED;
-                        drawSurfaceView.resetSurfaceViewX();
-                        drawSurfaceView.resetCanvas();
-                        break;
-                    default:
-                        break;
-                }
-            }
-        });
 
         PORTORLAND = PORT;
     }
@@ -185,7 +150,7 @@ public class MainActivity extends AppCompatActivity
                 this.getApplicationContext());
 
         beatRateText = (TextView) findViewById(R.id.land_beat_rate_text);
-        rpeakValue = (TextView) findViewById(R.id.land_rr_text);
+        PiValue = (TextView) findViewById(R.id.land_rr_text);
         PORTORLAND = LAND;
     }
 
@@ -258,19 +223,6 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         switch (id) {
-            case R.id.rate_setting:
-                rateSettinginEdit = new EditText(this);
-                new AlertDialog.Builder(this).setTitle("请输入速率(Hz)").
-                        setView(rateSettinginEdit).
-                        setPositiveButton("确定", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                rateSettinginString = rateSettinginEdit.getText().toString();
-                                EcgData.setRecordRate(Double.valueOf(rateSettinginString).doubleValue());
-                                Log.v("recordrate",Double.toString(EcgData.getRECORDRATE()));
-                            }
-                        }).show();
-                break;
             case R.id.data_output:
                 if (ecgDatabaseManager.outputRecord()) {
                     Toast.makeText(this, "导出数据成功", Toast.LENGTH_LONG).show();
@@ -284,20 +236,6 @@ public class MainActivity extends AppCompatActivity
                 } else {
                     Toast.makeText(this, "清除数据失败", Toast.LENGTH_LONG).show();
                 }
-                break;
-            case R.id.spo2_switch:
-                if (receiveSpo2) {
-                    item.setTitle("打开SpO2接收");
-                    receiveSpo2 = false;
-                    btManager.setSpo2Receiver(receiveSpo2);
-                    drawSurfaceView.resetSurfaceViewX();
-                } else {
-                    item.setTitle("关闭SpO2接收");
-                    receiveSpo2 = true;
-                    btManager.setSpo2Receiver(receiveSpo2);
-                    drawSurfaceView.resetSurfaceViewX();
-                }
-                drawSurfaceView.resetCanvas();
                 break;
             case R.id.btconnection:
                 btManager.enableBluetooth();
@@ -335,10 +273,10 @@ public class MainActivity extends AppCompatActivity
                     beatRateText.setText("心率：" + Integer.toString(refreshedData));
                     break;
                 case 1:
-                    rpeakValue.setText("RR间期：" + Double.toString(((double) refreshedData) / 100) + "s");
+                    PiValue.setText("PI值：" + Integer.toString(refreshedData));
                     break;
                 case 2:
-                    spo2Value.setText("SPO2:" + Integer.toString(refreshedData));
+                    spo2Value.setText("SPO2：" + Integer.toString(refreshedData));
                 default:
                     break;
             }
@@ -348,7 +286,7 @@ public class MainActivity extends AppCompatActivity
                     beatRateText.setText(Integer.toString(refreshedData) + "/");
                     break;
                 case 1:
-                    rpeakValue.setText(Double.toString(((double) refreshedData) / 100) + "s");
+                    PiValue.setText(Integer.toString(refreshedData));
                     break;
                 default:
                     break;

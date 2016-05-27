@@ -8,6 +8,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Message;
+import android.util.Log;
 import android.widget.Toast;
 
 import java.io.IOException;
@@ -16,22 +17,22 @@ import java.util.UUID;
 
 /**
  * Below is the copyright information.
- * <p/>
+ * <p>
  * Copyright (C) 2016 chickenjohn
- * <p/>
+ * <p>
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
- * <p/>
+ * <p>
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
- * <p/>
+ * <p>
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- * <p/>
+ * <p>
  * You may contact the author by email:
  * chickenjohn93@outlook.com
  * Created by chickenjohn on 2016/3/12.
@@ -46,12 +47,12 @@ public class bluetoothManager {
     public String btAddress;
     public bluetoothReceiver btReceiver = new bluetoothReceiver();
     private android.os.Handler uiRefreshHandler;
-    private int receiveECGCounter = 0;
-    private int receiveSPO2Counter = 0;
-    private final int ECG_DATA = 0;
-    private final int SPO2_DATA = 1;
+    private int receiveCounter = 0;
+    private final int SHOWED_DATA = 0;
+    private final int BEATRATE_DATA = 1;
+    private final int PI_DATA = 2;
+    private final int SPO2_DATA = 3;
     private int dataType = 0;
-    private boolean receiveSpo2 = true;
 
     public bluetoothManager(android.os.Handler handler) {
         uiRefreshHandler = handler;
@@ -148,42 +149,52 @@ public class bluetoothManager {
     //Handle received data here
     public void handleBtData(byte[] data) {
         int dataInInt;
-        if (0x0 == (0x80 & data[1])) {
-            dataInInt = ((0xff & ((int) data[1])) << 8) | (0xff & (int) data[0]);
-        } else {
-            dataInInt = ((0xff & (~data[1])) << 8) | (0xff & ((~data[0]) + 1));
-            dataInInt = -dataInInt;
+        switch (0xc0 & data[0]) {
+            case 0x00:
+                dataType = SHOWED_DATA;
+                break;
+            case 0x40:
+                dataType = BEATRATE_DATA;
+                break;
+            case 0x80:
+                dataType = PI_DATA;
+                break;
+            case 0xc0:
+                dataType = SPO2_DATA;
+                break;
+            default:
+                break;
         }
+        dataInInt = ((0x3f & ((int) data[0])) << 8) | (0xff & (int) data[1]);
 
         Message uiRefreshMessage = Message.obtain();
         switch (dataType) {
-            case ECG_DATA:
-                if (receiveSpo2) {
-                    dataType = SPO2_DATA;
-                }
+            case SHOWED_DATA:
                 uiRefreshMessage.what = 2;
                 uiRefreshMessage.arg1 = dataInInt;
-                uiRefreshMessage.arg2 = receiveECGCounter;
+                uiRefreshMessage.arg2 = receiveCounter;
                 uiRefreshHandler.sendMessage(uiRefreshMessage);
-                receiveECGCounter += 1;
+                receiveCounter += 1;
                 break;
-            case SPO2_DATA:
-                dataType = ECG_DATA;
+            case BEATRATE_DATA:
+                uiRefreshMessage.what = 3;
+                uiRefreshMessage.arg1 = dataInInt;
+                uiRefreshHandler.sendMessage(uiRefreshMessage);
+                break;
+            case PI_DATA:
                 uiRefreshMessage.what = 4;
                 uiRefreshMessage.arg1 = dataInInt;
-                uiRefreshMessage.arg2 = receiveSPO2Counter;
                 uiRefreshHandler.sendMessage(uiRefreshMessage);
-                receiveSPO2Counter += 1;
+                break;
+            case SPO2_DATA:
+                uiRefreshMessage.what = 5;
+                uiRefreshMessage.arg1 = dataInInt;
+                uiRefreshHandler.sendMessage(uiRefreshMessage);
                 break;
             default:
                 break;
         }
 
-    }
-
-    public void setSpo2Receiver (boolean receiveOrNot){
-        receiveSpo2 = receiveOrNot;
-        receiveSPO2Counter = receiveECGCounter-1;
     }
 
     //Registration of Broadcast Receiver

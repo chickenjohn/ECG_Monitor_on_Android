@@ -192,15 +192,15 @@ public class DrawSurfaceView {
         if (shouldRefresh) {
             switch (PORTORLAND) {
                 case PORT:
-                    y = (int) ((portHeight / 2) - (((float) drawY) / 280.0 * (portHeight / 2)));
+                    y = (int) (portHeight - ((float) drawY) / 560.0 * portHeight);
                     break;
                 case LAND:
-                    y = (int) ((landHeight / 2) - (((float) drawY) / 260.0 * (landHeight / 2)));
+                    y = (int) (landHeight - ((float) drawY) / 560.0 * landHeight);
                     break;
                 default:
                     break;
             }
-            deltaX = drawX - lastX;
+            deltaX = (drawX - lastX) * 2;
             lastX = drawX;
             x += deltaX;
             shouldRefresh = false;
