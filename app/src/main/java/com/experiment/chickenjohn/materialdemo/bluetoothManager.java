@@ -149,12 +149,13 @@ public class bluetoothManager {
     //Handle received data here
     public void handleBtData(byte[] data) {
         int dataInInt;
-        switch (0xc0 & data[0]) {
+        switch (0xc0 & data[1]) {
             case 0x00:
                 dataType = SHOWED_DATA;
                 break;
             case 0x40:
                 dataType = BEATRATE_DATA;
+                Log.i("beakrate","beatrate");
                 break;
             case 0x80:
                 dataType = PI_DATA;
@@ -165,7 +166,15 @@ public class bluetoothManager {
             default:
                 break;
         }
-        dataInInt = ((0x3f & ((int) data[0])) << 8) | (0xff & (int) data[1]);
+
+        if(0x20 == (0x20 & data[1])){
+            dataInInt = ((0x3f & (~data[1])) << 8) | (0xff & ((~data[0]) + 1));
+            dataInInt = - dataInInt;
+        } else {
+            dataInInt = ((0x3f & ((int) data[1])) << 8) | (0xff & (int) data[0]);
+        }
+        Log.i("data",Integer.toString(dataInInt));
+
 
         Message uiRefreshMessage = Message.obtain();
         switch (dataType) {

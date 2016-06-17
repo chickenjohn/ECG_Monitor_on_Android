@@ -43,10 +43,19 @@
             android:id="@+id/land_rr_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="PI值"
+            android:text="PI值/"
             android:textSize="50dp"
             android:fontFamily="monospace"
             android:textColor="@color/textWhite" />
+
+        <TextView
+            android:id="@+id/land_spo2_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SpO2"
+            android:textSize="50dp"
+            android:fontFamily="monospace"
+            android:textColor="@color/textWhite"/>
     </LinearLayout>
 
 </RelativeLayout>

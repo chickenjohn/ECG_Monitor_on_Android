@@ -29,10 +29,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b2dfffc8-2da3-4586-85c3-16fbb9715177" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/content_main.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/content_main.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/experiment/chickenjohn/materialdemo/bluetoothManager.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/experiment/chickenjohn/materialdemo/bluetoothManager.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/junit_4_12.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/support_annotations_23_1_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/appcompat_v7_23_1_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/cardview_v7_23_1_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/support_v4_23_1_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/recyclerview_v7_23_1_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/hamcrest_core_1_3.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/design_23_1_1.xml" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
     </list>
     <ignored path="ECG_Monitor_on_Android.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -56,13 +63,12 @@
       <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/experiment/chickenjohn/materialdemo/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7089947">
-              <caret line="295" column="1" selection-start-line="295" selection-start-column="1" selection-end-line="295" selection-end-column="1" />
+            <state vertical-scroll-proportion="0.44964027">
+              <caret line="288" column="23" selection-start-line="288" selection-start-column="23" selection-end-line="288" selection-end-column="23" />
               <folding>
                 <element signature="docComment;class#MainActivity#0" expanded="false" />
                 <element signature="method#onCreate#0;class#MainActivity#0" expanded="false" />
                 <element signature="method#portLoading#0;class#MainActivity#0" expanded="false" />
-                <element signature="method#landLoading#0;class#MainActivity#0" expanded="false" />
                 <element signature="method#onConfigurationChanged#0;class#MainActivity#0" expanded="false" />
                 <element signature="method#onResume#0;class#MainActivity#0" expanded="false" />
                 <element signature="method#onDestroy#0;class#MainActivity#0" expanded="false" />
@@ -76,14 +82,27 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="content_main.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/content_main.xml">
+          <provider editor-type-id="android-designer">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-5.8301888">
+              <caret line="93" column="23" selection-start-line="93" selection-start-column="23" selection-end-line="93" selection-end-column="23" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="activity_main_land.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main_land.xml">
           <provider editor-type-id="android-designer">
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.3207548">
-              <caret line="30" column="45" selection-start-line="30" selection-start-column="45" selection-end-line="30" selection-end-column="45" />
+            <state vertical-scroll-proportion="-4.3962264">
+              <caret line="51" column="39" selection-start-line="51" selection-start-column="39" selection-end-line="51" selection-end-column="39" />
               <folding />
             </state>
           </provider>
@@ -93,9 +112,13 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/experiment/chickenjohn/materialdemo/bluetoothManager.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="168" column="0" selection-start-line="168" selection-start-column="0" selection-end-line="168" selection-end-column="0" />
+              <caret line="157" column="42" selection-start-line="157" selection-start-column="42" selection-end-line="157" selection-end-column="42" />
               <folding>
-                <element signature="class#connectThread#0;class#bluetoothManager#0" expanded="false" />
+                <element signature="imports" expanded="false" />
+                <element signature="e#2060#2061#0" expanded="false" />
+                <element signature="e#2102#2103#0" expanded="false" />
+                <element signature="e#8172#8173#0" expanded="false" />
+                <element signature="e#8208#8209#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -106,10 +129,7 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="30" column="16" selection-start-line="30" selection-start-column="16" selection-end-line="30" selection-end-column="16" />
-              <folding>
-                <element signature="e#1618#1619#0" expanded="true" />
-                <element signature="e#1655#1656#0" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -118,18 +138,21 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/experiment/chickenjohn/materialdemo/DrawSurfaceView.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="205" column="30" selection-start-line="205" selection-start-column="30" selection-end-line="205" selection-end-column="30" />
+              <caret line="202" column="14" selection-start-line="202" selection-start-column="14" selection-end-line="202" selection-end-column="14" />
               <folding>
+                <element signature="imports" expanded="false" />
                 <element signature="docComment;class#DrawSurfaceView#0" expanded="false" />
-                <element signature="e#2611#2744#0" expanded="true" />
-                <element signature="e#2743#2744#0" expanded="true" />
+                <element signature="e#2681#2682#0" expanded="false" />
+                <element signature="e#2733#2734#0" expanded="false" />
                 <element signature="method#setSurfaceViewPort#0;class#DrawSurfaceView#0" expanded="false" />
                 <element signature="method#setSurfaceViewLand#0;class#DrawSurfaceView#0" expanded="false" />
                 <element signature="class#6217:6747" expanded="false" />
                 <element signature="method#drawRulerThreadStarter#0;class#DrawSurfaceView#0" expanded="false" />
-                <element signature="class#DrawRulerThread#0;class#DrawSurfaceView#0" expanded="false" />
+                <element signature="e#8020#8021#0" expanded="false" />
+                <element signature="e#8078#8079#0" expanded="false" />
                 <element signature="class#DrawThread#0;class#DrawSurfaceView#0" expanded="false" />
-                <element signature="method#run#0;class#DrawThread#0;class#DrawSurfaceView#0" expanded="false" />
+                <element signature="e#13405#13406#0" expanded="false" />
+                <element signature="e#13426#13427#0" expanded="false" />
                 <element signature="method#resetCanvas#0;class#DrawSurfaceView#0" expanded="false" />
               </folding>
             </state>
@@ -1472,7 +1495,7 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="4383976843363" />
+        <entry key="$PROJECT_DIR$" value="4385768663646" />
       </map>
     </option>
     <option name="projectBuildClasspath">
@@ -1753,8 +1776,8 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/experiment/chickenjohn/materialdemo/EcgDataAnalyzer.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/content_main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/menu/activity_main_drawer.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/experiment/chickenjohn/materialdemo/DrawSurfaceView.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/experiment/chickenjohn/materialdemo/DrawSurfaceView.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/experiment/chickenjohn/materialdemo/bluetoothManager.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main_land.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/experiment/chickenjohn/materialdemo/MainActivity.java" />
@@ -1792,6 +1815,39 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="ECG_Monitor_on_Android">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="ECG_Monitor_on_Android">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="app">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="app">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -1877,54 +1933,17 @@
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="manifests" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidManifestsGroupNode" />
-            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope">
-        <subPane subId="Project Files">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="ECG_Monitor_on_Android">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="ECG_Monitor_on_Android">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="app">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="app">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-      <pane id="ProjectPane" />
       <pane id="Scratches" />
+      <pane id="ProjectPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.tools" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
-    <property name="device.picker.selection" value="LGD8579092718c" />
+    <property name="device.picker.selection" value="7N2RDQ148L009537" />
     <property name="last_opened_file_path" value="$USER_HOME$/androidDevelopingKey.jks" />
     <property name="ExportApk.ApkPath" value="H:\Developing\ECG_Monitor_on_Android\app" />
     <property name="ExportApk.Flavors" value="" />
@@ -2210,7 +2229,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32991454" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
@@ -2218,7 +2237,7 @@
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32649574" sideWeight="0.5030257" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30427352" sideWeight="0.49394855" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.47008547" sideWeight="0.49394855" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32991454" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -2227,7 +2246,7 @@
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32649574" sideWeight="0.5060514" order="11" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24962178" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18078668" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
@@ -2290,11 +2309,87 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="6" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/experiment/chickenjohn/materialdemo/bluetoothManager.java</url>
+          <line>170</line>
+          <properties />
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/experiment/chickenjohn/materialdemo/bluetoothManager.java</url>
+          <line>171</line>
+          <properties />
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/experiment/chickenjohn/materialdemo/bluetoothManager.java</url>
+          <line>173</line>
+          <properties />
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="9" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main_land.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="30" column="45" selection-start-line="30" selection-start-column="45" selection-end-line="30" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/experiment/chickenjohn/materialdemo/bluetoothManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="168" column="0" selection-start-line="168" selection-start-column="0" selection-end-line="168" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#2060#2061#0" expanded="false" />
+            <element signature="e#2102#2103#0" expanded="false" />
+            <element signature="e#8172#8173#0" expanded="false" />
+            <element signature="e#8208#8209#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/experiment/chickenjohn/materialdemo/EcgData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="30" column="16" selection-start-line="30" selection-start-column="16" selection-end-line="30" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/experiment/chickenjohn/materialdemo/DrawSurfaceView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="205" column="30" selection-start-line="205" selection-start-column="30" selection-end-line="205" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="docComment;class#DrawSurfaceView#0" expanded="false" />
+            <element signature="e#2681#2682#0" expanded="false" />
+            <element signature="e#2733#2734#0" expanded="false" />
+            <element signature="method#setSurfaceViewPort#0;class#DrawSurfaceView#0" expanded="false" />
+            <element signature="method#setSurfaceViewLand#0;class#DrawSurfaceView#0" expanded="false" />
+            <element signature="class#6217:6747" expanded="false" />
+            <element signature="method#drawRulerThreadStarter#0;class#DrawSurfaceView#0" expanded="false" />
+            <element signature="e#8020#8021#0" expanded="false" />
+            <element signature="e#8078#8079#0" expanded="false" />
+            <element signature="class#DrawThread#0;class#DrawSurfaceView#0" expanded="false" />
+            <element signature="e#13405#13406#0" expanded="false" />
+            <element signature="e#13426#13427#0" expanded="false" />
+            <element signature="method#resetCanvas#0;class#DrawSurfaceView#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/experiment/chickenjohn/materialdemo/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2303,7 +2398,6 @@
             <element signature="docComment;class#MainActivity#0" expanded="false" />
             <element signature="method#onCreate#0;class#MainActivity#0" expanded="false" />
             <element signature="method#portLoading#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#landLoading#0;class#MainActivity#0" expanded="false" />
             <element signature="method#onConfigurationChanged#0;class#MainActivity#0" expanded="false" />
             <element signature="method#onResume#0;class#MainActivity#0" expanded="false" />
             <element signature="method#onDestroy#0;class#MainActivity#0" expanded="false" />
@@ -2321,7 +2415,11 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="class#connectThread#0;class#bluetoothManager#0" expanded="false" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#2060#2061#0" expanded="false" />
+            <element signature="e#2102#2103#0" expanded="false" />
+            <element signature="e#8172#8173#0" expanded="false" />
+            <element signature="e#8208#8209#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2330,10 +2428,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="53" column="5" selection-start-line="53" selection-start-column="5" selection-end-line="53" selection-end-column="5" />
-          <folding>
-            <element signature="e#1618#1619#0" expanded="true" />
-            <element signature="e#1655#1656#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2342,16 +2437,19 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="76" column="13" selection-start-line="76" selection-start-column="13" selection-end-line="76" selection-end-column="13" />
           <folding>
+            <element signature="imports" expanded="false" />
             <element signature="docComment;class#DrawSurfaceView#0" expanded="false" />
-            <element signature="e#2611#2744#0" expanded="true" />
-            <element signature="e#2743#2744#0" expanded="true" />
+            <element signature="e#2681#2682#0" expanded="false" />
+            <element signature="e#2733#2734#0" expanded="false" />
             <element signature="method#setSurfaceViewPort#0;class#DrawSurfaceView#0" expanded="false" />
             <element signature="method#setSurfaceViewLand#0;class#DrawSurfaceView#0" expanded="false" />
             <element signature="class#6217:6747" expanded="false" />
             <element signature="method#drawRulerThreadStarter#0;class#DrawSurfaceView#0" expanded="false" />
-            <element signature="class#DrawRulerThread#0;class#DrawSurfaceView#0" expanded="false" />
+            <element signature="e#8020#8021#0" expanded="false" />
+            <element signature="e#8078#8079#0" expanded="false" />
             <element signature="class#DrawThread#0;class#DrawSurfaceView#0" expanded="false" />
-            <element signature="method#run#0;class#DrawThread#0;class#DrawSurfaceView#0" expanded="false" />
+            <element signature="e#13405#13406#0" expanded="false" />
+            <element signature="e#13426#13427#0" expanded="false" />
             <element signature="method#resetCanvas#0;class#DrawSurfaceView#0" expanded="false" />
           </folding>
         </state>
@@ -2365,7 +2463,6 @@
             <element signature="docComment;class#MainActivity#0" expanded="false" />
             <element signature="method#onCreate#0;class#MainActivity#0" expanded="false" />
             <element signature="method#portLoading#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#landLoading#0;class#MainActivity#0" expanded="false" />
             <element signature="method#onConfigurationChanged#0;class#MainActivity#0" expanded="false" />
             <element signature="method#onResume#0;class#MainActivity#0" expanded="false" />
             <element signature="method#onDestroy#0;class#MainActivity#0" expanded="false" />
@@ -2382,10 +2479,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="55" column="17" selection-start-line="55" selection-start-column="17" selection-end-line="55" selection-end-column="17" />
-          <folding>
-            <element signature="e#1618#1619#0" expanded="true" />
-            <element signature="e#1655#1656#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2402,16 +2496,19 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="259" column="99" selection-start-line="259" selection-start-column="99" selection-end-line="259" selection-end-column="99" />
           <folding>
+            <element signature="imports" expanded="false" />
             <element signature="docComment;class#DrawSurfaceView#0" expanded="false" />
-            <element signature="e#2611#2744#0" expanded="true" />
-            <element signature="e#2743#2744#0" expanded="true" />
+            <element signature="e#2681#2682#0" expanded="false" />
+            <element signature="e#2733#2734#0" expanded="false" />
             <element signature="method#setSurfaceViewPort#0;class#DrawSurfaceView#0" expanded="false" />
             <element signature="method#setSurfaceViewLand#0;class#DrawSurfaceView#0" expanded="false" />
             <element signature="class#6217:6747" expanded="false" />
             <element signature="method#drawRulerThreadStarter#0;class#DrawSurfaceView#0" expanded="false" />
-            <element signature="class#DrawRulerThread#0;class#DrawSurfaceView#0" expanded="false" />
+            <element signature="e#8020#8021#0" expanded="false" />
+            <element signature="e#8078#8079#0" expanded="false" />
             <element signature="class#DrawThread#0;class#DrawSurfaceView#0" expanded="false" />
-            <element signature="method#run#0;class#DrawThread#0;class#DrawSurfaceView#0" expanded="false" />
+            <element signature="e#13405#13406#0" expanded="false" />
+            <element signature="e#13426#13427#0" expanded="false" />
             <element signature="method#resetCanvas#0;class#DrawSurfaceView#0" expanded="false" />
           </folding>
         </state>
@@ -2432,7 +2529,6 @@
             <element signature="docComment;class#MainActivity#0" expanded="false" />
             <element signature="method#onCreate#0;class#MainActivity#0" expanded="false" />
             <element signature="method#portLoading#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#landLoading#0;class#MainActivity#0" expanded="false" />
             <element signature="method#onConfigurationChanged#0;class#MainActivity#0" expanded="false" />
             <element signature="method#onResume#0;class#MainActivity#0" expanded="false" />
             <element signature="method#onDestroy#0;class#MainActivity#0" expanded="false" />
@@ -2450,16 +2546,19 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
+            <element signature="imports" expanded="false" />
             <element signature="docComment;class#DrawSurfaceView#0" expanded="false" />
-            <element signature="e#2611#2744#0" expanded="true" />
-            <element signature="e#2743#2744#0" expanded="true" />
+            <element signature="e#2681#2682#0" expanded="false" />
+            <element signature="e#2733#2734#0" expanded="false" />
             <element signature="method#setSurfaceViewPort#0;class#DrawSurfaceView#0" expanded="false" />
             <element signature="method#setSurfaceViewLand#0;class#DrawSurfaceView#0" expanded="false" />
             <element signature="class#6217:6747" expanded="false" />
             <element signature="method#drawRulerThreadStarter#0;class#DrawSurfaceView#0" expanded="false" />
-            <element signature="class#DrawRulerThread#0;class#DrawSurfaceView#0" expanded="false" />
+            <element signature="e#8020#8021#0" expanded="false" />
+            <element signature="e#8078#8079#0" expanded="false" />
             <element signature="class#DrawThread#0;class#DrawSurfaceView#0" expanded="false" />
-            <element signature="method#run#0;class#DrawThread#0;class#DrawSurfaceView#0" expanded="false" />
+            <element signature="e#13405#13406#0" expanded="false" />
+            <element signature="e#13426#13427#0" expanded="false" />
             <element signature="method#resetCanvas#0;class#DrawSurfaceView#0" expanded="false" />
           </folding>
         </state>
@@ -2470,7 +2569,11 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="185" column="31" selection-start-line="185" selection-start-column="31" selection-end-line="185" selection-end-column="31" />
           <folding>
-            <element signature="class#connectThread#0;class#bluetoothManager#0" expanded="false" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#2060#2061#0" expanded="false" />
+            <element signature="e#2102#2103#0" expanded="false" />
+            <element signature="e#8172#8173#0" expanded="false" />
+            <element signature="e#8208#8209#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2483,7 +2586,6 @@
             <element signature="docComment;class#MainActivity#0" expanded="false" />
             <element signature="method#onCreate#0;class#MainActivity#0" expanded="false" />
             <element signature="method#portLoading#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#landLoading#0;class#MainActivity#0" expanded="false" />
             <element signature="method#onConfigurationChanged#0;class#MainActivity#0" expanded="false" />
             <element signature="method#onResume#0;class#MainActivity#0" expanded="false" />
             <element signature="method#onDestroy#0;class#MainActivity#0" expanded="false" />
@@ -2501,16 +2603,19 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="305" column="22" selection-start-line="305" selection-start-column="22" selection-end-line="305" selection-end-column="22" />
           <folding>
+            <element signature="imports" expanded="false" />
             <element signature="docComment;class#DrawSurfaceView#0" expanded="false" />
-            <element signature="e#2611#2744#0" expanded="true" />
-            <element signature="e#2743#2744#0" expanded="true" />
+            <element signature="e#2681#2682#0" expanded="false" />
+            <element signature="e#2733#2734#0" expanded="false" />
             <element signature="method#setSurfaceViewPort#0;class#DrawSurfaceView#0" expanded="false" />
             <element signature="method#setSurfaceViewLand#0;class#DrawSurfaceView#0" expanded="false" />
             <element signature="class#6217:6747" expanded="false" />
             <element signature="method#drawRulerThreadStarter#0;class#DrawSurfaceView#0" expanded="false" />
-            <element signature="class#DrawRulerThread#0;class#DrawSurfaceView#0" expanded="false" />
+            <element signature="e#8020#8021#0" expanded="false" />
+            <element signature="e#8078#8079#0" expanded="false" />
             <element signature="class#DrawThread#0;class#DrawSurfaceView#0" expanded="false" />
-            <element signature="method#run#0;class#DrawThread#0;class#DrawSurfaceView#0" expanded="false" />
+            <element signature="e#13405#13406#0" expanded="false" />
+            <element signature="e#13426#13427#0" expanded="false" />
             <element signature="method#resetCanvas#0;class#DrawSurfaceView#0" expanded="false" />
           </folding>
         </state>
@@ -2532,7 +2637,11 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="class#connectThread#0;class#bluetoothManager#0" expanded="false" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#2060#2061#0" expanded="false" />
+            <element signature="e#2102#2103#0" expanded="false" />
+            <element signature="e#8172#8173#0" expanded="false" />
+            <element signature="e#8208#8209#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2545,7 +2654,6 @@
             <element signature="docComment;class#MainActivity#0" expanded="false" />
             <element signature="method#onCreate#0;class#MainActivity#0" expanded="false" />
             <element signature="method#portLoading#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#landLoading#0;class#MainActivity#0" expanded="false" />
             <element signature="method#onConfigurationChanged#0;class#MainActivity#0" expanded="false" />
             <element signature="method#onResume#0;class#MainActivity#0" expanded="false" />
             <element signature="method#onDestroy#0;class#MainActivity#0" expanded="false" />
@@ -2563,16 +2671,19 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="155" column="71" selection-start-line="155" selection-start-column="71" selection-end-line="155" selection-end-column="71" />
           <folding>
+            <element signature="imports" expanded="false" />
             <element signature="docComment;class#DrawSurfaceView#0" expanded="false" />
-            <element signature="e#2611#2744#0" expanded="true" />
-            <element signature="e#2743#2744#0" expanded="true" />
+            <element signature="e#2681#2682#0" expanded="false" />
+            <element signature="e#2733#2734#0" expanded="false" />
             <element signature="method#setSurfaceViewPort#0;class#DrawSurfaceView#0" expanded="false" />
             <element signature="method#setSurfaceViewLand#0;class#DrawSurfaceView#0" expanded="false" />
             <element signature="class#6217:6747" expanded="false" />
             <element signature="method#drawRulerThreadStarter#0;class#DrawSurfaceView#0" expanded="false" />
-            <element signature="class#DrawRulerThread#0;class#DrawSurfaceView#0" expanded="false" />
+            <element signature="e#8020#8021#0" expanded="false" />
+            <element signature="e#8078#8079#0" expanded="false" />
             <element signature="class#DrawThread#0;class#DrawSurfaceView#0" expanded="false" />
-            <element signature="method#run#0;class#DrawThread#0;class#DrawSurfaceView#0" expanded="false" />
+            <element signature="e#13405#13406#0" expanded="false" />
+            <element signature="e#13426#13427#0" expanded="false" />
             <element signature="method#resetCanvas#0;class#DrawSurfaceView#0" expanded="false" />
           </folding>
         </state>
@@ -2605,7 +2716,11 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="171" column="34" selection-start-line="171" selection-start-column="34" selection-end-line="171" selection-end-column="34" />
           <folding>
-            <element signature="class#connectThread#0;class#bluetoothManager#0" expanded="false" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#2060#2061#0" expanded="false" />
+            <element signature="e#2102#2103#0" expanded="false" />
+            <element signature="e#8172#8173#0" expanded="false" />
+            <element signature="e#8208#8209#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2618,7 +2733,6 @@
             <element signature="docComment;class#MainActivity#0" expanded="false" />
             <element signature="method#onCreate#0;class#MainActivity#0" expanded="false" />
             <element signature="method#portLoading#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#landLoading#0;class#MainActivity#0" expanded="false" />
             <element signature="method#onConfigurationChanged#0;class#MainActivity#0" expanded="false" />
             <element signature="method#onResume#0;class#MainActivity#0" expanded="false" />
             <element signature="method#onDestroy#0;class#MainActivity#0" expanded="false" />
@@ -2636,16 +2750,19 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
+            <element signature="imports" expanded="false" />
             <element signature="docComment;class#DrawSurfaceView#0" expanded="false" />
-            <element signature="e#2611#2744#0" expanded="true" />
-            <element signature="e#2743#2744#0" expanded="true" />
+            <element signature="e#2681#2682#0" expanded="false" />
+            <element signature="e#2733#2734#0" expanded="false" />
             <element signature="method#setSurfaceViewPort#0;class#DrawSurfaceView#0" expanded="false" />
             <element signature="method#setSurfaceViewLand#0;class#DrawSurfaceView#0" expanded="false" />
             <element signature="class#6217:6747" expanded="false" />
             <element signature="method#drawRulerThreadStarter#0;class#DrawSurfaceView#0" expanded="false" />
-            <element signature="class#DrawRulerThread#0;class#DrawSurfaceView#0" expanded="false" />
+            <element signature="e#8020#8021#0" expanded="false" />
+            <element signature="e#8078#8079#0" expanded="false" />
             <element signature="class#DrawThread#0;class#DrawSurfaceView#0" expanded="false" />
-            <element signature="method#run#0;class#DrawThread#0;class#DrawSurfaceView#0" expanded="false" />
+            <element signature="e#13405#13406#0" expanded="false" />
+            <element signature="e#13426#13427#0" expanded="false" />
             <element signature="method#resetCanvas#0;class#DrawSurfaceView#0" expanded="false" />
           </folding>
         </state>
@@ -2674,33 +2791,33 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/experiment/chickenjohn/materialdemo/LICENSE.md">
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/experiment/chickenjohn/materialdemo/README.md">
       <provider editor-type-id="MarkdownPreviewEditor">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/experiment/chickenjohn/materialdemo/README.md">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.27376425">
           <caret line="8" column="33" selection-start-line="8" selection-start-column="33" selection-end-line="8" selection-end-column="33" />
         </state>
       </provider>
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
-      </provider>
-      <provider selected="true" editor-type-id="MarkdownPreviewEditor">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/experiment/chickenjohn/materialdemo/EcgDatabaseManager.java">
@@ -2736,7 +2853,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3146853">
           <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2778,17 +2894,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/content_main.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9284294">
-          <caret line="91" column="42" selection-start-line="91" selection-start-column="42" selection-end-line="91" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/experiment/chickenjohn/materialdemo/EcgDataAnalyzer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.38489208">
@@ -2817,34 +2922,56 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable-v21/tag.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/experiment/chickenjohn/materialdemo/DrawSurfaceView.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="205" column="30" selection-start-line="205" selection-start-column="30" selection-end-line="205" selection-end-column="30" />
+          <caret line="202" column="14" selection-start-line="202" selection-start-column="14" selection-end-line="202" selection-end-column="14" />
           <folding>
+            <element signature="imports" expanded="false" />
             <element signature="docComment;class#DrawSurfaceView#0" expanded="false" />
-            <element signature="e#2611#2744#0" expanded="true" />
-            <element signature="e#2743#2744#0" expanded="true" />
+            <element signature="e#2681#2682#0" expanded="false" />
+            <element signature="e#2733#2734#0" expanded="false" />
             <element signature="method#setSurfaceViewPort#0;class#DrawSurfaceView#0" expanded="false" />
             <element signature="method#setSurfaceViewLand#0;class#DrawSurfaceView#0" expanded="false" />
             <element signature="class#6217:6747" expanded="false" />
             <element signature="method#drawRulerThreadStarter#0;class#DrawSurfaceView#0" expanded="false" />
-            <element signature="class#DrawRulerThread#0;class#DrawSurfaceView#0" expanded="false" />
+            <element signature="e#8020#8021#0" expanded="false" />
+            <element signature="e#8078#8079#0" expanded="false" />
             <element signature="class#DrawThread#0;class#DrawSurfaceView#0" expanded="false" />
-            <element signature="method#run#0;class#DrawThread#0;class#DrawSurfaceView#0" expanded="false" />
+            <element signature="e#13405#13406#0" expanded="false" />
+            <element signature="e#13426#13427#0" expanded="false" />
             <element signature="method#resetCanvas#0;class#DrawSurfaceView#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/experiment/chickenjohn/materialdemo/EcgData.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/experiment/chickenjohn/materialdemo/bluetoothManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="30" column="16" selection-start-line="30" selection-start-column="16" selection-end-line="30" selection-end-column="16" />
+          <caret line="157" column="42" selection-start-line="157" selection-start-column="42" selection-end-line="157" selection-end-column="42" />
           <folding>
-            <element signature="e#1618#1619#0" expanded="true" />
-            <element signature="e#1655#1656#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#2060#2061#0" expanded="false" />
+            <element signature="e#2102#2103#0" expanded="false" />
+            <element signature="e#8172#8173#0" expanded="false" />
+            <element signature="e#8208#8209#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/content_main.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.8301888">
+          <caret line="93" column="23" selection-start-line="93" selection-start-column="23" selection-end-line="93" selection-end-column="23" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2853,31 +2980,28 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.3207548">
-          <caret line="30" column="45" selection-start-line="30" selection-start-column="45" selection-end-line="30" selection-end-column="45" />
+        <state vertical-scroll-proportion="-4.3962264">
+          <caret line="51" column="39" selection-start-line="51" selection-start-column="39" selection-end-line="51" selection-end-column="39" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/experiment/chickenjohn/materialdemo/bluetoothManager.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/experiment/chickenjohn/materialdemo/EcgData.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="168" column="0" selection-start-line="168" selection-start-column="0" selection-end-line="168" selection-end-column="0" />
-          <folding>
-            <element signature="class#connectThread#0;class#bluetoothManager#0" expanded="false" />
-          </folding>
+          <caret line="30" column="16" selection-start-line="30" selection-start-column="16" selection-end-line="30" selection-end-column="16" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/experiment/chickenjohn/materialdemo/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7089947">
-          <caret line="295" column="1" selection-start-line="295" selection-start-column="1" selection-end-line="295" selection-end-column="1" />
+        <state vertical-scroll-proportion="0.44964027">
+          <caret line="288" column="23" selection-start-line="288" selection-start-column="23" selection-end-line="288" selection-end-column="23" />
           <folding>
             <element signature="docComment;class#MainActivity#0" expanded="false" />
             <element signature="method#onCreate#0;class#MainActivity#0" expanded="false" />
             <element signature="method#portLoading#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#landLoading#0;class#MainActivity#0" expanded="false" />
             <element signature="method#onConfigurationChanged#0;class#MainActivity#0" expanded="false" />
             <element signature="method#onResume#0;class#MainActivity#0" expanded="false" />
             <element signature="method#onDestroy#0;class#MainActivity#0" expanded="false" />

@@ -151,6 +151,7 @@ public class MainActivity extends AppCompatActivity
 
         beatRateText = (TextView) findViewById(R.id.land_beat_rate_text);
         PiValue = (TextView) findViewById(R.id.land_rr_text);
+        spo2Value = (TextView) findViewById(R.id.land_spo2_text);
         PORTORLAND = LAND;
     }
 
@@ -273,10 +274,10 @@ public class MainActivity extends AppCompatActivity
                     beatRateText.setText("心率：" + Integer.toString(refreshedData));
                     break;
                 case 1:
-                    PiValue.setText("PI值：" + Integer.toString(refreshedData));
+                    PiValue.setText("PI值：" + Integer.toString(refreshedData) + "%");
                     break;
                 case 2:
-                    spo2Value.setText("SPO2：" + Integer.toString(refreshedData));
+                    spo2Value.setText("SPO2：" + Integer.toString(refreshedData) + "%");
                 default:
                     break;
             }
@@ -286,8 +287,10 @@ public class MainActivity extends AppCompatActivity
                     beatRateText.setText(Integer.toString(refreshedData) + "/");
                     break;
                 case 1:
-                    PiValue.setText(Integer.toString(refreshedData));
+                    PiValue.setText(Integer.toString(refreshedData) + "/");
                     break;
+                case 2:
+                    spo2Value.setText(Integer.toString(refreshedData));
                 default:
                     break;
             }

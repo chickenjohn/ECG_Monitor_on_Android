@@ -192,10 +192,10 @@ public class DrawSurfaceView {
         if (shouldRefresh) {
             switch (PORTORLAND) {
                 case PORT:
-                    y = (int) (portHeight - ((float) drawY) / 560.0 * portHeight);
+                    y = (int) ((portHeight / 2) - (((float) drawY) / 280.0 * (portHeight / 2)));
                     break;
                 case LAND:
-                    y = (int) (landHeight - ((float) drawY) / 560.0 * landHeight);
+                    y = (int) ((landHeight / 2) - (((float) drawY) / 260.0 * (landHeight / 2)));
                     break;
                 default:
                     break;
@@ -226,7 +226,7 @@ public class DrawSurfaceView {
 
         public void run() {
             Canvas canvas = null;
-            Bitmap bitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.tag);
+            //Bitmap bitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.tag);
             Paint pen = new Paint();
             pen.setColor(Color.GRAY);
             pen.setStrokeWidth(2);
@@ -251,10 +251,10 @@ public class DrawSurfaceView {
                         canvas = surfaceHolder.lockCanvas();
                         canvas.drawColor(Color.TRANSPARENT, PorterDuff.Mode.CLEAR);
                         canvas.drawLine(rulerStartX, rulerStartY, rulerX, rulerY, pen);
-                        canvas.drawBitmap(bitmap, null, new Rect(rulerStartX - 20, rulerStartY - 40,
-                                rulerStartX + 20, rulerStartY), pen);
-                        canvas.drawBitmap(bitmap, null, new Rect(rulerX - 20, rulerY - 40,
-                                rulerX + 20, rulerY), pen);
+                        //canvas.drawBitmap(bitmap, null, new Rect(rulerStartX - 20, rulerStartY - 40,
+                          //      rulerStartX + 20, rulerStartY), pen);
+                        //canvas.drawBitmap(bitmap, null, new Rect(rulerX - 20, rulerY - 40,
+                          //      rulerX + 20, rulerY), pen);
                         canvas.drawLine(rulerStartX, rulerStartY, rulerX, rulerStartY, dotPen);
                         canvas.drawLine(rulerX, rulerStartY, rulerX, rulerY, dotPen);
                         double deltaTime = Math.abs(rulerStartX - rulerX) * EcgData.getRECORDRATE();
