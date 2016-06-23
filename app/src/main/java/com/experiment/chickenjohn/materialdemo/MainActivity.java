@@ -1,6 +1,6 @@
 package com.experiment.chickenjohn.materialdemo;
 
-import android.content.DialogInterface;
+
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.Message;
@@ -55,26 +55,33 @@ import java.util.StringTokenizer;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+    //initializing portrait and landscape flag
     private final int PORT = 0;
     private final int LAND = 1;
     private int PORTORLAND = 0;
 
+    /* this handler receives the messages from
+     * other modules(other java files), including
+     * orientation changing message, bluetooth
+     * connection break message and data incoming
+     * message.
+     */
     public android.os.Handler uiRefreshHandler = new android.os.Handler() {
         @Override
         public void handleMessage(Message msg) {
             switch (msg.what) {
-                case 0:
+                case 0: //orientation changing
                     if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
-                        naviHeaderSet(btManager.isConnected(), 0);
+                        naviHeaderSet(btManager.isConnected());
                     }
                     break;
-                case 1:
+                case 1://bluetooth connection break
                     if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
-                        naviHeaderSet(btManager.isConnected(), 0);
+                        naviHeaderSet(btManager.isConnected());
                     }
                     btManager.enableBluetooth();
                     break;
-                case 2:
+                case 2://receiving the data and draw it.
                     if (PORTORLAND == PORT) {
                         drawSurfaceView.drawPoint(msg.arg2, msg.arg1);
                     } else if (PORTORLAND == LAND) {
@@ -82,13 +89,13 @@ public class MainActivity extends AppCompatActivity
                     }
                     ecgDatabaseManager.addRecord(new EcgData(msg.arg1, msg.arg2));
                     break;
-                case 3:
+                case 3://receive beat rate data.
                     refreshList(0, msg.arg1);
                     break;
-                case 4:
+                case 4://receive PI data
                     refreshList(1, msg.arg1);
                     break;
-                case 5:
+                case 5://receive SpO2 data
                     refreshList(2, msg.arg1);
                 default:
                     break;
@@ -97,6 +104,13 @@ public class MainActivity extends AppCompatActivity
         }
     };
 
+    /* main components initializing. Important classes and
+     * three textview for showing the data value are created.
+     *
+     * btManager            -> start,manage the bluetooth and receive data.
+     * ecgDatabaseManager   -> manage database(inserting data and output received data.
+     * drawSurfaceView      -> manage the surfaceview for plotting the wave.
+     */
     private bluetoothManager btManager = new bluetoothManager(uiRefreshHandler);
     private EcgDatabaseManager ecgDatabaseManager;
     private DrawSurfaceView drawSurfaceView = new DrawSurfaceView();
@@ -116,6 +130,10 @@ public class MainActivity extends AppCompatActivity
         ecgDatabaseManager = new EcgDatabaseManager(this);
     }
 
+    /* using two different methods to initialize the application.
+     * Different orientation has different components and surfaceview
+     * of different size.
+     */
     private void portLoading() {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.portToolbar);
@@ -130,6 +148,7 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        //initializing surfaceview and textview
         drawSurfaceView.setSurfaceViewPort((SurfaceView) findViewById(R.id.surfaceView), PORT);
 
         beatRateText = (TextView) findViewById(R.id.beat_rate);
@@ -155,12 +174,19 @@ public class MainActivity extends AppCompatActivity
         PORTORLAND = LAND;
     }
 
+    /* this method will be invoked automatically when
+     * the orientation has been changed. When the
+     * orientation changed, everything in the app
+     * will be destroyed so invoking portLoading or
+     * landLoading one more time.
+     */
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         int currentOrientation = this.getResources().getConfiguration().orientation;
         if (currentOrientation == Configuration.ORIENTATION_PORTRAIT) {
             portLoading();
+            //send a message to update the portrait UI
             Message uiRefreshMessage = Message.obtain();
             uiRefreshMessage.what = 0;
             uiRefreshHandler.sendMessage(uiRefreshMessage);
@@ -185,6 +211,11 @@ public class MainActivity extends AppCompatActivity
         super.onDestroy();
     }
 
+    /* This method will be invoked automatically when the
+     * back button has been pressed. The drawer will be
+     * closed. If you need to do other things just add
+     * them here.
+     */
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -217,28 +248,28 @@ public class MainActivity extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
-    @SuppressWarnings("StatementWithEmptyBody")
+    //This method defines the menu in the drawer.
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
         switch (id) {
-            case R.id.data_output:
+            case R.id.data_output://"输出数据"
                 if (ecgDatabaseManager.outputRecord()) {
                     Toast.makeText(this, "导出数据成功", Toast.LENGTH_LONG).show();
                 } else {
                     Toast.makeText(this, "没有可以导出的数据！", Toast.LENGTH_LONG).show();
                 }
                 break;
-            case R.id.data_clear:
+            case R.id.data_clear://"清除数据"
                 if (ecgDatabaseManager.clearRecord()) {
                     Toast.makeText(this, "清除数据成功", Toast.LENGTH_LONG).show();
                 } else {
                     Toast.makeText(this, "清除数据失败", Toast.LENGTH_LONG).show();
                 }
                 break;
-            case R.id.btconnection:
+            case R.id.btconnection://"连接蓝牙设备"
                 btManager.enableBluetooth();
                 break;
             default:
@@ -250,7 +281,8 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
-    public boolean naviHeaderSet(boolean isConnected, int transNumber) {
+    //This method defines the drawer header
+    public boolean naviHeaderSet(boolean isConnected) {
         TextView btAddressTextView = (TextView) this.findViewById(R.id.bt_address_textview);
         TextView connectTextView = (TextView) this.findViewById(R.id.connecttextview);
         if (btAddressTextView != null) {
@@ -267,6 +299,8 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
+    //When the showed data has been changed, invoke this method
+    //To refresh the data on the UI
     private void refreshList(int listId, int refreshedData) {
         if (PORTORLAND == PORT) {
             switch (listId) {

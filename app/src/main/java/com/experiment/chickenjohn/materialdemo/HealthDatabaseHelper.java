@@ -31,13 +31,25 @@ import android.database.sqlite.SQLiteOpenHelper;
  * handling to the database.
  **/
 
+
+/* This class is used to define,
+ * initialize, and upgrade the
+ * database of the data. When using
+ * EcgDatabaseManager, this class is
+ * employed to create or open a
+ * database.
+ */
 public class HealthDatabaseHelper extends SQLiteOpenHelper {
+    //set database name
     private static final String DATABASE_NAME = "ECG.db";
 
     public HealthDatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, 1);
     }
 
+    //the db.execSQL method can execute a SQLite
+    //command. Create the database using this
+    //method.
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE IF NOT EXISTS ecg" + "(_id INTEGER PRIMARY KEY " +
@@ -46,11 +58,15 @@ public class HealthDatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("DELETE FROM ecg");
     }
 
+    //when the database is opened, this
+    //method will be called.
     @Override
     public void onOpen(SQLiteDatabase db) {
         super.onOpen(db);
     }
 
+    //when the version of database is
+    //changed, this method will be called.
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 

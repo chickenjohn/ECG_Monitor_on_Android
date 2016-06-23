@@ -29,17 +29,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b2dfffc8-2da3-4586-85c3-16fbb9715177" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/junit_4_12.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/support_annotations_23_1_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/appcompat_v7_23_1_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/cardview_v7_23_1_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/support_v4_23_1_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/recyclerview_v7_23_1_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/hamcrest_core_1_3.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/design_23_1_1.xml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/cache.properties.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileHashes.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileSnapshots.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/outputFileStates.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/outputFileStates.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/taskArtifacts.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/generated/mockable-android-23.jar" afterPath="$PROJECT_DIR$/build/generated/mockable-android-23.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.gradle" afterPath="$PROJECT_DIR$/build.gradle" />
     </list>
     <ignored path="ECG_Monitor_on_Android.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -60,100 +58,43 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/experiment/chickenjohn/materialdemo/MainActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.44964027">
-              <caret line="288" column="23" selection-start-line="288" selection-start-column="23" selection-end-line="288" selection-end-column="23" />
-              <folding>
-                <element signature="docComment;class#MainActivity#0" expanded="false" />
-                <element signature="method#onCreate#0;class#MainActivity#0" expanded="false" />
-                <element signature="method#portLoading#0;class#MainActivity#0" expanded="false" />
-                <element signature="method#onConfigurationChanged#0;class#MainActivity#0" expanded="false" />
-                <element signature="method#onResume#0;class#MainActivity#0" expanded="false" />
-                <element signature="method#onDestroy#0;class#MainActivity#0" expanded="false" />
-                <element signature="method#onBackPressed#0;class#MainActivity#0" expanded="false" />
-                <element signature="method#onCreateOptionsMenu#0;class#MainActivity#0" expanded="false" />
-                <element signature="method#onOptionsItemSelected#0;class#MainActivity#0" expanded="false" />
-                <element signature="method#onNavigationItemSelected#0;class#MainActivity#0" expanded="false" />
-                <element signature="method#naviHeaderSet#0;class#MainActivity#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="content_main.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/content_main.xml">
-          <provider editor-type-id="android-designer">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.8301888">
-              <caret line="93" column="23" selection-start-line="93" selection-start-column="23" selection-end-line="93" selection-end-column="23" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="activity_main_land.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main_land.xml">
-          <provider editor-type-id="android-designer">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.3962264">
-              <caret line="51" column="39" selection-start-line="51" selection-start-column="39" selection-end-line="51" selection-end-column="39" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="bluetoothManager.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/experiment/chickenjohn/materialdemo/bluetoothManager.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="157" column="42" selection-start-line="157" selection-start-column="42" selection-end-line="157" selection-end-column="42" />
-              <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#2060#2061#0" expanded="false" />
-                <element signature="e#2102#2103#0" expanded="false" />
-                <element signature="e#8172#8173#0" expanded="false" />
-                <element signature="e#8208#8209#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EcgData.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/experiment/chickenjohn/materialdemo/EcgData.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="30" column="16" selection-start-line="30" selection-start-column="16" selection-end-line="30" selection-end-column="16" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="DrawSurfaceView.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/experiment/chickenjohn/materialdemo/DrawSurfaceView.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="202" column="14" selection-start-line="202" selection-start-column="14" selection-end-line="202" selection-end-column="14" />
+              <caret line="397" column="29" selection-start-line="397" selection-start-column="29" selection-end-line="397" selection-end-column="29" />
               <folding>
-                <element signature="imports" expanded="false" />
                 <element signature="docComment;class#DrawSurfaceView#0" expanded="false" />
-                <element signature="e#2681#2682#0" expanded="false" />
-                <element signature="e#2733#2734#0" expanded="false" />
+                <element signature="method#DrawSurfaceView#0;class#DrawSurfaceView#0" expanded="false" />
+                <element signature="e#3173#3306#0" expanded="true" />
+                <element signature="e#3305#3306#0" expanded="true" />
                 <element signature="method#setSurfaceViewPort#0;class#DrawSurfaceView#0" expanded="false" />
                 <element signature="method#setSurfaceViewLand#0;class#DrawSurfaceView#0" expanded="false" />
-                <element signature="class#6217:6747" expanded="false" />
+                <element signature="method#drawPoint#0;class#DrawSurfaceView#0" expanded="false" />
                 <element signature="method#drawRulerThreadStarter#0;class#DrawSurfaceView#0" expanded="false" />
-                <element signature="e#8020#8021#0" expanded="false" />
-                <element signature="e#8078#8079#0" expanded="false" />
+                <element signature="class#DrawRulerThread#0;class#DrawSurfaceView#0" expanded="false" />
+                <element signature="e#10053#10054#0" expanded="true" />
+                <element signature="e#10111#10112#0" expanded="true" />
                 <element signature="class#DrawThread#0;class#DrawSurfaceView#0" expanded="false" />
-                <element signature="e#13405#13406#0" expanded="false" />
-                <element signature="e#13426#13427#0" expanded="false" />
                 <element signature="method#resetCanvas#0;class#DrawSurfaceView#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EcgDatabaseManager.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/experiment/chickenjohn/materialdemo/EcgDatabaseManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="1.1977186">
+              <caret line="137" column="0" selection-start-line="137" selection-start-column="0" selection-end-line="137" selection-end-column="0" />
+              <folding>
+                <element signature="docComment;class#EcgDatabaseManager#0" expanded="false" />
+                <element signature="method#EcgDatabaseManager#0;class#EcgDatabaseManager#0" expanded="false" />
+                <element signature="method#addRecord#0;class#EcgDatabaseManager#0" expanded="false" />
+                <element signature="method#outputRecord#0;class#EcgDatabaseManager#0" expanded="false" />
+                <element signature="method#clearRecord#0;class#EcgDatabaseManager#0" expanded="false" />
+                <element signature="class#dataInsertingThread#0;class#EcgDatabaseManager#0" expanded="false" />
+                <element signature="class#DataOutputThread#0;class#EcgDatabaseManager#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -1495,7 +1436,7 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="4385768663646" />
+        <entry key="$PROJECT_DIR$" value="4389897851791" />
       </map>
     </option>
     <option name="projectBuildClasspath">
@@ -1510,76 +1451,73 @@
                       <ExternalModuleBuildClasspathPojo>
                         <option name="entries">
                           <list>
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/gradle/2.1.0/gradle-2.1.0.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/gradle-core/2.1.0/gradle-core-2.1.0.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/gradle/2.1.2/gradle-2.1.2.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/gradle-core/2.1.2/gradle-core-2.1.2.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/jacoco/org.jacoco.core/0.7.4.201502262128/org.jacoco.core-0.7.4.201502262128-sources.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/jacoco/org.jacoco.core/0.7.4.201502262128/org.jacoco.core-0.7.4.201502262128.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/builder/2.1.2/builder-2.1.2.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/transform-api/2.0.0-deprecated-use-gradle-api/transform-api-2.0.0-deprecated-use-gradle-api.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/ow2/asm/asm-commons/5.0.3/asm-commons-5.0.3-sources.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/ow2/asm/asm-commons/5.0.3/asm-commons-5.0.3.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/gradle-api/2.1.0/gradle-api-2.1.0.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/lint/lint/25.1.0/lint-25.1.0.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/databinding/compilerCommon/2.1.0/compilerCommon-2.1.0.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/ow2/asm/asm/5.0.3/asm-5.0.3-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/ow2/asm/asm/5.0.3/asm-5.0.3.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/gradle-api/2.1.2/gradle-api-2.1.2.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/net/sf/proguard/proguard-gradle/5.2.1/proguard-gradle-5.2.1-sources.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/net/sf/proguard/proguard-gradle/5.2.1/proguard-gradle-5.2.1.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/transform-api/2.0.0-deprecated-use-gradle-api/transform-api-2.0.0-deprecated-use-gradle-api.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/builder/2.1.0/builder-2.1.0.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/ow2/asm/asm/5.0.3/asm-5.0.3-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/ow2/asm/asm/5.0.3/asm-5.0.3.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/lint/lint/25.1.2/lint-25.1.2.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/databinding/compilerCommon/2.1.2/compilerCommon-2.1.2.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/ow2/asm/asm-debug-all/5.0.1/asm-debug-all-5.0.1-sources.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/ow2/asm/asm-debug-all/5.0.1/asm-debug-all-5.0.1.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/common/25.1.2/common-25.1.2.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/jack/jack-api/0.10.0/jack-api-0.10.0.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/bouncycastle/bcprov-jdk15on/1.48/bcprov-jdk15on-1.48-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/bouncycastle/bcprov-jdk15on/1.48/bcprov-jdk15on-1.48.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/sdk-common/25.1.2/sdk-common-25.1.2.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/ow2/asm/asm-tree/5.0.3/asm-tree-5.0.3-sources.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/ow2/asm/asm-tree/5.0.3/asm-tree-5.0.3.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/squareup/javawriter/2.5.0/javawriter-2.5.0-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/squareup/javawriter/2.5.0/javawriter-2.5.0.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/manifest-merger/25.1.2/manifest-merger-25.1.2.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/builder-test-api/2.1.2/builder-test-api-2.1.2.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/builder-model/2.1.2/builder-model-2.1.2.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/jill/jill-api/0.10.0/jill-api-0.10.0.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/ddms/ddmlib/25.1.2/ddmlib-25.1.2.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/sdklib/25.1.2/sdklib-25.1.2.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/bouncycastle/bcpkix-jdk15on/1.48/bcpkix-jdk15on-1.48-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/bouncycastle/bcpkix-jdk15on/1.48/bcpkix-jdk15on-1.48.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/google/guava/guava/17.0/guava-17.0-sources.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/google/guava/guava/17.0/guava-17.0.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/annotations/25.1.0/annotations-25.1.0.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/lint/lint-checks/25.1.0/lint-checks-25.1.0.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/annotations/25.1.2/annotations-25.1.2.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/net/sf/proguard/proguard-base/5.2.1/proguard-base-5.2.1-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/net/sf/proguard/proguard-base/5.2.1/proguard-base-5.2.1.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/lint/lint-checks/25.1.2/lint-checks-25.1.2.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/eclipse/jdt/core/compiler/ecj/4.4.2/ecj-4.4.2-sources.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/eclipse/jdt/core/compiler/ecj/4.4.2/ecj-4.4.2.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/googlecode/juniversalchardet/juniversalchardet/1.0.3/juniversalchardet-1.0.3.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/tunnelvisionlabs/antlr4/4.5/antlr4-4.5.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/commons-io/commons-io/2.4/commons-io-2.4-sources.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/commons-io/commons-io/2.4/commons-io-2.4.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/databinding/baseLibrary/2.1.0/baseLibrary-2.1.0.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/net/sf/proguard/proguard-base/5.2.1/proguard-base-5.2.1-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/net/sf/proguard/proguard-base/5.2.1/proguard-base-5.2.1.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/builder-model/2.1.0/builder-model-2.1.0.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/common/25.1.0/common-25.1.0.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/ddms/ddmlib/25.1.0/ddmlib-25.1.0.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/bouncycastle/bcprov-jdk15on/1.48/bcprov-jdk15on-1.48-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/bouncycastle/bcprov-jdk15on/1.48/bcprov-jdk15on-1.48.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/sdklib/25.1.0/sdklib-25.1.0.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/squareup/javawriter/2.5.0/javawriter-2.5.0-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/squareup/javawriter/2.5.0/javawriter-2.5.0.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/builder-test-api/2.1.0/builder-test-api-2.1.0.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/sdk-common/25.1.0/sdk-common-25.1.0.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/manifest-merger/25.1.0/manifest-merger-25.1.0.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/jack/jack-api/0.10.0/jack-api-0.10.0.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/bouncycastle/bcpkix-jdk15on/1.48/bcpkix-jdk15on-1.48-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/bouncycastle/bcpkix-jdk15on/1.48/bcpkix-jdk15on-1.48.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/jill/jill-api/0.10.0/jill-api-0.10.0.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/databinding/baseLibrary/2.1.2/baseLibrary-2.1.2.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/net/sf/kxml/kxml2/2.3.0/kxml2-2.3.0-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/net/sf/kxml/kxml2/2.3.0/kxml2-2.3.0.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/google/code/gson/gson/2.2.4/gson-2.2.4-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/google/code/gson/gson/2.2.4/gson-2.2.4.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/apache/httpcomponents/httpclient/4.1.1/httpclient-4.1.1-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/apache/httpcomponents/httpclient/4.1.1/httpclient-4.1.1.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/dvlib/25.1.2/dvlib-25.1.2.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/apache/httpcomponents/httpmime/4.1/httpmime-4.1-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/apache/httpcomponents/httpmime/4.1/httpmime-4.1.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/apache/commons/commons-compress/1.8.1/commons-compress-1.8.1-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/apache/commons/commons-compress/1.8.1/commons-compress-1.8.1.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/layoutlib/layoutlib-api/25.1.2/layoutlib-api-25.1.2.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/repository/25.1.2/repository-25.1.2.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/ow2/asm/asm-analysis/5.0.3/asm-analysis-5.0.3-sources.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/ow2/asm/asm-analysis/5.0.3/asm-analysis-5.0.3.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/lint/lint-api/25.1.0/lint-api-25.1.0.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/lint/lint-api/25.1.2/lint-api-25.1.2.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/tunnelvisionlabs/antlr4-runtime/4.5/antlr4-runtime-4.5.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/tunnelvisionlabs/antlr4-annotations/4.5/antlr4-annotations-4.5.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/antlr/antlr-runtime/3.5.2/antlr-runtime-3.5.2.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/antlr/ST4/4.0.8/ST4-4.0.8.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/net/sf/kxml/kxml2/2.3.0/kxml2-2.3.0-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/net/sf/kxml/kxml2/2.3.0/kxml2-2.3.0.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/repository/25.1.0/repository-25.1.0.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/apache/httpcomponents/httpclient/4.1.1/httpclient-4.1.1-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/apache/httpcomponents/httpclient/4.1.1/httpclient-4.1.1.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/apache/httpcomponents/httpmime/4.1/httpmime-4.1-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/apache/httpcomponents/httpmime/4.1/httpmime-4.1.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/google/code/gson/gson/2.2.4/gson-2.2.4-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/google/code/gson/gson/2.2.4/gson-2.2.4.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/apache/commons/commons-compress/1.8.1/commons-compress-1.8.1-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/apache/commons/commons-compress/1.8.1/commons-compress-1.8.1.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/dvlib/25.1.0/dvlib-25.1.0.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/layoutlib/layoutlib-api/25.1.0/layoutlib-api-25.1.0.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/external/lombok/lombok-ast/0.2.3/lombok-ast-0.2.3-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/external/lombok/lombok-ast/0.2.3/lombok-ast-0.2.3.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/abego/treelayout/org.abego.treelayout.core/1.0.1/org.abego.treelayout.core-1.0.1.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/apache/httpcomponents/httpcore/4.1/httpcore-4.1-sources.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/apache/httpcomponents/httpcore/4.1/httpcore-4.1.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1-sources.jar" />
@@ -1588,6 +1526,9 @@
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/commons-codec/commons-codec/1.4/commons-codec-1.4.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/intellij/annotations/12.0/annotations-12.0-sources.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/intellij/annotations/12.0/annotations-12.0.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/external/lombok/lombok-ast/0.2.3/lombok-ast-0.2.3-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/external/lombok/lombok-ast/0.2.3/lombok-ast-0.2.3.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/abego/treelayout/org.abego.treelayout.core/1.0.1/org.abego.treelayout.core-1.0.1.jar" />
                           </list>
                         </option>
                         <option name="path" value="$PROJECT_DIR$" />
@@ -1599,76 +1540,73 @@
                       <ExternalModuleBuildClasspathPojo>
                         <option name="entries">
                           <list>
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/gradle/2.1.0/gradle-2.1.0.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/gradle-core/2.1.0/gradle-core-2.1.0.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/gradle/2.1.2/gradle-2.1.2.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/gradle-core/2.1.2/gradle-core-2.1.2.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/jacoco/org.jacoco.core/0.7.4.201502262128/org.jacoco.core-0.7.4.201502262128-sources.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/jacoco/org.jacoco.core/0.7.4.201502262128/org.jacoco.core-0.7.4.201502262128.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/builder/2.1.2/builder-2.1.2.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/transform-api/2.0.0-deprecated-use-gradle-api/transform-api-2.0.0-deprecated-use-gradle-api.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/ow2/asm/asm-commons/5.0.3/asm-commons-5.0.3-sources.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/ow2/asm/asm-commons/5.0.3/asm-commons-5.0.3.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/gradle-api/2.1.0/gradle-api-2.1.0.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/lint/lint/25.1.0/lint-25.1.0.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/databinding/compilerCommon/2.1.0/compilerCommon-2.1.0.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/ow2/asm/asm/5.0.3/asm-5.0.3-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/ow2/asm/asm/5.0.3/asm-5.0.3.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/gradle-api/2.1.2/gradle-api-2.1.2.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/net/sf/proguard/proguard-gradle/5.2.1/proguard-gradle-5.2.1-sources.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/net/sf/proguard/proguard-gradle/5.2.1/proguard-gradle-5.2.1.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/transform-api/2.0.0-deprecated-use-gradle-api/transform-api-2.0.0-deprecated-use-gradle-api.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/builder/2.1.0/builder-2.1.0.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/ow2/asm/asm/5.0.3/asm-5.0.3-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/ow2/asm/asm/5.0.3/asm-5.0.3.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/lint/lint/25.1.2/lint-25.1.2.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/databinding/compilerCommon/2.1.2/compilerCommon-2.1.2.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/ow2/asm/asm-debug-all/5.0.1/asm-debug-all-5.0.1-sources.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/ow2/asm/asm-debug-all/5.0.1/asm-debug-all-5.0.1.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/common/25.1.2/common-25.1.2.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/jack/jack-api/0.10.0/jack-api-0.10.0.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/bouncycastle/bcprov-jdk15on/1.48/bcprov-jdk15on-1.48-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/bouncycastle/bcprov-jdk15on/1.48/bcprov-jdk15on-1.48.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/sdk-common/25.1.2/sdk-common-25.1.2.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/ow2/asm/asm-tree/5.0.3/asm-tree-5.0.3-sources.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/ow2/asm/asm-tree/5.0.3/asm-tree-5.0.3.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/squareup/javawriter/2.5.0/javawriter-2.5.0-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/squareup/javawriter/2.5.0/javawriter-2.5.0.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/manifest-merger/25.1.2/manifest-merger-25.1.2.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/builder-test-api/2.1.2/builder-test-api-2.1.2.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/builder-model/2.1.2/builder-model-2.1.2.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/jill/jill-api/0.10.0/jill-api-0.10.0.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/ddms/ddmlib/25.1.2/ddmlib-25.1.2.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/sdklib/25.1.2/sdklib-25.1.2.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/bouncycastle/bcpkix-jdk15on/1.48/bcpkix-jdk15on-1.48-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/bouncycastle/bcpkix-jdk15on/1.48/bcpkix-jdk15on-1.48.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/google/guava/guava/17.0/guava-17.0-sources.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/google/guava/guava/17.0/guava-17.0.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/annotations/25.1.0/annotations-25.1.0.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/lint/lint-checks/25.1.0/lint-checks-25.1.0.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/annotations/25.1.2/annotations-25.1.2.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/net/sf/proguard/proguard-base/5.2.1/proguard-base-5.2.1-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/net/sf/proguard/proguard-base/5.2.1/proguard-base-5.2.1.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/lint/lint-checks/25.1.2/lint-checks-25.1.2.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/eclipse/jdt/core/compiler/ecj/4.4.2/ecj-4.4.2-sources.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/eclipse/jdt/core/compiler/ecj/4.4.2/ecj-4.4.2.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/googlecode/juniversalchardet/juniversalchardet/1.0.3/juniversalchardet-1.0.3.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/tunnelvisionlabs/antlr4/4.5/antlr4-4.5.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/commons-io/commons-io/2.4/commons-io-2.4-sources.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/commons-io/commons-io/2.4/commons-io-2.4.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/databinding/baseLibrary/2.1.0/baseLibrary-2.1.0.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/net/sf/proguard/proguard-base/5.2.1/proguard-base-5.2.1-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/net/sf/proguard/proguard-base/5.2.1/proguard-base-5.2.1.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/builder-model/2.1.0/builder-model-2.1.0.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/common/25.1.0/common-25.1.0.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/ddms/ddmlib/25.1.0/ddmlib-25.1.0.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/bouncycastle/bcprov-jdk15on/1.48/bcprov-jdk15on-1.48-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/bouncycastle/bcprov-jdk15on/1.48/bcprov-jdk15on-1.48.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/sdklib/25.1.0/sdklib-25.1.0.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/squareup/javawriter/2.5.0/javawriter-2.5.0-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/squareup/javawriter/2.5.0/javawriter-2.5.0.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/builder-test-api/2.1.0/builder-test-api-2.1.0.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/sdk-common/25.1.0/sdk-common-25.1.0.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/manifest-merger/25.1.0/manifest-merger-25.1.0.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/jack/jack-api/0.10.0/jack-api-0.10.0.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/bouncycastle/bcpkix-jdk15on/1.48/bcpkix-jdk15on-1.48-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/bouncycastle/bcpkix-jdk15on/1.48/bcpkix-jdk15on-1.48.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/jill/jill-api/0.10.0/jill-api-0.10.0.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/databinding/baseLibrary/2.1.2/baseLibrary-2.1.2.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/net/sf/kxml/kxml2/2.3.0/kxml2-2.3.0-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/net/sf/kxml/kxml2/2.3.0/kxml2-2.3.0.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/google/code/gson/gson/2.2.4/gson-2.2.4-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/google/code/gson/gson/2.2.4/gson-2.2.4.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/apache/httpcomponents/httpclient/4.1.1/httpclient-4.1.1-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/apache/httpcomponents/httpclient/4.1.1/httpclient-4.1.1.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/dvlib/25.1.2/dvlib-25.1.2.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/apache/httpcomponents/httpmime/4.1/httpmime-4.1-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/apache/httpcomponents/httpmime/4.1/httpmime-4.1.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/apache/commons/commons-compress/1.8.1/commons-compress-1.8.1-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/apache/commons/commons-compress/1.8.1/commons-compress-1.8.1.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/layoutlib/layoutlib-api/25.1.2/layoutlib-api-25.1.2.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/repository/25.1.2/repository-25.1.2.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/ow2/asm/asm-analysis/5.0.3/asm-analysis-5.0.3-sources.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/ow2/asm/asm-analysis/5.0.3/asm-analysis-5.0.3.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/lint/lint-api/25.1.0/lint-api-25.1.0.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/lint/lint-api/25.1.2/lint-api-25.1.2.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/tunnelvisionlabs/antlr4-runtime/4.5/antlr4-runtime-4.5.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/tunnelvisionlabs/antlr4-annotations/4.5/antlr4-annotations-4.5.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/antlr/antlr-runtime/3.5.2/antlr-runtime-3.5.2.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/antlr/ST4/4.0.8/ST4-4.0.8.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/net/sf/kxml/kxml2/2.3.0/kxml2-2.3.0-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/net/sf/kxml/kxml2/2.3.0/kxml2-2.3.0.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/repository/25.1.0/repository-25.1.0.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/apache/httpcomponents/httpclient/4.1.1/httpclient-4.1.1-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/apache/httpcomponents/httpclient/4.1.1/httpclient-4.1.1.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/apache/httpcomponents/httpmime/4.1/httpmime-4.1-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/apache/httpcomponents/httpmime/4.1/httpmime-4.1.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/google/code/gson/gson/2.2.4/gson-2.2.4-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/google/code/gson/gson/2.2.4/gson-2.2.4.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/apache/commons/commons-compress/1.8.1/commons-compress-1.8.1-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/apache/commons/commons-compress/1.8.1/commons-compress-1.8.1.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/dvlib/25.1.0/dvlib-25.1.0.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/layoutlib/layoutlib-api/25.1.0/layoutlib-api-25.1.0.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/external/lombok/lombok-ast/0.2.3/lombok-ast-0.2.3-sources.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/external/lombok/lombok-ast/0.2.3/lombok-ast-0.2.3.jar" />
-                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/abego/treelayout/org.abego.treelayout.core/1.0.1/org.abego.treelayout.core-1.0.1.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/apache/httpcomponents/httpcore/4.1/httpcore-4.1-sources.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/apache/httpcomponents/httpcore/4.1/httpcore-4.1.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1-sources.jar" />
@@ -1677,6 +1615,9 @@
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/commons-codec/commons-codec/1.4/commons-codec-1.4.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/intellij/annotations/12.0/annotations-12.0-sources.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/intellij/annotations/12.0/annotations-12.0.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/external/lombok/lombok-ast/0.2.3/lombok-ast-0.2.3-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/external/lombok/lombok-ast/0.2.3/lombok-ast-0.2.3.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/abego/treelayout/org.abego.treelayout.core/1.0.1/org.abego.treelayout.core-1.0.1.jar" />
                             <option value="$USER_HOME$/AppData/Local/Android/sdk/extras/android/m2repository/com/android/support/appcompat-v7/23.1.1/appcompat-v7-23.1.1.aar" />
                             <option value="$USER_HOME$/AppData/Local/Android/sdk/extras/android/m2repository/com/android/support/design/23.1.1/design-23.1.1.aar" />
                             <option value="$USER_HOME$/AppData/Local/Android/sdk/extras/android/m2repository/com/android/support/cardview-v7/23.1.1/cardview-v7-23.1.1.aar" />
@@ -1777,10 +1718,12 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/content_main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/menu/activity_main_drawer.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/experiment/chickenjohn/materialdemo/DrawSurfaceView.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/experiment/chickenjohn/materialdemo/bluetoothManager.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main_land.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/experiment/chickenjohn/materialdemo/MainActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/experiment/chickenjohn/materialdemo/bluetoothManager.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/experiment/chickenjohn/materialdemo/DrawSurfaceView.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/experiment/chickenjohn/materialdemo/HealthDatabaseHelper.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/experiment/chickenjohn/materialdemo/EcgDatabaseManager.java" />
       </list>
     </option>
   </component>
@@ -1815,39 +1758,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope">
-        <subPane subId="Project Files">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="ECG_Monitor_on_Android">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="ECG_Monitor_on_Android">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="app">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="app">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -1868,28 +1778,6 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ECG_Monitor_on_Android" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="layout" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -1933,11 +1821,48 @@
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="manifests" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidManifestsGroupNode" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="ECG_Monitor_on_Android">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="ECG_Monitor_on_Android">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="app">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="app">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="ProjectPane" />
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -2312,24 +2237,30 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/experiment/chickenjohn/materialdemo/bluetoothManager.java</url>
-          <line>170</line>
+          <line>194</line>
           <properties />
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/experiment/chickenjohn/materialdemo/bluetoothManager.java</url>
-          <line>171</line>
+          <line>195</line>
           <properties />
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/experiment/chickenjohn/materialdemo/bluetoothManager.java</url>
-          <line>173</line>
+          <line>197</line>
           <properties />
           <option name="timeStamp" value="8" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/experiment/chickenjohn/materialdemo/DrawSurfaceView.java</url>
+          <line>141</line>
+          <properties />
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="9" />
+      <option name="time" value="13" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -2350,11 +2281,14 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="168" column="0" selection-start-line="168" selection-start-column="0" selection-end-line="168" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#2060#2061#0" expanded="false" />
-            <element signature="e#2102#2103#0" expanded="false" />
-            <element signature="e#8172#8173#0" expanded="false" />
-            <element signature="e#8208#8209#0" expanded="false" />
+            <element signature="docComment;class#bluetoothManager#0" expanded="false" />
+            <element signature="method#enableBluetooth#0;class#bluetoothManager#0" expanded="false" />
+            <element signature="method#disableBluetooth#0;class#bluetoothManager#0" expanded="false" />
+            <element signature="class#bluetoothReceiver#0;class#bluetoothManager#0" expanded="false" />
+            <element signature="class#clientThread#0;class#bluetoothManager#0" expanded="false" />
+            <element signature="class#connectThread#0;class#bluetoothManager#0" expanded="false" />
+            <element signature="method#handleBtData#0;class#bluetoothManager#0" expanded="false" />
+            <element signature="method#regBtReceiver#0;class#bluetoothManager#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2363,7 +2297,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="30" column="16" selection-start-line="30" selection-start-column="16" selection-end-line="30" selection-end-column="16" />
-          <folding />
+          <folding>
+            <element signature="docComment;class#EcgData#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2372,19 +2308,18 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="205" column="30" selection-start-line="205" selection-start-column="30" selection-end-line="205" selection-end-column="30" />
           <folding>
-            <element signature="imports" expanded="false" />
             <element signature="docComment;class#DrawSurfaceView#0" expanded="false" />
-            <element signature="e#2681#2682#0" expanded="false" />
-            <element signature="e#2733#2734#0" expanded="false" />
+            <element signature="method#DrawSurfaceView#0;class#DrawSurfaceView#0" expanded="false" />
+            <element signature="e#3173#3306#0" expanded="true" />
+            <element signature="e#3305#3306#0" expanded="true" />
             <element signature="method#setSurfaceViewPort#0;class#DrawSurfaceView#0" expanded="false" />
             <element signature="method#setSurfaceViewLand#0;class#DrawSurfaceView#0" expanded="false" />
-            <element signature="class#6217:6747" expanded="false" />
+            <element signature="method#drawPoint#0;class#DrawSurfaceView#0" expanded="false" />
             <element signature="method#drawRulerThreadStarter#0;class#DrawSurfaceView#0" expanded="false" />
-            <element signature="e#8020#8021#0" expanded="false" />
-            <element signature="e#8078#8079#0" expanded="false" />
+            <element signature="class#DrawRulerThread#0;class#DrawSurfaceView#0" expanded="false" />
+            <element signature="e#10053#10054#0" expanded="true" />
+            <element signature="e#10111#10112#0" expanded="true" />
             <element signature="class#DrawThread#0;class#DrawSurfaceView#0" expanded="false" />
-            <element signature="e#13405#13406#0" expanded="false" />
-            <element signature="e#13426#13427#0" expanded="false" />
             <element signature="method#resetCanvas#0;class#DrawSurfaceView#0" expanded="false" />
           </folding>
         </state>
@@ -2398,6 +2333,9 @@
             <element signature="docComment;class#MainActivity#0" expanded="false" />
             <element signature="method#onCreate#0;class#MainActivity#0" expanded="false" />
             <element signature="method#portLoading#0;class#MainActivity#0" expanded="false" />
+            <element signature="e#5611#5642#0" expanded="true" />
+            <element signature="e#5644#5676#0" expanded="true" />
+            <element signature="method#landLoading#0;class#MainActivity#0" expanded="false" />
             <element signature="method#onConfigurationChanged#0;class#MainActivity#0" expanded="false" />
             <element signature="method#onResume#0;class#MainActivity#0" expanded="false" />
             <element signature="method#onDestroy#0;class#MainActivity#0" expanded="false" />
@@ -2406,6 +2344,7 @@
             <element signature="method#onOptionsItemSelected#0;class#MainActivity#0" expanded="false" />
             <element signature="method#onNavigationItemSelected#0;class#MainActivity#0" expanded="false" />
             <element signature="method#naviHeaderSet#0;class#MainActivity#0" expanded="false" />
+            <element signature="method#refreshList#0;class#MainActivity#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2415,11 +2354,14 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#2060#2061#0" expanded="false" />
-            <element signature="e#2102#2103#0" expanded="false" />
-            <element signature="e#8172#8173#0" expanded="false" />
-            <element signature="e#8208#8209#0" expanded="false" />
+            <element signature="docComment;class#bluetoothManager#0" expanded="false" />
+            <element signature="method#enableBluetooth#0;class#bluetoothManager#0" expanded="false" />
+            <element signature="method#disableBluetooth#0;class#bluetoothManager#0" expanded="false" />
+            <element signature="class#bluetoothReceiver#0;class#bluetoothManager#0" expanded="false" />
+            <element signature="class#clientThread#0;class#bluetoothManager#0" expanded="false" />
+            <element signature="class#connectThread#0;class#bluetoothManager#0" expanded="false" />
+            <element signature="method#handleBtData#0;class#bluetoothManager#0" expanded="false" />
+            <element signature="method#regBtReceiver#0;class#bluetoothManager#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2428,7 +2370,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="53" column="5" selection-start-line="53" selection-start-column="5" selection-end-line="53" selection-end-column="5" />
-          <folding />
+          <folding>
+            <element signature="docComment;class#EcgData#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2437,19 +2381,18 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="76" column="13" selection-start-line="76" selection-start-column="13" selection-end-line="76" selection-end-column="13" />
           <folding>
-            <element signature="imports" expanded="false" />
             <element signature="docComment;class#DrawSurfaceView#0" expanded="false" />
-            <element signature="e#2681#2682#0" expanded="false" />
-            <element signature="e#2733#2734#0" expanded="false" />
+            <element signature="method#DrawSurfaceView#0;class#DrawSurfaceView#0" expanded="false" />
+            <element signature="e#3173#3306#0" expanded="true" />
+            <element signature="e#3305#3306#0" expanded="true" />
             <element signature="method#setSurfaceViewPort#0;class#DrawSurfaceView#0" expanded="false" />
             <element signature="method#setSurfaceViewLand#0;class#DrawSurfaceView#0" expanded="false" />
-            <element signature="class#6217:6747" expanded="false" />
+            <element signature="method#drawPoint#0;class#DrawSurfaceView#0" expanded="false" />
             <element signature="method#drawRulerThreadStarter#0;class#DrawSurfaceView#0" expanded="false" />
-            <element signature="e#8020#8021#0" expanded="false" />
-            <element signature="e#8078#8079#0" expanded="false" />
+            <element signature="class#DrawRulerThread#0;class#DrawSurfaceView#0" expanded="false" />
+            <element signature="e#10053#10054#0" expanded="true" />
+            <element signature="e#10111#10112#0" expanded="true" />
             <element signature="class#DrawThread#0;class#DrawSurfaceView#0" expanded="false" />
-            <element signature="e#13405#13406#0" expanded="false" />
-            <element signature="e#13426#13427#0" expanded="false" />
             <element signature="method#resetCanvas#0;class#DrawSurfaceView#0" expanded="false" />
           </folding>
         </state>
@@ -2463,6 +2406,9 @@
             <element signature="docComment;class#MainActivity#0" expanded="false" />
             <element signature="method#onCreate#0;class#MainActivity#0" expanded="false" />
             <element signature="method#portLoading#0;class#MainActivity#0" expanded="false" />
+            <element signature="e#5611#5642#0" expanded="true" />
+            <element signature="e#5644#5676#0" expanded="true" />
+            <element signature="method#landLoading#0;class#MainActivity#0" expanded="false" />
             <element signature="method#onConfigurationChanged#0;class#MainActivity#0" expanded="false" />
             <element signature="method#onResume#0;class#MainActivity#0" expanded="false" />
             <element signature="method#onDestroy#0;class#MainActivity#0" expanded="false" />
@@ -2471,6 +2417,7 @@
             <element signature="method#onOptionsItemSelected#0;class#MainActivity#0" expanded="false" />
             <element signature="method#onNavigationItemSelected#0;class#MainActivity#0" expanded="false" />
             <element signature="method#naviHeaderSet#0;class#MainActivity#0" expanded="false" />
+            <element signature="method#refreshList#0;class#MainActivity#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2479,7 +2426,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="55" column="17" selection-start-line="55" selection-start-column="17" selection-end-line="55" selection-end-column="17" />
-          <folding />
+          <folding>
+            <element signature="docComment;class#EcgData#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2496,28 +2445,20 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="259" column="99" selection-start-line="259" selection-start-column="99" selection-end-line="259" selection-end-column="99" />
           <folding>
-            <element signature="imports" expanded="false" />
             <element signature="docComment;class#DrawSurfaceView#0" expanded="false" />
-            <element signature="e#2681#2682#0" expanded="false" />
-            <element signature="e#2733#2734#0" expanded="false" />
+            <element signature="method#DrawSurfaceView#0;class#DrawSurfaceView#0" expanded="false" />
+            <element signature="e#3173#3306#0" expanded="true" />
+            <element signature="e#3305#3306#0" expanded="true" />
             <element signature="method#setSurfaceViewPort#0;class#DrawSurfaceView#0" expanded="false" />
             <element signature="method#setSurfaceViewLand#0;class#DrawSurfaceView#0" expanded="false" />
-            <element signature="class#6217:6747" expanded="false" />
+            <element signature="method#drawPoint#0;class#DrawSurfaceView#0" expanded="false" />
             <element signature="method#drawRulerThreadStarter#0;class#DrawSurfaceView#0" expanded="false" />
-            <element signature="e#8020#8021#0" expanded="false" />
-            <element signature="e#8078#8079#0" expanded="false" />
+            <element signature="class#DrawRulerThread#0;class#DrawSurfaceView#0" expanded="false" />
+            <element signature="e#10053#10054#0" expanded="true" />
+            <element signature="e#10111#10112#0" expanded="true" />
             <element signature="class#DrawThread#0;class#DrawSurfaceView#0" expanded="false" />
-            <element signature="e#13405#13406#0" expanded="false" />
-            <element signature="e#13426#13427#0" expanded="false" />
             <element signature="method#resetCanvas#0;class#DrawSurfaceView#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/experiment/chickenjohn/materialdemo/EcgDataAnalyzer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="144" column="107" selection-start-line="144" selection-start-column="107" selection-end-line="144" selection-end-column="107" />
         </state>
       </provider>
     </entry>
@@ -2529,6 +2470,9 @@
             <element signature="docComment;class#MainActivity#0" expanded="false" />
             <element signature="method#onCreate#0;class#MainActivity#0" expanded="false" />
             <element signature="method#portLoading#0;class#MainActivity#0" expanded="false" />
+            <element signature="e#5611#5642#0" expanded="true" />
+            <element signature="e#5644#5676#0" expanded="true" />
+            <element signature="method#landLoading#0;class#MainActivity#0" expanded="false" />
             <element signature="method#onConfigurationChanged#0;class#MainActivity#0" expanded="false" />
             <element signature="method#onResume#0;class#MainActivity#0" expanded="false" />
             <element signature="method#onDestroy#0;class#MainActivity#0" expanded="false" />
@@ -2537,6 +2481,7 @@
             <element signature="method#onOptionsItemSelected#0;class#MainActivity#0" expanded="false" />
             <element signature="method#onNavigationItemSelected#0;class#MainActivity#0" expanded="false" />
             <element signature="method#naviHeaderSet#0;class#MainActivity#0" expanded="false" />
+            <element signature="method#refreshList#0;class#MainActivity#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2546,19 +2491,18 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="false" />
             <element signature="docComment;class#DrawSurfaceView#0" expanded="false" />
-            <element signature="e#2681#2682#0" expanded="false" />
-            <element signature="e#2733#2734#0" expanded="false" />
+            <element signature="method#DrawSurfaceView#0;class#DrawSurfaceView#0" expanded="false" />
+            <element signature="e#3173#3306#0" expanded="true" />
+            <element signature="e#3305#3306#0" expanded="true" />
             <element signature="method#setSurfaceViewPort#0;class#DrawSurfaceView#0" expanded="false" />
             <element signature="method#setSurfaceViewLand#0;class#DrawSurfaceView#0" expanded="false" />
-            <element signature="class#6217:6747" expanded="false" />
+            <element signature="method#drawPoint#0;class#DrawSurfaceView#0" expanded="false" />
             <element signature="method#drawRulerThreadStarter#0;class#DrawSurfaceView#0" expanded="false" />
-            <element signature="e#8020#8021#0" expanded="false" />
-            <element signature="e#8078#8079#0" expanded="false" />
+            <element signature="class#DrawRulerThread#0;class#DrawSurfaceView#0" expanded="false" />
+            <element signature="e#10053#10054#0" expanded="true" />
+            <element signature="e#10111#10112#0" expanded="true" />
             <element signature="class#DrawThread#0;class#DrawSurfaceView#0" expanded="false" />
-            <element signature="e#13405#13406#0" expanded="false" />
-            <element signature="e#13426#13427#0" expanded="false" />
             <element signature="method#resetCanvas#0;class#DrawSurfaceView#0" expanded="false" />
           </folding>
         </state>
@@ -2569,11 +2513,14 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="185" column="31" selection-start-line="185" selection-start-column="31" selection-end-line="185" selection-end-column="31" />
           <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#2060#2061#0" expanded="false" />
-            <element signature="e#2102#2103#0" expanded="false" />
-            <element signature="e#8172#8173#0" expanded="false" />
-            <element signature="e#8208#8209#0" expanded="false" />
+            <element signature="docComment;class#bluetoothManager#0" expanded="false" />
+            <element signature="method#enableBluetooth#0;class#bluetoothManager#0" expanded="false" />
+            <element signature="method#disableBluetooth#0;class#bluetoothManager#0" expanded="false" />
+            <element signature="class#bluetoothReceiver#0;class#bluetoothManager#0" expanded="false" />
+            <element signature="class#clientThread#0;class#bluetoothManager#0" expanded="false" />
+            <element signature="class#connectThread#0;class#bluetoothManager#0" expanded="false" />
+            <element signature="method#handleBtData#0;class#bluetoothManager#0" expanded="false" />
+            <element signature="method#regBtReceiver#0;class#bluetoothManager#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2586,6 +2533,9 @@
             <element signature="docComment;class#MainActivity#0" expanded="false" />
             <element signature="method#onCreate#0;class#MainActivity#0" expanded="false" />
             <element signature="method#portLoading#0;class#MainActivity#0" expanded="false" />
+            <element signature="e#5611#5642#0" expanded="true" />
+            <element signature="e#5644#5676#0" expanded="true" />
+            <element signature="method#landLoading#0;class#MainActivity#0" expanded="false" />
             <element signature="method#onConfigurationChanged#0;class#MainActivity#0" expanded="false" />
             <element signature="method#onResume#0;class#MainActivity#0" expanded="false" />
             <element signature="method#onDestroy#0;class#MainActivity#0" expanded="false" />
@@ -2594,6 +2544,7 @@
             <element signature="method#onOptionsItemSelected#0;class#MainActivity#0" expanded="false" />
             <element signature="method#onNavigationItemSelected#0;class#MainActivity#0" expanded="false" />
             <element signature="method#naviHeaderSet#0;class#MainActivity#0" expanded="false" />
+            <element signature="method#refreshList#0;class#MainActivity#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2603,19 +2554,18 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="305" column="22" selection-start-line="305" selection-start-column="22" selection-end-line="305" selection-end-column="22" />
           <folding>
-            <element signature="imports" expanded="false" />
             <element signature="docComment;class#DrawSurfaceView#0" expanded="false" />
-            <element signature="e#2681#2682#0" expanded="false" />
-            <element signature="e#2733#2734#0" expanded="false" />
+            <element signature="method#DrawSurfaceView#0;class#DrawSurfaceView#0" expanded="false" />
+            <element signature="e#3173#3306#0" expanded="true" />
+            <element signature="e#3305#3306#0" expanded="true" />
             <element signature="method#setSurfaceViewPort#0;class#DrawSurfaceView#0" expanded="false" />
             <element signature="method#setSurfaceViewLand#0;class#DrawSurfaceView#0" expanded="false" />
-            <element signature="class#6217:6747" expanded="false" />
+            <element signature="method#drawPoint#0;class#DrawSurfaceView#0" expanded="false" />
             <element signature="method#drawRulerThreadStarter#0;class#DrawSurfaceView#0" expanded="false" />
-            <element signature="e#8020#8021#0" expanded="false" />
-            <element signature="e#8078#8079#0" expanded="false" />
+            <element signature="class#DrawRulerThread#0;class#DrawSurfaceView#0" expanded="false" />
+            <element signature="e#10053#10054#0" expanded="true" />
+            <element signature="e#10111#10112#0" expanded="true" />
             <element signature="class#DrawThread#0;class#DrawSurfaceView#0" expanded="false" />
-            <element signature="e#13405#13406#0" expanded="false" />
-            <element signature="e#13426#13427#0" expanded="false" />
             <element signature="method#resetCanvas#0;class#DrawSurfaceView#0" expanded="false" />
           </folding>
         </state>
@@ -2637,11 +2587,14 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#2060#2061#0" expanded="false" />
-            <element signature="e#2102#2103#0" expanded="false" />
-            <element signature="e#8172#8173#0" expanded="false" />
-            <element signature="e#8208#8209#0" expanded="false" />
+            <element signature="docComment;class#bluetoothManager#0" expanded="false" />
+            <element signature="method#enableBluetooth#0;class#bluetoothManager#0" expanded="false" />
+            <element signature="method#disableBluetooth#0;class#bluetoothManager#0" expanded="false" />
+            <element signature="class#bluetoothReceiver#0;class#bluetoothManager#0" expanded="false" />
+            <element signature="class#clientThread#0;class#bluetoothManager#0" expanded="false" />
+            <element signature="class#connectThread#0;class#bluetoothManager#0" expanded="false" />
+            <element signature="method#handleBtData#0;class#bluetoothManager#0" expanded="false" />
+            <element signature="method#regBtReceiver#0;class#bluetoothManager#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2654,6 +2607,9 @@
             <element signature="docComment;class#MainActivity#0" expanded="false" />
             <element signature="method#onCreate#0;class#MainActivity#0" expanded="false" />
             <element signature="method#portLoading#0;class#MainActivity#0" expanded="false" />
+            <element signature="e#5611#5642#0" expanded="true" />
+            <element signature="e#5644#5676#0" expanded="true" />
+            <element signature="method#landLoading#0;class#MainActivity#0" expanded="false" />
             <element signature="method#onConfigurationChanged#0;class#MainActivity#0" expanded="false" />
             <element signature="method#onResume#0;class#MainActivity#0" expanded="false" />
             <element signature="method#onDestroy#0;class#MainActivity#0" expanded="false" />
@@ -2662,6 +2618,7 @@
             <element signature="method#onOptionsItemSelected#0;class#MainActivity#0" expanded="false" />
             <element signature="method#onNavigationItemSelected#0;class#MainActivity#0" expanded="false" />
             <element signature="method#naviHeaderSet#0;class#MainActivity#0" expanded="false" />
+            <element signature="method#refreshList#0;class#MainActivity#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2671,19 +2628,18 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="155" column="71" selection-start-line="155" selection-start-column="71" selection-end-line="155" selection-end-column="71" />
           <folding>
-            <element signature="imports" expanded="false" />
             <element signature="docComment;class#DrawSurfaceView#0" expanded="false" />
-            <element signature="e#2681#2682#0" expanded="false" />
-            <element signature="e#2733#2734#0" expanded="false" />
+            <element signature="method#DrawSurfaceView#0;class#DrawSurfaceView#0" expanded="false" />
+            <element signature="e#3173#3306#0" expanded="true" />
+            <element signature="e#3305#3306#0" expanded="true" />
             <element signature="method#setSurfaceViewPort#0;class#DrawSurfaceView#0" expanded="false" />
             <element signature="method#setSurfaceViewLand#0;class#DrawSurfaceView#0" expanded="false" />
-            <element signature="class#6217:6747" expanded="false" />
+            <element signature="method#drawPoint#0;class#DrawSurfaceView#0" expanded="false" />
             <element signature="method#drawRulerThreadStarter#0;class#DrawSurfaceView#0" expanded="false" />
-            <element signature="e#8020#8021#0" expanded="false" />
-            <element signature="e#8078#8079#0" expanded="false" />
+            <element signature="class#DrawRulerThread#0;class#DrawSurfaceView#0" expanded="false" />
+            <element signature="e#10053#10054#0" expanded="true" />
+            <element signature="e#10111#10112#0" expanded="true" />
             <element signature="class#DrawThread#0;class#DrawSurfaceView#0" expanded="false" />
-            <element signature="e#13405#13406#0" expanded="false" />
-            <element signature="e#13426#13427#0" expanded="false" />
             <element signature="method#resetCanvas#0;class#DrawSurfaceView#0" expanded="false" />
           </folding>
         </state>
@@ -2716,11 +2672,14 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="171" column="34" selection-start-line="171" selection-start-column="34" selection-end-line="171" selection-end-column="34" />
           <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#2060#2061#0" expanded="false" />
-            <element signature="e#2102#2103#0" expanded="false" />
-            <element signature="e#8172#8173#0" expanded="false" />
-            <element signature="e#8208#8209#0" expanded="false" />
+            <element signature="docComment;class#bluetoothManager#0" expanded="false" />
+            <element signature="method#enableBluetooth#0;class#bluetoothManager#0" expanded="false" />
+            <element signature="method#disableBluetooth#0;class#bluetoothManager#0" expanded="false" />
+            <element signature="class#bluetoothReceiver#0;class#bluetoothManager#0" expanded="false" />
+            <element signature="class#clientThread#0;class#bluetoothManager#0" expanded="false" />
+            <element signature="class#connectThread#0;class#bluetoothManager#0" expanded="false" />
+            <element signature="method#handleBtData#0;class#bluetoothManager#0" expanded="false" />
+            <element signature="method#regBtReceiver#0;class#bluetoothManager#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2733,6 +2692,9 @@
             <element signature="docComment;class#MainActivity#0" expanded="false" />
             <element signature="method#onCreate#0;class#MainActivity#0" expanded="false" />
             <element signature="method#portLoading#0;class#MainActivity#0" expanded="false" />
+            <element signature="e#5611#5642#0" expanded="true" />
+            <element signature="e#5644#5676#0" expanded="true" />
+            <element signature="method#landLoading#0;class#MainActivity#0" expanded="false" />
             <element signature="method#onConfigurationChanged#0;class#MainActivity#0" expanded="false" />
             <element signature="method#onResume#0;class#MainActivity#0" expanded="false" />
             <element signature="method#onDestroy#0;class#MainActivity#0" expanded="false" />
@@ -2741,6 +2703,7 @@
             <element signature="method#onOptionsItemSelected#0;class#MainActivity#0" expanded="false" />
             <element signature="method#onNavigationItemSelected#0;class#MainActivity#0" expanded="false" />
             <element signature="method#naviHeaderSet#0;class#MainActivity#0" expanded="false" />
+            <element signature="method#refreshList#0;class#MainActivity#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2750,19 +2713,18 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="false" />
             <element signature="docComment;class#DrawSurfaceView#0" expanded="false" />
-            <element signature="e#2681#2682#0" expanded="false" />
-            <element signature="e#2733#2734#0" expanded="false" />
+            <element signature="method#DrawSurfaceView#0;class#DrawSurfaceView#0" expanded="false" />
+            <element signature="e#3173#3306#0" expanded="true" />
+            <element signature="e#3305#3306#0" expanded="true" />
             <element signature="method#setSurfaceViewPort#0;class#DrawSurfaceView#0" expanded="false" />
             <element signature="method#setSurfaceViewLand#0;class#DrawSurfaceView#0" expanded="false" />
-            <element signature="class#6217:6747" expanded="false" />
+            <element signature="method#drawPoint#0;class#DrawSurfaceView#0" expanded="false" />
             <element signature="method#drawRulerThreadStarter#0;class#DrawSurfaceView#0" expanded="false" />
-            <element signature="e#8020#8021#0" expanded="false" />
-            <element signature="e#8078#8079#0" expanded="false" />
+            <element signature="class#DrawRulerThread#0;class#DrawSurfaceView#0" expanded="false" />
+            <element signature="e#10053#10054#0" expanded="true" />
+            <element signature="e#10111#10112#0" expanded="true" />
             <element signature="class#DrawThread#0;class#DrawSurfaceView#0" expanded="false" />
-            <element signature="e#13405#13406#0" expanded="false" />
-            <element signature="e#13426#13427#0" expanded="false" />
             <element signature="method#resetCanvas#0;class#DrawSurfaceView#0" expanded="false" />
           </folding>
         </state>
@@ -2817,13 +2779,6 @@
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/experiment/chickenjohn/materialdemo/EcgDatabaseManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="35" column="13" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -2894,13 +2849,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/experiment/chickenjohn/materialdemo/EcgDataAnalyzer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.38489208">
-          <caret line="144" column="107" selection-start-line="144" selection-start-column="107" selection-end-line="144" selection-end-column="107" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-9.391304">
@@ -2927,39 +2875,26 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/experiment/chickenjohn/materialdemo/DrawSurfaceView.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/experiment/chickenjohn/materialdemo/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="202" column="14" selection-start-line="202" selection-start-column="14" selection-end-line="202" selection-end-column="14" />
+        <state vertical-scroll-proportion="3.820144">
+          <caret line="302" column="35" selection-start-line="302" selection-start-column="35" selection-end-line="302" selection-end-column="35" />
           <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="docComment;class#DrawSurfaceView#0" expanded="false" />
-            <element signature="e#2681#2682#0" expanded="false" />
-            <element signature="e#2733#2734#0" expanded="false" />
-            <element signature="method#setSurfaceViewPort#0;class#DrawSurfaceView#0" expanded="false" />
-            <element signature="method#setSurfaceViewLand#0;class#DrawSurfaceView#0" expanded="false" />
-            <element signature="class#6217:6747" expanded="false" />
-            <element signature="method#drawRulerThreadStarter#0;class#DrawSurfaceView#0" expanded="false" />
-            <element signature="e#8020#8021#0" expanded="false" />
-            <element signature="e#8078#8079#0" expanded="false" />
-            <element signature="class#DrawThread#0;class#DrawSurfaceView#0" expanded="false" />
-            <element signature="e#13405#13406#0" expanded="false" />
-            <element signature="e#13426#13427#0" expanded="false" />
-            <element signature="method#resetCanvas#0;class#DrawSurfaceView#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/experiment/chickenjohn/materialdemo/bluetoothManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="157" column="42" selection-start-line="157" selection-start-column="42" selection-end-line="157" selection-end-column="42" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#2060#2061#0" expanded="false" />
-            <element signature="e#2102#2103#0" expanded="false" />
-            <element signature="e#8172#8173#0" expanded="false" />
-            <element signature="e#8208#8209#0" expanded="false" />
+            <element signature="docComment;class#MainActivity#0" expanded="false" />
+            <element signature="method#onCreate#0;class#MainActivity#0" expanded="false" />
+            <element signature="method#portLoading#0;class#MainActivity#0" expanded="false" />
+            <element signature="e#5611#5642#0" expanded="true" />
+            <element signature="e#5644#5676#0" expanded="true" />
+            <element signature="method#landLoading#0;class#MainActivity#0" expanded="false" />
+            <element signature="method#onConfigurationChanged#0;class#MainActivity#0" expanded="false" />
+            <element signature="method#onResume#0;class#MainActivity#0" expanded="false" />
+            <element signature="method#onDestroy#0;class#MainActivity#0" expanded="false" />
+            <element signature="method#onBackPressed#0;class#MainActivity#0" expanded="false" />
+            <element signature="method#onCreateOptionsMenu#0;class#MainActivity#0" expanded="false" />
+            <element signature="method#onOptionsItemSelected#0;class#MainActivity#0" expanded="false" />
+            <element signature="method#onNavigationItemSelected#0;class#MainActivity#0" expanded="false" />
+            <element signature="method#naviHeaderSet#0;class#MainActivity#0" expanded="false" />
+            <element signature="method#refreshList#0;class#MainActivity#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2969,7 +2904,7 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.8301888">
+        <state vertical-scroll-proportion="0.57057655">
           <caret line="93" column="23" selection-start-line="93" selection-start-column="23" selection-end-line="93" selection-end-column="23" />
           <folding />
         </state>
@@ -2980,36 +2915,86 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.3962264">
+        <state vertical-scroll-proportion="0.4632207">
           <caret line="51" column="39" selection-start-line="51" selection-start-column="39" selection-end-line="51" selection-end-column="39" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/experiment/chickenjohn/materialdemo/EcgData.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/experiment/chickenjohn/materialdemo/bluetoothManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="30" column="16" selection-start-line="30" selection-start-column="16" selection-end-line="30" selection-end-column="16" />
-          <folding />
+        <state vertical-scroll-proportion="1.618705">
+          <caret line="173" column="42" selection-start-line="173" selection-start-column="42" selection-end-line="173" selection-end-column="42" />
+          <folding>
+            <element signature="docComment;class#bluetoothManager#0" expanded="false" />
+            <element signature="method#enableBluetooth#0;class#bluetoothManager#0" expanded="false" />
+            <element signature="method#disableBluetooth#0;class#bluetoothManager#0" expanded="false" />
+            <element signature="class#bluetoothReceiver#0;class#bluetoothManager#0" expanded="false" />
+            <element signature="class#clientThread#0;class#bluetoothManager#0" expanded="false" />
+            <element signature="class#connectThread#0;class#bluetoothManager#0" expanded="false" />
+            <element signature="method#handleBtData#0;class#bluetoothManager#0" expanded="false" />
+            <element signature="method#regBtReceiver#0;class#bluetoothManager#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/experiment/chickenjohn/materialdemo/MainActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/experiment/chickenjohn/materialdemo/EcgData.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.44964027">
-          <caret line="288" column="23" selection-start-line="288" selection-start-column="23" selection-end-line="288" selection-end-column="23" />
+        <state vertical-scroll-proportion="0.8093525">
+          <caret line="57" column="5" selection-start-line="57" selection-start-column="5" selection-end-line="57" selection-end-column="5" />
           <folding>
-            <element signature="docComment;class#MainActivity#0" expanded="false" />
-            <element signature="method#onCreate#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#portLoading#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#onConfigurationChanged#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#onResume#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#onDestroy#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#onBackPressed#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#onCreateOptionsMenu#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#onOptionsItemSelected#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#onNavigationItemSelected#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#naviHeaderSet#0;class#MainActivity#0" expanded="false" />
+            <element signature="docComment;class#EcgData#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/experiment/chickenjohn/materialdemo/DrawSurfaceView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="397" column="29" selection-start-line="397" selection-start-column="29" selection-end-line="397" selection-end-column="29" />
+          <folding>
+            <element signature="docComment;class#DrawSurfaceView#0" expanded="false" />
+            <element signature="method#DrawSurfaceView#0;class#DrawSurfaceView#0" expanded="false" />
+            <element signature="e#3173#3306#0" expanded="true" />
+            <element signature="e#3305#3306#0" expanded="true" />
+            <element signature="method#setSurfaceViewPort#0;class#DrawSurfaceView#0" expanded="false" />
+            <element signature="method#setSurfaceViewLand#0;class#DrawSurfaceView#0" expanded="false" />
+            <element signature="method#drawPoint#0;class#DrawSurfaceView#0" expanded="false" />
+            <element signature="method#drawRulerThreadStarter#0;class#DrawSurfaceView#0" expanded="false" />
+            <element signature="class#DrawRulerThread#0;class#DrawSurfaceView#0" expanded="false" />
+            <element signature="e#10053#10054#0" expanded="true" />
+            <element signature="e#10111#10112#0" expanded="true" />
+            <element signature="class#DrawThread#0;class#DrawSurfaceView#0" expanded="false" />
+            <element signature="method#resetCanvas#0;class#DrawSurfaceView#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/experiment/chickenjohn/materialdemo/HealthDatabaseHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.676259">
+          <caret line="68" column="42" selection-start-line="68" selection-start-column="42" selection-end-line="68" selection-end-column="42" />
+          <folding>
+            <element signature="e#1574#1575#0" expanded="true" />
+            <element signature="e#1628#1629#0" expanded="true" />
+            <element signature="e#2146#2147#0" expanded="true" />
+            <element signature="e#2178#2179#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/experiment/chickenjohn/materialdemo/EcgDatabaseManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.1977186">
+          <caret line="137" column="0" selection-start-line="137" selection-start-column="0" selection-end-line="137" selection-end-column="0" />
+          <folding>
+            <element signature="docComment;class#EcgDatabaseManager#0" expanded="false" />
+            <element signature="method#EcgDatabaseManager#0;class#EcgDatabaseManager#0" expanded="false" />
+            <element signature="method#addRecord#0;class#EcgDatabaseManager#0" expanded="false" />
+            <element signature="method#outputRecord#0;class#EcgDatabaseManager#0" expanded="false" />
+            <element signature="method#clearRecord#0;class#EcgDatabaseManager#0" expanded="false" />
+            <element signature="class#dataInsertingThread#0;class#EcgDatabaseManager#0" expanded="false" />
+            <element signature="class#DataOutputThread#0;class#EcgDatabaseManager#0" expanded="false" />
           </folding>
         </state>
       </provider>

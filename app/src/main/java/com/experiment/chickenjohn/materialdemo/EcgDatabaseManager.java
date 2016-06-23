@@ -33,16 +33,29 @@ import java.text.DecimalFormat;
  * chickenjohn93@outlook.com
  */
 
+/* This class is used to manage the
+ * database, including inserting the
+ * data, output the data and clean
+ * the database.
+ */
 public class EcgDatabaseManager {
     private HealthDatabaseHelper healthDatabaseHelper;
     private SQLiteDatabase ecgDatabase;
     private EcgData[] ecgDataTemp = new EcgData[500];
 
+    //this constructor set up a
+    //healthDatabaseHelper to
+    //open a database.
     public EcgDatabaseManager(Context context) {
         healthDatabaseHelper = new HealthDatabaseHelper(context);
+        //getWritableDatabase will verify
+        //the accessibility of the database
+        //automatically
         ecgDatabase = healthDatabaseHelper.getWritableDatabase();
     }
 
+    //add 500 data in one transaction
+    //to save time.
     public void addRecord(EcgData ecgData) {
         int dataId;
         dataId = ecgData.getDataId();
@@ -55,7 +68,10 @@ public class EcgDatabaseManager {
         }
     }
 
+    //use cursor to access the database.
     public boolean outputRecord() {
+        //the null here can be replaced
+        //to filter the data.
         Cursor cursor = ecgDatabase.query("ecg", null, null, null, null, null, null);
         int databaseLength = cursor.getCount();
         if (databaseLength != 0) {
@@ -72,6 +88,8 @@ public class EcgDatabaseManager {
             cursor.close();
             return false;
         }
+        //be sure to close the cursor
+        //when finishing.
     }
 
     public boolean clearRecord() {
@@ -90,6 +108,8 @@ public class EcgDatabaseManager {
         ecgDatabase.close();
     }
 
+    //use thread to insert the data
+    //to avoid main-thread blocking.
     private class dataInsertingThread extends Thread {
         EcgData newEcgData;
 
@@ -109,6 +129,7 @@ public class EcgDatabaseManager {
                 }
                 ecgDatabase.setTransactionSuccessful();
             } finally {
+                //be sure not to forget end the transaction.
                 ecgDatabase.endTransaction();
                 ecgDataTemp[0] = newEcgData;
             }
@@ -128,6 +149,10 @@ public class EcgDatabaseManager {
         public void run() {
             super.run();
             try {
+                //to output the data into a
+                //txt file on the SDcard,
+                //you need to add the permission
+                //in the AndroidManifest.xml first.
                 File dataOutputFile = new File(Environment.getExternalStorageDirectory(), "/ecg.txt");
                 if (!dataOutputFile.exists()) {
                     dataOutputFile.createNewFile();
@@ -139,12 +164,14 @@ public class EcgDatabaseManager {
                         int ID = cursor.getInt(0);
                         int value = cursor.getInt(1);
                         double dataTime = cursor.getShort(2);
+                        //format the output contents here.
                         fileWriter.write(Integer.toString(ID) + "\t" +
                                 new DecimalFormat("0.000").format(dataTime) + "\t" +
                                 Integer.toString(value) + "\r\n");
                         bufferedFileWriter.flush();
                     }
                 }
+                //be sure to close the file.
                 bufferedFileWriter.close();
                 fileWriter.close();
             } catch (Exception e) {

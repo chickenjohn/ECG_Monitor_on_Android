@@ -39,6 +39,7 @@ import java.util.UUID;
  */
 
 public class bluetoothManager {
+    //variables for bluetooth
     private boolean CONNECT_STATE = false;
     private static BluetoothAdapter myBtAdapter = BluetoothAdapter.getDefaultAdapter();
     private static BluetoothDevice myBtDevice;
@@ -46,6 +47,7 @@ public class bluetoothManager {
     private BluetoothSocket myBtSocket;
     public String btAddress;
     public bluetoothReceiver btReceiver = new bluetoothReceiver();
+    //variables for data
     private android.os.Handler uiRefreshHandler;
     private int receiveCounter = 0;
     private final int SHOWED_DATA = 0;
@@ -54,6 +56,9 @@ public class bluetoothManager {
     private final int SPO2_DATA = 3;
     private int dataType = 0;
 
+    //pass the handler into this class by using
+    //constructor so that messages can be passed
+    //to the main thread
     public bluetoothManager(android.os.Handler handler) {
         uiRefreshHandler = handler;
     }
@@ -71,11 +76,20 @@ public class bluetoothManager {
         }
     }
 
+    /* A bluetoothreceiver can receive bluetooth broadcasts
+     * emitted by the system. However you should first
+     * register bluetoothReceiver at the beginning. The register
+     * method is regBtReceiver() at the bottom of this file.
+     */
     public class bluetoothReceiver extends BroadcastReceiver {
         @Override
         public void onReceive(Context context, Intent intent) {
             String action = intent.getAction();
+
+            //target device will be filtered by its name.
+            //Change it if you need.
             String targetName = "HC-05";
+
             if (BluetoothDevice.ACTION_FOUND.equals(action)) {
                 BluetoothDevice currentDevice = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
                 if (currentDevice.getName().equalsIgnoreCase(targetName)) {
@@ -105,6 +119,7 @@ public class bluetoothManager {
     private class clientThread extends Thread {
         public void run() {
             try {
+                //you must cancelDiscovery() before trying to connect.
                 myBtAdapter.cancelDiscovery();
                 myBtSocket = myBtDevice.createRfcommSocketToServiceRecord(UUID.fromString("00001101-0000-1000-8000-00805F9B34FB"));
                 myBtSocket.connect();
@@ -128,8 +143,12 @@ public class bluetoothManager {
             }
             while (true) {
                 try {
+                    /* pop the instream stack if the stack
+                     * contains two bytes or more.
+                     * This guarantees that every time
+                     * two bytes of the data will be poped.
+                     */
                     if ((mmInStream.available()) >= 2) {
-                        //Log.v("data in stream",Integer.toString(bytes));
                         byte[] buf_data = new byte[2];
                         mmInStream.read(buf_data);
                         handleBtData(buf_data);
@@ -146,7 +165,12 @@ public class bluetoothManager {
         }
     }
 
-    //Handle received data here
+    /* Handle received data here
+     * the data has 16 bits, first two bits figure
+     * out the type of the data, the rest 14 bits
+     * is the real data and the format is 14-bit
+     * integer complement.
+     */
     public void handleBtData(byte[] data) {
         int dataInInt;
         switch (0xc0 & data[1]) {
@@ -155,7 +179,6 @@ public class bluetoothManager {
                 break;
             case 0x40:
                 dataType = BEATRATE_DATA;
-                Log.i("beakrate","beatrate");
                 break;
             case 0x80:
                 dataType = PI_DATA;
@@ -167,6 +190,7 @@ public class bluetoothManager {
                 break;
         }
 
+        //decode the data, change the bytes into integer
         if(0x20 == (0x20 & data[1])){
             dataInInt = ((0x3f & (~data[1])) << 8) | (0xff & ((~data[0]) + 1));
             dataInInt = - dataInInt;
@@ -175,7 +199,7 @@ public class bluetoothManager {
         }
         Log.i("data",Integer.toString(dataInInt));
 
-
+        //send message to the main thread to handle the decoded data.
         Message uiRefreshMessage = Message.obtain();
         switch (dataType) {
             case SHOWED_DATA:
@@ -206,7 +230,8 @@ public class bluetoothManager {
 
     }
 
-    //Registration of Broadcast Receiver
+    //Registration of Broadcast Receiver. Invoke this method
+    //in the main thread when the app starts.
     public IntentFilter regBtReceiver() {
         IntentFilter bluetoothBroadcastFilter = new IntentFilter();
         bluetoothBroadcastFilter.addAction(BluetoothAdapter.ACTION_DISCOVERY_FINISHED);

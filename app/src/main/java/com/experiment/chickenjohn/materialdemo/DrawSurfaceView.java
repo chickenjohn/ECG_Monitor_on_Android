@@ -46,6 +46,14 @@ import static com.experiment.chickenjohn.materialdemo.R.color.cardview_light_bac
  */
 
 public class DrawSurfaceView {
+    /* surfaceview name standard:
+     * drawView         -> SurfaceView class
+     * drawViewHolder   -> SurfaceViewHolder class
+     * Port             -> portrait orientation
+     * Land             -> landscape orientation
+     * Tag              -> a view to show the current data
+     * Ruler            -> a view to help measure the data
+     */
     private SurfaceView drawViewPort;
     private SurfaceView drawViewLand;
     private SurfaceView drawViewLandTag;
@@ -72,6 +80,11 @@ public class DrawSurfaceView {
 
     private Timer viewRefreshTimer = new Timer();
 
+    /* due to the background process and tasks,
+     * the surfaceview can only be refreshed as
+     * fast as about 25Hz. So a timer is set here
+     * to slow down the trans rate to 12.5Hz forcibly.
+     */
     public DrawSurfaceView() {
         x = 1;
         viewRefreshTimer.schedule(new TimerTask() {
@@ -82,6 +95,12 @@ public class DrawSurfaceView {
         }, 0, 80);
     }
 
+    /* this constructor initializes the surfaceviews
+     * when the orientation is portrait. Three callback
+     * methods are override to respond when the surface
+     * are created, size-changed and destroyed. Add the
+     * response as you wish.
+     */
     public void setSurfaceViewPort(SurfaceView currentSurfaceView, int PORTORLAND) {
         this.PORTORLAND = PORTORLAND;
         if (PORTORLAND == PORT) {
@@ -113,6 +132,9 @@ public class DrawSurfaceView {
         }
     }
 
+
+    //this constructor initializes the surfaceviews
+    //when the orientation is landscape
     public void setSurfaceViewLand(SurfaceView currentSurfaceView,
                                    SurfaceView currentSurfaceViewTag,
                                    SurfaceView currentSurfaceViewRuler,
@@ -123,6 +145,8 @@ public class DrawSurfaceView {
             drawViewLand = currentSurfaceView;
             drawViewHolderLand = drawViewLand.getHolder();
 
+            //tag and ruler should by transparent so
+            //that you can see the bottom surfaceview.
             drawViewLandTag = currentSurfaceViewTag;
             drawViewHolderLandTag = drawViewLandTag.getHolder();
             drawViewLandTag.setZOrderOnTop(true);
@@ -133,6 +157,14 @@ public class DrawSurfaceView {
             drawViewLandRuler.setZOrderOnTop(true);
             drawViewHolderLandRuler.setFormat(PixelFormat.TRANSPARENT);
 
+            /* a listener is employed here to respond the
+             * user's touch. when the touch is down(ACTION_DOWN),
+             * record the start point. when the touch is move
+             * (ACTION_MOVE), draw a line between the current point
+             * and the start point. when the finger is up(ACTION_UP),
+             * show the distance between the start point and
+             * the end point.
+             */
             drawViewLandRuler.setOnTouchListener(new View.OnTouchListener() {
                 @Override
                 public boolean onTouch(View v, MotionEvent event) {
@@ -181,6 +213,8 @@ public class DrawSurfaceView {
                 }
             });
 
+            //the surfaceview has two parts: positive-y axis
+            //and negative-y axis so the y is divided by 2.
             y = landHeight / 2;
             lastY = y;
 
@@ -190,6 +224,8 @@ public class DrawSurfaceView {
 
     public void drawPoint(int drawX, int drawY) {
         if (shouldRefresh) {
+            //change the point coordinate to fit the
+            //surfaceview coordinate system.
             switch (PORTORLAND) {
                 case PORT:
                     y = (int) ((portHeight / 2) - (((float) drawY) / 280.0 * (portHeight / 2)));
@@ -200,9 +236,15 @@ public class DrawSurfaceView {
                 default:
                     break;
             }
+            //refresh the position register.
+            //the time factor(here is 2) is used to
+            //zoom in and zoom out x-axis.
             deltaX = (drawX - lastX) * 2;
             lastX = drawX;
             x += deltaX;
+            //be sure to reset the shouldRefresh flag
+            //so that next time the timer will work
+            //normally.
             shouldRefresh = false;
             ecgValue = drawY;
             drawThread = new DrawThread();
@@ -210,13 +252,15 @@ public class DrawSurfaceView {
         }
     }
 
+    /* when the user touch the surfaceview, this
+     * method will be called and start a thread to
+     * draw the ruler. Ways to draw depend on the
+     * action of the user.
+     */
     private void drawRulerThreadStarter() {
-        landHeight = drawViewLand.getHeight();
-        landWidth = drawViewLand.getWidth();
         DrawRulerThread drawRulerThread = new DrawRulerThread(drawViewHolderLandRuler);
         drawRulerThread.start();
     }
-
     private class DrawRulerThread extends Thread {
         private SurfaceHolder surfaceHolder = null;
 
@@ -226,11 +270,12 @@ public class DrawSurfaceView {
 
         public void run() {
             Canvas canvas = null;
-            //Bitmap bitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.tag);
+            //pen to draw line
             Paint pen = new Paint();
             pen.setColor(Color.GRAY);
             pen.setStrokeWidth(2);
             pen.setTextSize(60);
+            //dotPen to draw dot line
             Paint dotPen = new Paint();
             dotPen.setColor(Color.GRAY);
             dotPen.setStrokeWidth(2);
@@ -239,22 +284,18 @@ public class DrawSurfaceView {
 
             try {
                 switch (touchingState) {
-                    case 0:
+                    case 0://finger down
                         canvas = surfaceHolder.lockCanvas();
                         break;
-                    case 1:
+                    case 1://finger move
                         canvas = surfaceHolder.lockCanvas();
                         canvas.drawColor(Color.TRANSPARENT, PorterDuff.Mode.CLEAR);
                         canvas.drawLine(rulerStartX, rulerStartY, rulerX, rulerY, dotPen);
                         break;
-                    case 2:
+                    case 2://finger up
                         canvas = surfaceHolder.lockCanvas();
                         canvas.drawColor(Color.TRANSPARENT, PorterDuff.Mode.CLEAR);
                         canvas.drawLine(rulerStartX, rulerStartY, rulerX, rulerY, pen);
-                        //canvas.drawBitmap(bitmap, null, new Rect(rulerStartX - 20, rulerStartY - 40,
-                          //      rulerStartX + 20, rulerStartY), pen);
-                        //canvas.drawBitmap(bitmap, null, new Rect(rulerX - 20, rulerY - 40,
-                          //      rulerX + 20, rulerY), pen);
                         canvas.drawLine(rulerStartX, rulerStartY, rulerX, rulerStartY, dotPen);
                         canvas.drawLine(rulerX, rulerStartY, rulerX, rulerY, dotPen);
                         double deltaTime = Math.abs(rulerStartX - rulerX) * EcgData.getRECORDRATE();
@@ -270,11 +311,17 @@ public class DrawSurfaceView {
                         break;
                 }
             } finally {
+                //be sure to unlock and post after drawing.
                 surfaceHolder.unlockCanvasAndPost(canvas);
             }
         }
     }
 
+    /* This method is used to draw the wave of
+     * SpO2 wave. When the screen is landscape,
+     * the method will show the exact value of
+     * each point.
+     */
     private class DrawThread extends Thread {
 
         @Override
@@ -284,7 +331,8 @@ public class DrawSurfaceView {
             Paint pen = new Paint();
             pen.setColor(Color.rgb(63, 81, 181));
             pen.setStrokeWidth(5);
-            pen.setAntiAlias(true);
+            //tagPen is used to draw the point value
+            //when landscape
             Paint tagPen = new Paint();
             tagPen.setColor(Color.GRAY);
             tagPen.setStrokeWidth(1);
@@ -296,6 +344,9 @@ public class DrawSurfaceView {
                         if (x > portWidth) {
                             x = 0;
                         }
+                        //lock the rectangle which should be
+                        //refreshed so that other part will
+                        //not be erased.
                         canvas = drawViewHolderPort.lockCanvas(new Rect(x - deltaX, 0, x + 50, portHeight));
                         canvas.drawColor(Color.rgb(255, 255, 255));
                         canvas.drawLine(x - deltaX, lastY, x, y, pen);
@@ -316,6 +367,7 @@ public class DrawSurfaceView {
                     default:
                         break;
                 }
+                //be sure to refresh last point position
                 lastY = y;
             } catch (Exception e) {
                 e.printStackTrace();
@@ -342,6 +394,7 @@ public class DrawSurfaceView {
         x = 0;
     }
 
+    //this method is used to clean the canvas.
     public void resetCanvas(){
         SurfaceHolder holder;
         if(PORTORLAND == PORT) {
