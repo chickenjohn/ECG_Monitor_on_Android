@@ -1,10 +1,10 @@
-#A Simple SpO2 Monitor for Android Platform
+# A Simple SpO2 Monitor for Android Platform
 
-##What is this?
+## What is this?
 
 SpO2 Monitor is a branch from ECG Monitor. To explore the ECG Monitor please change to master branch of this repo.
 
-##How is it different?
+## How is it different?
 
 It is quite different from the master branch. The differences mainly are:
 
