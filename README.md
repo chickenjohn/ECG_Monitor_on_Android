@@ -1,11 +1,11 @@
-#A Simple ECG Monitor for Android Platform
+# A Simple ECG Monitor for Android Platform
 
-##What is this?
+## What is this?
 
 ECG Monitor is a simple ECG Wave displaying APP. After connecting to a Bluetooth ECG device, 
 it allows your Android device to show and analysing the ECG data. 
 
-##How is it like?
+## How is it like?
 
 After launching the app, you should see this:
 
@@ -19,7 +19,7 @@ Changing the device into landscape and details of the waveform should be shown:
 
 ![](./figures/fig3.png)
 
-##How to use it?
+## How to use it?
 
 To compile the project, please install the Android Studio 2.1 first. Also you should install Android API 5.0 or higher version.  
 
@@ -29,7 +29,7 @@ Then launch the ECG Monitor App. The app should  begin searching and connecting 
 
 If you changing your device into landscape, touch your device to measure the wave.
 
-##For more info
+## For more info
 
 > Email: [chickenjohn93@outlook.com](mailto:chickenjohn93@outlook.com "email")
 
