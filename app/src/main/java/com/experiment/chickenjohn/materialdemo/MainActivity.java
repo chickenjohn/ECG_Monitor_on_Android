@@ -62,6 +62,8 @@ public class MainActivity extends AppCompatActivity
     private final int ECG_DIS_CHECKED = 0;
     private final int SPO2_DIS_CHECKED = 1;
 
+    //A small todo heres
+
     public android.os.Handler uiRefreshHandler = new android.os.Handler() {
         @Override
         public void handleMessage(Message msg) {
