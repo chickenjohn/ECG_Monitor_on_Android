@@ -43,7 +43,7 @@ public class bluetoothManager {
     private static BluetoothDevice myBtDevice;
     private clientThread myBtClientThread;
     private BluetoothSocket myBtSocket;
-    public String btAddress;
+    public final String btAddress = "00:21:13:01:28:FE";
     public bluetoothReceiver btReceiver = new bluetoothReceiver();
     private android.os.Handler uiRefreshHandler;
     private int receiveECGCounter = 0;
@@ -57,11 +57,13 @@ public class bluetoothManager {
         uiRefreshHandler = handler;
     }
 
-    public void enableBluetooth() {
+    public void enableBluetooth(boolean startDiscovery) {
         if (!myBtAdapter.isEnabled()) {
             myBtAdapter.enable();
         }
-        myBtAdapter.startDiscovery();
+
+        if (startDiscovery)
+            myBtAdapter.startDiscovery();
     }
 
     public void disableBluetooth() {
@@ -77,8 +79,7 @@ public class bluetoothManager {
             String targetName = "HC-05";
             if (BluetoothDevice.ACTION_FOUND.equals(action)) {
                 BluetoothDevice currentDevice = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
-                if (currentDevice.getName().equalsIgnoreCase(targetName)) {
-                    btAddress = currentDevice.getAddress();
+                if (currentDevice.getAddress().equalsIgnoreCase(btAddress)) {
                     myBtDevice = myBtAdapter.getRemoteDevice(btAddress);
                     Toast.makeText(context, "找到设备:" + myBtDevice.getName(), Toast.LENGTH_LONG).show();
                     CONNECT_STATE = true;

@@ -151,9 +151,12 @@ public class DrawSurfaceView {
                             drawRulerThreadStarter();
                             break;
                         case MotionEvent.ACTION_UP:
-                            touchingState = 2;
                             rulerX = (int) event.getX();
                             rulerY = (int) event.getY();
+                            if (Math.abs(rulerX - rulerStartX) < 5 && Math.abs(rulerY - rulerStartY) < 5)
+                                touchingState = 3;
+                            else
+                                touchingState = 2;
                             drawRulerThreadStarter();
                             break;
                         default:
@@ -266,6 +269,9 @@ public class DrawSurfaceView {
                         canvas.drawText(voltInFormat,
                                 rulerX, (float) (rulerY - rulerStartY) / 2 + rulerStartY, pen);
                         break;
+                    case 3 :
+                        canvas = surfaceHolder.lockCanvas();
+                        canvas.drawColor(Color.TRANSPARENT, PorterDuff.Mode.CLEAR);
                     default:
                         break;
                 }
@@ -297,6 +303,7 @@ public class DrawSurfaceView {
                             x = 0;
                         }
                         canvas = drawViewHolderPort.lockCanvas(new Rect(x - deltaX, 0, x + 50, portHeight));
+
                         canvas.drawColor(Color.rgb(255, 255, 255));
                         canvas.drawLine(x - deltaX, lastY, x, y, pen);
                         break;

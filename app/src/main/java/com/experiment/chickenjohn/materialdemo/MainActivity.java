@@ -1,15 +1,17 @@
 package com.experiment.chickenjohn.materialdemo;
 
+import android.Manifest;
 import android.content.DialogInterface;
+import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.Message;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.SurfaceView;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -19,17 +21,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
-import android.widget.ListView;
-import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.StringTokenizer;
 
 /**
  * Below is the copyright information.
@@ -61,6 +55,10 @@ public class MainActivity extends AppCompatActivity
     private int radioButtonChecked = 0;
     private final int ECG_DIS_CHECKED = 0;
     private final int SPO2_DIS_CHECKED = 1;
+    private final int BLUETOOTH_PERMISSION_REQ = 11;
+    private final int BLUETOOTHADMIN_PERMISSION_REQ = 12;
+    private final int WRITEFILE_PERMISSION_REQ = 13;
+    private final int COARSE_PERMISSION_REQ = 14;
 
     //A small todo heres
 
@@ -77,7 +75,7 @@ public class MainActivity extends AppCompatActivity
                     if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
                         naviHeaderSet(btManager.isConnected(), 0);
                     }
-                    btManager.enableBluetooth();
+                    btManager.enableBluetooth(bleIsGranted && bleAdminIsGranted && coarseLocIsGranted);
                     break;
                 case 2:
                     if (PORTORLAND == PORT) {
@@ -118,12 +116,56 @@ public class MainActivity extends AppCompatActivity
     private TextView spo2Value;
     private RadioGroup displaySelectionGroup;
     private boolean receiveSpo2 = true;
+    private boolean hasConnected = false;
     private EditText rateSettinginEdit;
     private String rateSettinginString = new String();
+
+    private boolean bleIsGranted = false;
+    private boolean bleAdminIsGranted = false;
+    private boolean fileWriteIsGranted = false;
+    private boolean coarseLocIsGranted = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        //check permission
+        if(ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.BLUETOOTH)
+                != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(MainActivity.this,
+                    new String[]{Manifest.permission.BLUETOOTH},
+                    BLUETOOTH_PERMISSION_REQ);
+        } else {
+            bleIsGranted = true;
+        }
+
+        if(ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.BLUETOOTH_ADMIN)
+                != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(MainActivity.this,
+                    new String[]{Manifest.permission.BLUETOOTH_ADMIN},
+                    BLUETOOTHADMIN_PERMISSION_REQ);
+        } else {
+            bleAdminIsGranted = true;
+        }
+
+        if(ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.ACCESS_COARSE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(MainActivity.this,
+                    new String[]{Manifest.permission.ACCESS_COARSE_LOCATION},
+                    COARSE_PERMISSION_REQ);
+        } else {
+            coarseLocIsGranted = true;
+        }
+
+        if(ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(MainActivity.this,
+                    new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                    WRITEFILE_PERMISSION_REQ);
+        } else {
+            fileWriteIsGranted = true;
+        }
+
         if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
             portLoading();
         } else {
@@ -209,7 +251,11 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onResume() {
         this.registerReceiver(btManager.btReceiver, btManager.regBtReceiver());
-        btManager.enableBluetooth();
+        if (!hasConnected) {
+            btManager.enableBluetooth(bleIsGranted && bleAdminIsGranted && coarseLocIsGranted);
+            hasConnected = true;
+        }
+
         super.onResume();
     }
 
@@ -274,7 +320,7 @@ public class MainActivity extends AppCompatActivity
                         }).show();
                 break;
             case R.id.data_output:
-                if (ecgDatabaseManager.outputRecord()) {
+                if (ecgDatabaseManager.outputRecord(fileWriteIsGranted)) {
                     Toast.makeText(this, "导出数据成功", Toast.LENGTH_LONG).show();
                 } else {
                     Toast.makeText(this, "没有可以导出的数据！", Toast.LENGTH_LONG).show();
@@ -302,7 +348,7 @@ public class MainActivity extends AppCompatActivity
                 drawSurfaceView.resetCanvas();
                 break;
             case R.id.btconnection:
-                btManager.enableBluetooth();
+                btManager.enableBluetooth(bleIsGranted && bleAdminIsGranted && coarseLocIsGranted);
                 break;
             default:
                 break;
@@ -355,6 +401,39 @@ public class MainActivity extends AppCompatActivity
                 default:
                     break;
             }
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        switch (requestCode) {
+            case BLUETOOTH_PERMISSION_REQ :
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+
+                } else {
+                    bleIsGranted = true;
+                }
+                return;
+            case BLUETOOTHADMIN_PERMISSION_REQ :
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+
+                } else {
+                    bleAdminIsGranted = true;
+                }
+                return;
+            case COARSE_PERMISSION_REQ :
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+
+                } else {
+                    coarseLocIsGranted = true;
+                }
+                return;
+            case WRITEFILE_PERMISSION_REQ :
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+
+                } else {
+                    fileWriteIsGranted = true;
+                }
         }
     }
 }

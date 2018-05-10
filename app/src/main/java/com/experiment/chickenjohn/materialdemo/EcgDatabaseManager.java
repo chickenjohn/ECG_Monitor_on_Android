@@ -55,14 +55,13 @@ public class EcgDatabaseManager {
         }
     }
 
-    public boolean outputRecord() {
+    public boolean outputRecord(boolean startOutput) {
         Cursor cursor = ecgDatabase.query("ecg", null, null, null, null, null, null);
         int databaseLength = cursor.getCount();
         if (databaseLength != 0) {
-            if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
+            if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED) && startOutput) {
                 DataOutputThread dataOutputThread = new DataOutputThread(cursor, databaseLength);
                 dataOutputThread.start();
-                cursor.close();
                 return true;
             } else {
                 cursor.close();
@@ -134,6 +133,7 @@ public class EcgDatabaseManager {
                 }
                 FileWriter fileWriter = new FileWriter(dataOutputFile, false);
                 BufferedWriter bufferedFileWriter = new BufferedWriter(fileWriter);
+
                 if (cursor.moveToFirst()) {
                     while (cursor.moveToNext()) {
                         int ID = cursor.getInt(0);
