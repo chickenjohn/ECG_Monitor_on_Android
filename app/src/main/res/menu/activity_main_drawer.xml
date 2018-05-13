@@ -5,7 +5,7 @@
         android:title="Connect Bluetooth Device" />
     <item
         android:id="@+id/spo2_switch"
-        android:title="Stop Receiving SpO2" />
+        android:title="Start Receiving SpO2" />
     <item
         android:id="@+id/rate_setting"
         android:title="Set Transfer Rate" />

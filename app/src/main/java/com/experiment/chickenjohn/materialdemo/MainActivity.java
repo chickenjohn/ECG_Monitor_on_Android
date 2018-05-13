@@ -1,15 +1,17 @@
 package com.experiment.chickenjohn.materialdemo;
 
+import android.Manifest;
 import android.content.DialogInterface;
+import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.Message;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.SurfaceView;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -19,17 +21,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
-import android.widget.ListView;
-import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.StringTokenizer;
 
 /**
  * Below is the copyright information.
@@ -61,6 +55,10 @@ public class MainActivity extends AppCompatActivity
     private int radioButtonChecked = 0;
     private final int ECG_DIS_CHECKED = 0;
     private final int SPO2_DIS_CHECKED = 1;
+    private final int BLUETOOTH_PERMISSION_REQ = 11;
+    private final int BLUETOOTHADMIN_PERMISSION_REQ = 12;
+    private final int WRITEFILE_PERMISSION_REQ = 13;
+    private final int COARSE_PERMISSION_REQ = 14;
 
     //A small todo heres
 
@@ -77,7 +75,7 @@ public class MainActivity extends AppCompatActivity
                     if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
                         naviHeaderSet(btManager.isConnected(), 0);
                     }
-                    btManager.enableBluetooth();
+                    btManager.enableBluetooth(bleIsGranted && bleAdminIsGranted && coarseLocIsGranted);
                     break;
                 case 2:
                     if (PORTORLAND == PORT) {
@@ -117,13 +115,57 @@ public class MainActivity extends AppCompatActivity
     private TextView rpeakValue;
     private TextView spo2Value;
     private RadioGroup displaySelectionGroup;
-    private boolean receiveSpo2 = true;
+    private boolean receiveSpo2 = false;
+    private boolean hasConnected = false;
     private EditText rateSettinginEdit;
     private String rateSettinginString = new String();
+
+    private boolean bleIsGranted = false;
+    private boolean bleAdminIsGranted = false;
+    private boolean fileWriteIsGranted = false;
+    private boolean coarseLocIsGranted = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        //check permission
+        if(ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.BLUETOOTH)
+                != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(MainActivity.this,
+                    new String[]{Manifest.permission.BLUETOOTH},
+                    BLUETOOTH_PERMISSION_REQ);
+        } else {
+            bleIsGranted = true;
+        }
+
+        if(ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.BLUETOOTH_ADMIN)
+                != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(MainActivity.this,
+                    new String[]{Manifest.permission.BLUETOOTH_ADMIN},
+                    BLUETOOTHADMIN_PERMISSION_REQ);
+        } else {
+            bleAdminIsGranted = true;
+        }
+
+        if(ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.ACCESS_COARSE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(MainActivity.this,
+                    new String[]{Manifest.permission.ACCESS_COARSE_LOCATION},
+                    COARSE_PERMISSION_REQ);
+        } else {
+            coarseLocIsGranted = true;
+        }
+
+        if(ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(MainActivity.this,
+                    new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                    WRITEFILE_PERMISSION_REQ);
+        } else {
+            fileWriteIsGranted = true;
+        }
+
         if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
             portLoading();
         } else {
@@ -208,9 +250,13 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     protected void onResume() {
-        this.registerReceiver(btManager.btReceiver, btManager.regBtReceiver());
-        btManager.enableBluetooth();
         super.onResume();
+
+        this.registerReceiver(btManager.btReceiver, btManager.regBtReceiver());
+        if (!hasConnected) {
+            btManager.enableBluetooth(bleIsGranted && bleAdminIsGranted && coarseLocIsGranted);
+            hasConnected = true;
+        }
     }
 
     @Override
@@ -262,9 +308,9 @@ public class MainActivity extends AppCompatActivity
         switch (id) {
             case R.id.rate_setting:
                 rateSettinginEdit = new EditText(this);
-                new AlertDialog.Builder(this).setTitle("请输入速率(Hz)").
+                new AlertDialog.Builder(this).setTitle("Please Input Frequency(Hz)").
                         setView(rateSettinginEdit).
-                        setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                        setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 rateSettinginString = rateSettinginEdit.getText().toString();
@@ -274,27 +320,27 @@ public class MainActivity extends AppCompatActivity
                         }).show();
                 break;
             case R.id.data_output:
-                if (ecgDatabaseManager.outputRecord()) {
-                    Toast.makeText(this, "导出数据成功", Toast.LENGTH_LONG).show();
+                if (ecgDatabaseManager.outputRecord(fileWriteIsGranted)) {
+                    Toast.makeText(this, "Derive Data Success", Toast.LENGTH_LONG).show();
                 } else {
-                    Toast.makeText(this, "没有可以导出的数据！", Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, "No Data Can be Derived！", Toast.LENGTH_LONG).show();
                 }
                 break;
             case R.id.data_clear:
                 if (ecgDatabaseManager.clearRecord()) {
-                    Toast.makeText(this, "清除数据成功", Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, "Delete Data Success!", Toast.LENGTH_LONG).show();
                 } else {
-                    Toast.makeText(this, "清除数据失败", Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, "Delete Data Fail!", Toast.LENGTH_LONG).show();
                 }
                 break;
             case R.id.spo2_switch:
                 if (receiveSpo2) {
-                    item.setTitle("打开SpO2接收");
+                    item.setTitle("Start to Receive SpO2");
                     receiveSpo2 = false;
                     btManager.setSpo2Receiver(receiveSpo2);
                     drawSurfaceView.resetSurfaceViewX();
                 } else {
-                    item.setTitle("关闭SpO2接收");
+                    item.setTitle("Stop Receiving SpO2");
                     receiveSpo2 = true;
                     btManager.setSpo2Receiver(receiveSpo2);
                     drawSurfaceView.resetSurfaceViewX();
@@ -302,7 +348,7 @@ public class MainActivity extends AppCompatActivity
                 drawSurfaceView.resetCanvas();
                 break;
             case R.id.btconnection:
-                btManager.enableBluetooth();
+                btManager.enableBluetooth(bleIsGranted && bleAdminIsGranted && coarseLocIsGranted);
                 break;
             default:
                 break;
@@ -318,11 +364,11 @@ public class MainActivity extends AppCompatActivity
         TextView connectTextView = (TextView) this.findViewById(R.id.connecttextview);
         if (btAddressTextView != null) {
             if (isConnected) {
-                btAddressTextView.setText("蓝牙设备地址：" + btManager.btAddress);
-                connectTextView.setText("设备已连接");
+                btAddressTextView.setText("Bluetooth Address：" + btManager.btAddress);
+                connectTextView.setText("Device Connected");
             } else {
-                btAddressTextView.setText("蓝牙设备地址：");
-                connectTextView.setText("设备未连接");
+                btAddressTextView.setText("Bluetooth Address：");
+                connectTextView.setText("Device not Connecting");
             }
             return true;
         } else {
@@ -334,10 +380,10 @@ public class MainActivity extends AppCompatActivity
         if (PORTORLAND == PORT) {
             switch (listId) {
                 case 0:
-                    beatRateText.setText("心率：" + Integer.toString(refreshedData));
+                    beatRateText.setText("Heart Rate：" + Integer.toString(refreshedData));
                     break;
                 case 1:
-                    rpeakValue.setText("RR间期：" + Double.toString(((double) refreshedData) / 100) + "s");
+                    rpeakValue.setText("RR Intervals：" + Double.toString(((double) refreshedData) / 100) + "s");
                     break;
                 case 2:
                     spo2Value.setText("SPO2:" + Integer.toString(refreshedData));
@@ -355,6 +401,39 @@ public class MainActivity extends AppCompatActivity
                 default:
                     break;
             }
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        switch (requestCode) {
+            case BLUETOOTH_PERMISSION_REQ :
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+
+                } else {
+                    bleIsGranted = true;
+                }
+                return;
+            case BLUETOOTHADMIN_PERMISSION_REQ :
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+
+                } else {
+                    bleAdminIsGranted = true;
+                }
+                return;
+            case COARSE_PERMISSION_REQ :
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+
+                } else {
+                    coarseLocIsGranted = true;
+                }
+                return;
+            case WRITEFILE_PERMISSION_REQ :
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+
+                } else {
+                    fileWriteIsGranted = true;
+                }
         }
     }
 }

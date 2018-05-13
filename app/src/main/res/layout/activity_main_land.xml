@@ -34,7 +34,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Heart Rate/"
-            android:textSize="100dp"
+            android:textSize="50dp"
             android:fontFamily="monospace"
             android:textColor="@color/textWhite" />
 
@@ -43,9 +43,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="RR Intervals"
-            android:textSize="50dp"
+            android:textSize="25dp"
             android:fontFamily="monospace"
             android:textColor="@color/textWhite" />
     </LinearLayout>
-
 </RelativeLayout>
