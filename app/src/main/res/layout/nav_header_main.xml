@@ -22,19 +22,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
-        android:text="用户1"
+        android:text="User1"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
     <TextView
         android:id="@+id/connecttextview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="设备未连接" />
+        android:text="Device not Found" />
 
     <TextView
         android:id="@+id/bt_address_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="蓝牙设备地址：" />
+        android:text="Bluetooth Address：" />
 
 </LinearLayout>

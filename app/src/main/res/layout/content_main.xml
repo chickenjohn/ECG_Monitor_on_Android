@@ -29,7 +29,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:layout_weight="1"
-                android:text="显示波形"
+                android:text="Display Waveform"
                 android:textSize="20dp"
                 android:paddingLeft="10dp"
                 android:paddingTop="10dp"/>
@@ -83,7 +83,7 @@
                 android:layout_width="350dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
-                android:text="心率："
+                android:text="Heart Rate："
                 android:textSize="20dp"
                 android:paddingLeft="10dp"/>
 
@@ -92,7 +92,7 @@
                 android:layout_width="350dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
-                android:text="RR间期："
+                android:text="RR Intervals："
                 android:textSize="20dp"
                 android:paddingLeft="10dp"/>
 

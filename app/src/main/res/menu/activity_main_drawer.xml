@@ -2,18 +2,18 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/btconnection"
-        android:title="连接蓝牙设备" />
+        android:title="Connect Bluetooth Device" />
     <item
         android:id="@+id/spo2_switch"
-        android:title="关闭SpO2接收" />
+        android:title="Stop Receiving SpO2" />
     <item
         android:id="@+id/rate_setting"
-        android:title="设置传输速率" />
+        android:title="Set Transfer Rate" />
     <item
         android:id="@+id/data_output"
-        android:title="导出数据" />
+        android:title="Derive Value" />
     <item
         android:id="@+id/data_clear"
-        android:title="清除数据" />
+        android:title="Delete Value" />
 
 </menu>

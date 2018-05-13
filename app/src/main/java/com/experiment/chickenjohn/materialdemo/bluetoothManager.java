@@ -80,20 +80,20 @@ public class bluetoothManager {
                 if (currentDevice.getName().equalsIgnoreCase(targetName)) {
                     btAddress = currentDevice.getAddress();
                     myBtDevice = myBtAdapter.getRemoteDevice(btAddress);
-                    Toast.makeText(context, "找到设备:" + myBtDevice.getName(), Toast.LENGTH_LONG).show();
+                    Toast.makeText(context, "Device Found:" + myBtDevice.getName(), Toast.LENGTH_LONG).show();
                     CONNECT_STATE = true;
                     myBtClientThread = new clientThread();
                     myBtClientThread.start();
                 }
             } else if (BluetoothAdapter.ACTION_DISCOVERY_FINISHED.equals(action)) {
                 if (!isConnected()) {
-                    Toast.makeText(context, "搜索结束，没有找到设备", Toast.LENGTH_LONG).show();
+                    Toast.makeText(context, "Searching Complete, NO Device Found", Toast.LENGTH_LONG).show();
                 }
             } else if (BluetoothAdapter.ACTION_DISCOVERY_STARTED.equals(action)) {
-                Toast.makeText(context, "搜索开始", Toast.LENGTH_LONG).show();
+                Toast.makeText(context, "Start Searching", Toast.LENGTH_LONG).show();
             } else if (BluetoothDevice.ACTION_ACL_DISCONNECTED.equals(action)) {
                 CONNECT_STATE = false;
-                Toast.makeText(context, "连接断开，正在重试连接", Toast.LENGTH_LONG).show();
+                Toast.makeText(context, "Device Disconnected, Trying to reconnect", Toast.LENGTH_LONG).show();
                 Message uiRefreshMessage = Message.obtain();
                 uiRefreshMessage.what = 1;
                 uiRefreshHandler.sendMessage(uiRefreshMessage);
