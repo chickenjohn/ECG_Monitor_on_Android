@@ -23,11 +23,11 @@ Changing the device into landscape and details of the waveform should be shown:
 
 To compile the project, please install the Android Studio 2.1 first. Also you should install Android API 5.0 or higher version.  
 
-To use it, **HC-05 bluetooth serial port named as "hc-bluetooth"** is needed. Connect it on your PC by using the serial-port-to-USB converter, check the serial port number on your PC and modify the port ID in SendWaveTool/sendwave.py. 
+To use it, Your HC-05 module's Bluetooth address needs to be hardcoded in line [bluetoothManager.java:46](https://github.com/chickenjohn/ECG_Monitor_on_Android/blob/768390a93384210c72c818f747d2866f219e2795/app/src/main/java/com/experiment/chickenjohn/materialdemo/bluetoothManager.java#L46). Connect it to your PC by using the serial-port-to-USB converter, check the serial port number on your PC and modify the port ID in SendWaveTool/sendwave.py. 
 
-Then launch the ECG Monitor App. The app should  begin searching and connecting the bluetooth by itself. After it is connected, execute the sendwave.py program. The app should run normally now. 
+Then launch the ECG Monitor App. The app should begin searching and connecting the bluetooth by itself. After it is connected, execute the sendwave.py program. The app should run normally now. 
 
-If you changing your device into landscape, touch your device to measure the wave.
+If you switch your device to landscape, touch your device to measure the wave.
 
 ## For more info
 
