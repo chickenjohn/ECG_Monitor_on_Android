@@ -31,6 +31,4 @@ If you switch your device to landscape, touch your device to measure the wave.
 
 ## For more info
 
-> Email: [chickenjohn93@outlook.com](mailto:chickenjohn93@outlook.com "email")
-
-Contact me if you have more questions. 
+Please submit issues if you have more questions. 
