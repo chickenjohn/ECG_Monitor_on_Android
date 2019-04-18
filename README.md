@@ -2,8 +2,8 @@
 
 ## What is this?
 
-ECG Monitor is a simple ECG Wave displaying APP. After connecting to a Bluetooth ECG device, 
-it allows your Android device to show and analysing the ECG data. 
+ECG Monitor is a simple ECG Wave displaying APP. After connecting to a Bluetooth serial port device, 
+it allows your Android device to show and analysing the ECG data received from the connected Bluetooth serial port. 
 
 ## How is it like?
 
